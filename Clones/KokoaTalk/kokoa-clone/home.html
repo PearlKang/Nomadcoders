@@ -8,21 +8,28 @@
         margin: 50px;
       }
       span {
-        background-color: tomato;
+        color: tomato;
+        background-color: yellowgreen;
+        padding: 5px;
+        border-radius: 10px;
       }
-      span:nth-child(3n + 1) {
-        background-color: teal;
+      div p span {
+        color: white;
+      }
+      div span {
+        text-decoration: underline;
       }
     </style>
   </head>
   <body>
-    <span>hello</span>
-    <span>hello</span>
-    <span>hello</span>
-    <span>hello</span>
-    <span>hello</span>
-    <span>hello</span>
-    <span>hello</span>
-    <span>hello</span>
+    <div>
+      <span>hello</span>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam
+        doloremque, hic quisquam veritatis odio asperiores et, voluptate
+        exercitationem, veniam totam officiis eligendi minus molestias itaque
+        laboriosam molestiae corrupti. Dolore, cumque. <span>inside</span>
+      </p>
+    </div>
   </body>
 </html>
