@@ -7,31 +7,20 @@
         height: 1000vh;
         margin: 50px;
       }
-      span {
-        color: tomato;
-        background-color: yellowgreen;
-        padding: 5px;
-        border-radius: 10px;
+      input:optional {
+        border: 1px solid wheat;
       }
-      div p span {
-        color: white;
-      }
-      p ~ span {
-        text-decoration: underline;
+      input:required {
+        border: 1px solid tomato;
       }
     </style>
   </head>
   <body>
     <div>
-      <p>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Numquam
-        doloremque, hic quisquam veritatis odio asperiores et, voluptate
-        exercitationem, veniam totam officiis eligendi minus molestias itaque
-        laboriosam molestiae corrupti. Dolore, cumque. <span>inside</span>
-      </p>
-      <address>hi</address>
-      <span>hello</span>
-      <span>hello</span>
+      <form>
+        <input type="text" placeholder="username" />
+        <input type="password" required placeholder="password" />
+      </form>
     </div>
   </body>
 </html>
