@@ -3,15 +3,20 @@
   <head>
     <title>The Nico Times</title>
     <style>
+      @keyframes superSexyCoinFlip {
+        from {
+          transform: rotateX(0);
+        }
+        to {
+          transform: rotateX(360deg);
+        }
+      }
       img {
         height: 300px;
         width: 300px;
         border: 5px solid black;
         border-radius: 50%;
-        transition: transform 2s ease-in-out;
-      }
-      img:hover {
-        transform: rotateX(360deg) scale(0.5);
+        animation: superSexyCoinFlip 5s ease-in-out infinite;
       }
     </style>
   </head>
