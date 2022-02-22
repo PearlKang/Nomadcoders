@@ -7,53 +7,40 @@
         height: 1000vh;
         margin: 50px;
       }
-      div {
+      span {
+        background-color: yellowgreen;
         padding: 5px;
         border-radius: 10px;
       }
-      button:hover {
-        background-color: tomato;
+      input::placeholder {
+        color: yellowgreen;
       }
-      button:focus {
-        outline: none;
+      p::selection {
+        background-color: yellowgreen;
+        color: white;
       }
-      input:focus {
-        background-color: tomato;
+      p::first-letter {
+        background-color: yellowgreen;
+        color: white;
+        font-size: 50px;
       }
-      a:visited {
-        color: tomato;
-      }
-      a:hover {
-        color: teal;
-      }
-      a:focus {
-        color: turquoise;
-      }
-      form {
-        border: 1px solid salmon;
-        display: flex;
-        flex-direction: column;
-        padding: 20px;
-      }
-      form:focus-within {
-        border-color: seagreen;
-      }
-      form:hover input:focus {
-        background-color: sienna;
+      p::first-line {
+        background-color: aqua;
+        color: white;
+        font-size: 30px;
       }
     </style>
   </head>
   <body>
     <div>
-      <button>hello</button>
-      <input type="text" />
-      <input type="text" />
-      <a href="https://apple.com">Go to apple</a>
       <form>
-        <input type="text" name="" id="" />
-        <input type="text" name="" id="" />
-        <input type="text" name="" id="" />
+        <input type="text" placeholder="Name" />
       </form>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam deleniti
+        dolor voluptas repellat cupiditate dignissimos quae totam culpa corporis
+        amet cumque, laboriosam laborum dolore earum quis alias saepe aut sunt.
+      </p>
     </div>
   </body>
 </html>
