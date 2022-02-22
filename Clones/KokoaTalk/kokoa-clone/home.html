@@ -4,11 +4,14 @@
     <title>The Nico Times</title>
     <style>
       @keyframes superSexyCoinFlip {
-        from {
+        0% {
           transform: rotateX(0);
         }
-        to {
+        50% {
           transform: rotateX(180deg) translateX(100px);
+        }
+        100% {
+          transform: rotateX(0) translateX(0px);
         }
       }
       img {
