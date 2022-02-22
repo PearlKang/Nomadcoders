@@ -3,12 +3,26 @@
   <head>
     <title>The Nico Times</title>
     <style>
+      body {
+        display: flex;
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+      }
       @keyframes superSexyCoinFlip {
         0% {
           transform: rotateX(0);
         }
+        25% {
+          transform: scale(2);
+          border-radius: 0px;
+        }
         50% {
           transform: rotateX(180deg) translateX(100px);
+        }
+        75% {
+          transform: scale(5);
+          border-radius: 20px;
         }
         100% {
           transform: rotateX(0) translateX(0px);
