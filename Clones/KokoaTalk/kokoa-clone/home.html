@@ -3,34 +3,22 @@
   <head>
     <title>The Nico Times</title>
     <style>
-      :root {
-        --main-color: #fcce00;
-        --default-border: 1px solid var(--main-color);
-      }
-      body {
-        height: 1000vh;
-        margin: 50px;
-      }
-      p {
-        background-color: #fcce00;
-        background-color: rgb(252, 206, 0);
-        background-color: rgba(252, 206, 0, 0.5);
-        background-color: var(--main-color);
-      }
       a {
-        color: var(--main-color);
-        border: var(--default-border);
+        color: wheat;
+        background-color: tomato;
+        text-decoration: none;
+        padding: 3px 5px;
+        border-radius: 5px;
+        font-size: 55px;
+        transition: background-color 10s ease-in-out, color 5s ease-in-out;
+      }
+      a:hover {
+        color: tomato;
+        background-color: wheat;
       }
     </style>
   </head>
   <body>
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam deleniti
-      dolor voluptas repellat cupiditate dignissimos quae totam culpa corporis
-      amet cumque, laboriosam laborum dolore earum quis alias saepe aut sunt.
-    </p>
-    <div>
-      <a herf="#">website</a>
-    </div>
+    <a href="#">Go home</a>
   </body>
 </html>
