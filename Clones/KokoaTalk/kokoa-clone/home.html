@@ -7,14 +7,53 @@
         height: 1000vh;
         margin: 50px;
       }
-      button:active {
+      div {
+        padding: 5px;
+        border-radius: 10px;
+      }
+      button:hover {
         background-color: tomato;
+      }
+      button:focus {
+        outline: none;
+      }
+      input:focus {
+        background-color: tomato;
+      }
+      a:visited {
+        color: tomato;
+      }
+      a:hover {
+        color: teal;
+      }
+      a:focus {
+        color: turquoise;
+      }
+      form {
+        border: 1px solid salmon;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+      }
+      form:focus-within {
+        border-color: seagreen;
+      }
+      form:hover input:focus {
+        background-color: sienna;
       }
     </style>
   </head>
   <body>
     <div>
       <button>hello</button>
+      <input type="text" />
+      <input type="text" />
+      <a href="https://apple.com">Go to apple</a>
+      <form>
+        <input type="text" name="" id="" />
+        <input type="text" name="" id="" />
+        <input type="text" name="" id="" />
+      </form>
     </div>
   </body>
 </html>
