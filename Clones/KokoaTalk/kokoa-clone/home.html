@@ -9,36 +9,19 @@
         justify-content: center;
         align-items: center;
       }
-      @keyframes superSexyCoinFlip {
-        0% {
-          transform: rotateX(0);
-        }
-        25% {
-          transform: scale(2);
-        }
-        50% {
-          border-radius: 0px;
-          transform: rotateX(180deg) translateX(100px);
-          border-color: tomato;
-          opacity: 0;
-        }
-        75% {
-          transform: scale(5);
-        }
-        100% {
-          transform: rotateX(0) translateX(0px);
-        }
+      div {
+        background-color: teal;
+        width: 200px;
+        height: 200px;
       }
-      img {
-        height: 300px;
-        width: 300px;
-        border: 5px solid black;
-        border-radius: 50%;
-        animation: superSexyCoinFlip 5s ease-in-out infinite;
+      @media screen and (max-width: 750px) and (min-width: 650px) {
+        div {
+          background-color: tomato;
+        }
       }
     </style>
   </head>
   <body>
-    <img src="img/BMW_logo_(gray).svg.png" />
+    <div></div>
   </body>
 </html>
