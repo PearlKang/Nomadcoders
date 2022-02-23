@@ -8,20 +8,30 @@
         height: 100vh;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
       }
       div {
         background-color: teal;
         width: 200px;
         height: 200px;
       }
-      @media screen and (min-width: 601px) and (max-width: 1200px) and (orientation: landscape) {
+      @media screen and (min-width: 601px) and (max-width: 1200px) and (orientation: portrait) {
         div {
           background-color: wheat;
+        }
+      }
+      span {
+        font-size: 36px;
+      }
+      @media screen and (orientation: landscape) {
+        span {
+          display: none;
         }
       }
     </style>
   </head>
   <body>
     <div></div>
+    <span>Please flip your phone :(</span>
   </body>
 </html>
