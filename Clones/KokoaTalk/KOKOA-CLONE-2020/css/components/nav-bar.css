@@ -17,3 +17,14 @@
 .nav__btn {
   color: #2e363e;
 }
+
+.nav__notification {
+  background-color: tomato;
+  width: 30px;
+  height: 30px;
+  display: block;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
