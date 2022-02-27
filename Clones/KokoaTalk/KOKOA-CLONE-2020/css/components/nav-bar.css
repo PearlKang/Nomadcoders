@@ -11,20 +11,39 @@
 .nav__list {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
-.nav__btn {
+.nav__link {
   color: #2e363e;
+  position: relative;
 }
 
 .nav__notification {
   background-color: tomato;
   width: 30px;
   height: 30px;
-  display: block;
   border-radius: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
+  color: white;
+  font-weight: 600;
+  position: absolute;
+  left: 15px;
+  bottom: 15px;
+}
+
+.nav__notification2 {
+  background-color: tomato;
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-weight: 600;
+  position: absolute;
+  left: 30px;
+  bottom: 30px;
 }
