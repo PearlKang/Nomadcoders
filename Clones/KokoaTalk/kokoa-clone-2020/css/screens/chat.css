@@ -123,7 +123,7 @@
   align-items: center;
   padding: 5px 25px;
   box-sizing: border-box;
-  transition: all 0.3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 }
 
 .reply .reply__column:first-child {
