@@ -127,10 +127,10 @@
 }
 
 .reply input {
+  height: 30px;
   width: 100%;
   border: var(--main-border);
   border-radius: 20px;
-  padding: 12px;
 }
 
 .reply__column:last-child > i,
