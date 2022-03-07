@@ -13,4 +13,8 @@ console.log(a + b);
 console.log(a * b);
 console.log(a / b);
 
-console.log("hello " + myName);
+let myNames = "nico";
+console.log("hello " + myNames);
+myNames = "nicolas";
+console.log("your new name is " + myNames);
+
