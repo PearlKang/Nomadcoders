@@ -13,10 +13,12 @@ console.log(a + b);
 console.log(a * b);
 console.log(a / b);
 
+
 let myNames = "nico";
 console.log("hello " + myNames);
 myNames = "nicolas";
 console.log("your new name is " + myNames);
+
 
 const amIFat = false;
 const amIFat2 = null;
@@ -55,6 +57,7 @@ const toBuy = ["potato", "tomato", "pizza"];
 toBuy.push("kimbab");
 console.log(toBuy[2]);
 
+
 const playerName = "nico";
 const playerPoints = 121212;
 const playerHandsome = false;
@@ -83,15 +86,77 @@ console.log(player);
 player.points = player.points + 16;
 console.log(player);
 
+
 function sayHello() {
     console.log("Hello!");
 }
 
 sayHello();
 
-function sayHello2() {
-    console.log("Hello my name is ");
+function sayHello2(nameOfPerson) {
+    console.log("Hello my name is " + nameOfPerson);
 }
 
-sayHello2();
+sayHello2("nico");
+sayHello2("dal");
+sayHello2("lynn");
 
+function sayHello3(nameOfPerson, age) {
+    console.log("Hello my name is " + nameOfPerson + " and I'm " + age);
+}
+
+sayHello3("nico", 10);
+sayHello3("dal", 23);
+sayHello3("lynn", 21);
+
+
+function plus1(a, b) {
+    console.log(a, b);
+}
+
+plus1();
+
+function plus2(a, b) {
+    console.log(a + b);
+}
+
+plus2();
+plus2(8, 60);
+
+function plus3(firstNumber, secondNumber) {
+    console.log(firstNumber + secondNumber);
+}
+
+plus3();
+plus3(8, 60);
+
+
+function plus(firstNumber, secondNumber) {
+    console.log(firstNumber + secondNumber);
+}
+
+// console.log(firstNumber);
+
+function divide(a, b) {
+    console.log(a / b);
+}
+
+plus(60, 8);
+divide(98,20);
+
+
+const players = {
+    name: "nico",
+    sayHello: function() {
+        console.log("hello!");
+    },
+    sayHello2: function(otherPersonsName) {
+        console.log("hello " + otherPersonsName + " nice to meet you!");
+    },
+}
+
+console.log(players.name);
+//console.log(players.sayHello);
+//console.log(players.sayHello());
+players.sayHello();
+players.sayHello2("lynn");
