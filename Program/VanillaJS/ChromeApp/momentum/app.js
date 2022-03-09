@@ -18,3 +18,11 @@ console.log("hello " + myNames);
 myNames = "nicolas";
 console.log("your new name is " + myNames);
 
+boolean asdf = true;
+const amIFat = false;
+amIFat = null;
+amIFat = undefined;
+console.log(amIFat);
+
+let something;
+console.log(something, amIFat); 
