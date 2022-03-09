@@ -160,3 +160,29 @@ console.log(players.name);
 //console.log(players.sayHello());
 players.sayHello();
 players.sayHello2("lynn");
+
+
+const aa = 5;
+console.log(aa);
+
+let isNicoFat = true;
+isNicoFat = false;
+
+let sample = a;
+sample = true;
+sample = "test";
+sample = null;
+
+let hello;
+console.log(hello);
+
+const days = [1, 2, false, true, null, undefined, "text"];
+const me = "sexy";
+
+console.log(days[2]);
+
+days[2] = "water";
+console.log(days[2]);
+
+days.push("ones");
+console.log(days);
