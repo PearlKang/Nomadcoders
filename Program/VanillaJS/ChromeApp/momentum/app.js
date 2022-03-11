@@ -262,3 +262,39 @@ const minusResult = calculator.minus(plusResult, 10);
 const timesResult = calculator.times(10, minusResult);
 const divideResult = calculator.divide(timesResult, plusResult);
 const powerResult = calculator.power(divideResult, minusResult);
+
+/*
+const ages = prompt("How old are you?");
+console.log(ages);
+console.log(typeof ages);
+console.log(typeof "15", typeof parseInt("15"));
+console.log(parseInt(ages));
+console.log(typeof parseInt(ages));
+*/
+
+const ages = parseInt(prompt("How old are you?"));
+/*
+console.log(isNaN(ages));
+
+if (condition) {
+  /// condition === true
+} else {
+  /// condition === false
+}
+*/
+
+if (isNaN(ages) || ages < 0) {
+  console.log("Please write a real positive number.");
+} else if (ages < 18) {
+  console.log("You are too young.");
+} else if (ages >= 18 && ages <= 50) {
+  console.log("You can drink.");
+} else if (ages > 50 && ages <= 80) {
+  console.log("You should exercise.");
+} else if (ages === 100) {
+  console.log("wow you are wise.");
+} else if (ages > 80) {
+  console.log("You can do whatever you want.");
+} else {
+  console.log("You can't drink.");
+}
