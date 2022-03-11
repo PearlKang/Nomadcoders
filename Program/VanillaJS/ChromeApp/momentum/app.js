@@ -262,3 +262,10 @@ const minusResult = calculator.minus(plusResult, 10);
 const timesResult = calculator.times(10, minusResult);
 const divideResult = calculator.divide(timesResult, plusResult);
 const powerResult = calculator.power(divideResult, minusResult);
+
+const ages = prompt("How old are you?");
+console.log(ages);
+console.log(typeof ages);
+console.log(typeof "15", typeof parseInt("15"));
+console.log(parseInt(ages));
+console.log(typeof parseInt(ages));
