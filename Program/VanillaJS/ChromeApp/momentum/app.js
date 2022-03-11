@@ -273,5 +273,18 @@ console.log(typeof parseInt(ages));
 */
 
 const ages = parseInt(prompt("How old are you?"));
-
+/*
 console.log(isNaN(ages));
+
+if (condition) {
+  /// condition === true
+} else {
+  /// condition === false
+}
+*/
+
+if (isNaN(ages)) {
+  console.log("Please write a number.");
+} else {
+  console.log("Thank you for writing your age.");
+}
