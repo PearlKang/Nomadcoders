@@ -304,9 +304,29 @@ if (isNaN(ages) || ages < 0) {
 }
 */
 //ocument.title = "Hello! From JS!";
-
+/*
 const title = document.getElementById("title");
 title.innerText = "Got you!";
 
 console.log(title.id);
 console.log(title.className);
+
+
+const hellos = document.getElementsByClassName("hello");
+
+console.log(hellos);
+
+const title = document.getElementsByTagName("h1");
+
+console.log(title);
+*/
+//const title = document.querySelector("#hello");
+//const title = document.getElementById("hello");
+
+const title = document.querySelector(".hello h1");
+//const titleAll = document.querySelectorAll(".hello h1");
+
+//console.log(title);
+//console.log(titleAll);
+
+title.innerText = "Hello";
