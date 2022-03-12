@@ -306,5 +306,7 @@ if (isNaN(ages) || ages < 0) {
 //ocument.title = "Hello! From JS!";
 
 const title = document.getElementById("title");
-console.log(title);
-console.dir(title);
+title.innerText = "Got you!";
+
+console.log(title.id);
+console.log(title.className);
