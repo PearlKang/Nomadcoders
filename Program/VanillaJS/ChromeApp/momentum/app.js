@@ -1,3 +1,4 @@
+/*
 console.log(123123123);
 console.log("testestest");
 console.log(5 + 2);
@@ -239,6 +240,7 @@ const calculator = {
     return a ** b;
   },
 };
+*/
 /*
 calculator.add(1, 2);
 calculator.minus(1, 2);
@@ -248,6 +250,7 @@ calculator.power(1, 2);
 
 console.log(calculator.add(2, 3));
 */
+/*
 const age = 96;
 function calculateKrAge(ageOfForeigner) {
   return ageOfForeigner + 2;
@@ -262,7 +265,7 @@ const minusResult = calculator.minus(plusResult, 10);
 const timesResult = calculator.times(10, minusResult);
 const divideResult = calculator.divide(timesResult, plusResult);
 const powerResult = calculator.power(divideResult, minusResult);
-
+*/
 /*
 const ages = prompt("How old are you?");
 console.log(ages);
@@ -271,8 +274,9 @@ console.log(typeof "15", typeof parseInt("15"));
 console.log(parseInt(ages));
 console.log(typeof parseInt(ages));
 */
-
+/*
 const ages = parseInt(prompt("How old are you?"));
+*/
 /*
 console.log(isNaN(ages));
 
@@ -282,7 +286,7 @@ if (condition) {
   /// condition === false
 }
 */
-
+/*
 if (isNaN(ages) || ages < 0) {
   console.log("Please write a real positive number.");
 } else if (ages < 18) {
@@ -298,3 +302,5 @@ if (isNaN(ages) || ages < 0) {
 } else {
   console.log("You can't drink.");
 }
+*/
+document.title = "Hello! From JS!";
