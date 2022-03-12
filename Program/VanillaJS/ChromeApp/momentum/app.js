@@ -303,4 +303,8 @@ if (isNaN(ages) || ages < 0) {
   console.log("You can't drink.");
 }
 */
-document.title = "Hello! From JS!";
+//ocument.title = "Hello! From JS!";
+
+const title = document.getElementById("title");
+console.log(title);
+console.dir(title);
