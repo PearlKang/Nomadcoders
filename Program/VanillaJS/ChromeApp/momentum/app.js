@@ -335,6 +335,10 @@ title.innerText = "Hello";
 const title = document.querySelector("div.hello:first-child h1");
 
 function handelTitleClick() {
-  title.style.color = "blue";
+  if (title.style.color == "blue") {
+    title.style.color = "red";
+  } else {
+    title.style.color = "blue";
+  }
 }
 title.addEventListener("click", handelTitleClick);
