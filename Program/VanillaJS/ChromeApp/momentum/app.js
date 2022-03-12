@@ -335,6 +335,6 @@ title.innerText = "Hello";
 const title = document.querySelector("div.hello:first-child h1");
 
 function handelTitleClick() {
-  console.log("title was clicked!");
+  title.style.color = "blue";
 }
 title.addEventListener("click", handelTitleClick);
