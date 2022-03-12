@@ -320,6 +320,7 @@ const title = document.getElementsByTagName("h1");
 
 console.log(title);
 */
+/*
 //const title = document.querySelector("#hello");
 //const title = document.getElementById("hello");
 
@@ -330,3 +331,7 @@ const title = document.querySelector(".hello h1");
 //console.log(titleAll);
 
 title.innerText = "Hello";
+*/
+const title = document.querySelector("div.hello:first-child h1");
+console.log(title);
+title.style.color = "blue";
