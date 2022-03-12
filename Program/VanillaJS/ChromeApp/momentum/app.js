@@ -341,4 +341,10 @@ function handelTitleClick() {
     title.style.color = "blue";
   }
 }
+
+function handleMouseEnter() {
+  console.log("mouse is here!");
+}
+
 title.addEventListener("click", handelTitleClick);
+title.addEventListener("mouseenter", handleMouseEnter);
