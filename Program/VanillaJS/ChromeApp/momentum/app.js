@@ -11,9 +11,9 @@ const loginForm = document.querySelector("#login-form");
 const loginInput = document.querySelector("#login-form input");
 
 //handleLoginBtnClick
-function onLoginSubmit(tomato) {
-  tomato.preventDefault();
-  console.log(tomato);
+function onLoginSubmit(event) {
+  event.preventDefault();
+  console.log(event);
 }
 
 loginForm.addEventListener("submit", onLoginSubmit);
