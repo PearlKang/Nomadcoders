@@ -13,7 +13,7 @@ const loginInput = document.querySelector("#login-form input");
 //handleLoginBtnClick
 function onLoginSubmit(event) {
   event.preventDefault();
-  console.log(event);
+  console.log(loginInput.value);
 }
 
 loginForm.addEventListener("submit", onLoginSubmit);
