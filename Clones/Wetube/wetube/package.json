@@ -1,0 +1,8 @@
+{
+  "name": "wetube",
+  "version": "1.0.0",
+  "description": "Wetube Clone built using NodeJS, Express, Mongo and ES6 - The best way to watch a videos.",
+  "main": "index.js",
+  "author": "BenKang<rksk1588@gmail.com>",
+  "license": "MIT"
+}
