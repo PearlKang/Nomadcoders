@@ -4,18 +4,19 @@ const PORT = 4000;
 
 const app = express();
 
-const logger = (req, res, next) => {
-  console.log(`${req.method} ${req.url}`);
+const routerlogger = (req, res, next) => {
+  console.log(req.path);
   next();
 };
 
-//cosnt handelHome = (req, res) => res.end();
-const handleHome = (req, res) => {
-  return res.send("I love middlewares");
+const methodLogger = (req, res, next) => {
+  console.log(req.method);
+  next();
 };
 
-app.use(logger);
-app.get("/", handleHome);
+const home = (req, res) => res.send("hello");
+
+app.get("/", methodLogger, routerlogger, home);
 
 const handleListening = () =>
   console.log(`✔ Server listening on port http://localhost:${PORT} 🚀`);
