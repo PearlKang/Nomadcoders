@@ -5,16 +5,19 @@ const PORT = 4000;
 const app = express();
 
 const routerlogger = (req, res, next) => {
-  console.log(req.path);
+  console.log("PATH", req.path);
   next();
 };
 
 const methodLogger = (req, res, next) => {
-  console.log(req.method);
+  console.log("METHOD", req.method);
   next();
 };
 
-const home = (req, res) => res.send("hello");
+const home = (req, res) => {
+  console.log("I will respond.");
+  return res.send("hello");
+};
 
 app.get("/", methodLogger, routerlogger, home);
 
