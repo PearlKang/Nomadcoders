@@ -18,7 +18,8 @@ const handleLogin = (req, res) => {
   return res.send({ message: "Login here." });
 };
 
-app.get("/", gossipMiddleware, handleHome);
+app.use(gossipMiddleware);
+app.get("/", handleHome);
 app.get("/login", handleLogin);
 
 const handleListening = () =>
