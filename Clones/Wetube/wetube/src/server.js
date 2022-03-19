@@ -23,8 +23,9 @@ const login = (req, res) => {
   return res.send("login");
 };
 
-app.get("/", methodLogger, routerlogger, home);
-app.get("/login", methodLogger, routerlogger, login);
+app.use(methodLogger, routerlogger);
+app.get("/", home);
+app.get("/login", login);
 
 const handleListening = () =>
   console.log(`✔ Server listening on port http://localhost:${PORT} 🚀`);
