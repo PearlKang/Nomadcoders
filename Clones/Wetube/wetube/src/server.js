@@ -9,6 +9,7 @@ const logger = (req, res, next) => {
   next();
 };
 
+//cosnt handelHome = (req, res) => res.end();
 const handleHome = (req, res) => {
   return res.send("I love middlewares");
 };
