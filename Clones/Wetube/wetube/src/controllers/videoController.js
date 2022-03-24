@@ -33,7 +33,7 @@ let videos = [
 export const trending = (req, res) => {
   return res.render("home", { pageTitle: "Home", fakeUser, videos });
 };
-export const see = (req, res) => {
+export const watch = (req, res) => {
   //const id = req.params.id;
   const { id } = req.params;
   console.log("Show video", id);
@@ -41,6 +41,7 @@ export const see = (req, res) => {
   return res.render("watch", {
     pageTitle: `Watching ${video.title}`,
     fakeUser,
+    video,
   });
 };
 export const edit = (req, res) => res.render("edit", { pageTitle: "Edit" });
