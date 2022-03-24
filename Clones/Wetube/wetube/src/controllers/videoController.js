@@ -37,7 +37,11 @@ export const see = (req, res) => {
   //const id = req.params.id;
   const { id } = req.params;
   console.log("Show video", id);
-  return res.render("watch", { pageTitle: "Watch", fakeUser });
+  const video = videos[id - 1];
+  return res.render("watch", {
+    pageTitle: `Watching ${video.title}`,
+    fakeUser,
+  });
 };
 export const edit = (req, res) => res.render("edit", { pageTitle: "Edit" });
 export const search = (req, res) => res.send("Search");
