@@ -59,8 +59,9 @@ export const getUpload = (req, res) => {
 };
 
 export const postUpload = (req, res) => {
+  const { title } = req.body;
   const newVideo = {
-    title: req.body.title,
+    title: title,
     rating: 0,
     comments: 0,
     createdAt: "just now",
