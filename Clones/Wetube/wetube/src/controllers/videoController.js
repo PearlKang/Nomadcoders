@@ -2,6 +2,7 @@ import Video from "../models/Video";
 
 export const home = async (req, res) => {
   const videos = await Video.find({});
+  console.log(videos);
   return res.render("home", { pageTitle: "Home", videos });
 };
 
@@ -37,7 +38,6 @@ export const postUpload = async (req, res) => {
       rating: 0,
     },
   });
-  const dbVideo = await video.save();
-  console.log(dbVideo);
+  await video.save();
   return res.redirect("/");
 };
