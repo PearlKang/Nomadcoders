@@ -40,7 +40,9 @@ export const postEdit = async (req, res) => {
   } else {
     video.title = title;
     video.description = description;
-    video.hashtags = hashtags.split(",").map((word) => `#${word}`);
+    video.hashtags = hashtags
+      .split(",")
+      .map((word) => (word.startsWith("#") ? word : `#${word}`));
 
     await video.save();
 
@@ -59,7 +61,9 @@ export const postUpload = async (req, res) => {
     await Video.create({
       title,
       description,
-      hashtags: hashtags.split(",").map((word) => `#${word}`),
+      hashtags: hashtags
+        .split(",")
+        .map((word) => (word.startsWith("#") ? word : `#${word}`)),
     });
 
     return res.redirect("/");
