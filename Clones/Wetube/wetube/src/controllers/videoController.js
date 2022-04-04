@@ -41,6 +41,9 @@ export const postEdit = async (req, res) => {
     video.title = title;
     video.description = description;
     video.hashtags = hashtags.split(",").map((word) => `#${word}`);
+
+    await video.save();
+
     return res.redirect(`/videos/${id}`);
   }
 };
