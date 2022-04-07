@@ -89,7 +89,9 @@ export const search = async (req, res) => {
     videos = await Video.find({
       title: keyword,
     });
-  }
 
-  return res.render("search", { pageTitle: "Search", videos });
+    return res.render("search", { pageTitle: "Search", videos });
+  } else {
+    return res.render("search", { pageTitle: "Search" });
+  }
 };
