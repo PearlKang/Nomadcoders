@@ -6,5 +6,6 @@ block content
         input(placeholder="Search by title", name="keyword", type="text")
         input(type="submit", value="Search now")
 
-    each video in videos
-        +video(video)
+    div
+        each video in videos
+            +video(video)
