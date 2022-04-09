@@ -2,6 +2,7 @@ import app from "./server";
 
 import "./db";
 import "./models/Video";
+import "./models/User";
 
 const PORT = 4000;
 

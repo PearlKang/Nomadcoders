@@ -3,16 +3,12 @@ import Video from "../models/Video";
 export const home = async (req, res) => {
   const videos = await Video.find({}).sort({ createdAt: "desc" });
 
-  console.log(videos);
-
   return res.render("home", { pageTitle: "Home", videos });
 };
 
 export const watch = async (req, res) => {
   const { id } = req.params;
   const video = await Video.findById(id);
-
-  console.log(video);
 
   if (!video) {
     return res.render("404", { pageTitle: "Video not found." });
