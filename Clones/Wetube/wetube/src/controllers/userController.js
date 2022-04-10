@@ -4,7 +4,7 @@ export const postJoin = (req, res) => {
   console.log(req.body);
   res.end();
 };
-``;
+
 export const edit = (req, res) => res.send("Edit User");
 
 export const remove = (req, res) => res.send("Remove User");
