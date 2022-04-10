@@ -8,6 +8,7 @@
   "author": "BenKang<rksk1588@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "express": "^4.17.3",
     "mongoose": "^6.2.8",
     "morgan": "^1.10.0",
