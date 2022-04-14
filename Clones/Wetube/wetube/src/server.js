@@ -25,8 +25,10 @@ app.use(
 );
 
 app.use((req, res, next) => {
-  console.log(req.headers);
-  next();
+  req.sessionStore.all((error, sessions) => {
+    console.log(sessions);
+    next();
+  });
 });
 
 app.use("/", rootRouter);
