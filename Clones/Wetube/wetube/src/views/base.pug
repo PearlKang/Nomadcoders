@@ -5,16 +5,15 @@ html(lang="ko")
         link(rel="stylesheet" href="https://unpkg.com/mvp.css")
     body
         header
-            h1=pageTitle
+            h1 Who is sexy? #{sexy}
             nav
                 ul
                     li
                         a(href="/") Home
-                    if !req.session.loggedIn
-                        li
-                            a(href="/join") Join
-                        li
-                            a(href="/login") Login
+                    li
+                        a(href="/join") Join
+                    li
+                        a(href="/login") Login
                     li
                         a(href="/search") Search
                     li
