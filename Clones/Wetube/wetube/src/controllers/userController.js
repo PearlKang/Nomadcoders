@@ -136,7 +136,13 @@ export const finishGithubLogin = async (req, res) => {
 
       return res.redirect("/");
     } else {
-      // create an account
+      const user = await User.create({
+        name: userData.name,
+        username: userData.login,
+        email: emailObj.email,
+        password: "",
+        location: userData.location,
+      });
     }
   } else {
     return res.redirect("/login");
