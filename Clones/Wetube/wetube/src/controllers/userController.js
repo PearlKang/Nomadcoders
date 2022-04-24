@@ -160,4 +160,4 @@ export const logout = (req, res) => {
 
 export const edit = (req, res) => res.send("Edit User");
 
-export const watch = (req, res) => res.send("See User");
+export const watch = (req, res) => res.send("Watch User");
