@@ -125,7 +125,7 @@ export const finishGithubLogin = async (req, res) => {
     );
 
     if (!emailObj) {
-      // set notification
+      // set notification.
       return res.redirect("/login");
     }
 
