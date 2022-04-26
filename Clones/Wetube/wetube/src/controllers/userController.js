@@ -177,6 +177,13 @@ export const postEdit = async (req, res) => {
     location,
   });
 
+  req.session.user = {
+    name,
+    email,
+    username,
+    location,
+  };
+
   return res.render("edit-profile");
 };
 
