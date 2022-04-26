@@ -167,11 +167,15 @@ export const postEdit = async (req, res) => {
     session: {
       user: { id },
     },
+    body: { name, email, username, location },
   } = req;
-  // == const id = req.session.user.id;
-  const { name, email, username, location } = req.body;
 
-  await User.findByIdAndUpdate();
+  await User.findByIdAndUpdate(id, {
+    name: name,
+    email: email,
+    username: username,
+    location: location,
+  });
 
   return res.render("edit-profile");
 };
