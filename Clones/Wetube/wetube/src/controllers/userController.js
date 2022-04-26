@@ -178,13 +178,14 @@ export const postEdit = async (req, res) => {
   });
 
   req.session.user = {
+    ...req.session.user,
     name,
     email,
     username,
     location,
   };
 
-  return res.render("edit-profile");
+  return res.redirect("/users/edit");
 };
 
 export const watch = (req, res) => res.send("Watch User");
