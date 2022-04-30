@@ -197,12 +197,13 @@ export const getChangePassword = (req, res) => {
 export const postChangePassword = async (req, res) => {
   const {
     session: {
-      user: { _id, password },
+      user: { _id },
     },
     body: { oldPassword, newPassword, newPasswordConfirmation },
   } = req;
 
-  const ok = await bcrypt.compare(oldPassword, password);
+  const user = await User.findById(_id);
+  const ok = await bcrypt.compare(oldPassword, user.password);
 
   if (!ok) {
     return res.status(400).render("users/change-password", {
@@ -218,11 +219,9 @@ export const postChangePassword = async (req, res) => {
     });
   }
 
-  const user = await User.findById(_id);
   user.password = newPassword;
   await user.save();
-  req.session.user.password = user.password;
-  // send notification
+
   return res.redirect("/users/logout");
 };
 
