@@ -231,5 +231,8 @@ export const watch = async (req, res) => {
   const { id } = req.params;
   const user = await User.findById(id);
 
-  return res.render("users/profile", { pageTitle: "User Profile", user });
+  return res.render("users/profile", {
+    pageTitle: `${user.name}의 Profile`,
+    user,
+  });
 };
