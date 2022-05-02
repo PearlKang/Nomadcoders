@@ -227,4 +227,9 @@ export const postChangePassword = async (req, res) => {
   return res.redirect("/users/logout");
 };
 
-export const watch = (req, res) => res.send("Watch User");
+export const watch = async (req, res) => {
+  const { id } = req.params;
+  const user = await User.findById(id);
+
+  return res.render("users/profile", { pageTitle: "User Profile", user });
+};

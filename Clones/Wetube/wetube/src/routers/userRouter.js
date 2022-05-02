@@ -32,6 +32,6 @@ userRouter
   .post(postChangePassword);
 userRouter.get("/github/start", publicOnlyMiddleware, startGithubLogin);
 userRouter.get("/github/finish", publicOnlyMiddleware, finishGithubLogin);
-userRouter.get("/:id(\\d+)", watch);
+userRouter.get("/:id", watch);
 
 export default userRouter;
