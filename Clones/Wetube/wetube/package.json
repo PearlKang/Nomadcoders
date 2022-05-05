@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Wetube Clone built using NodeJS, Express, Mongo and ES6 - The best way to watch a videos.",
   "scripts": {
-    "dev": "nodemon --exec babel-node src/init.js"
+    "dev": "nodemon --exec babel-node src/init.js",
+    "assets": "webpack --config webpack.config.js"
   },
   "author": "BenKang<rksk1588@gmail.com>",
   "license": "MIT",
@@ -23,6 +24,8 @@
     "@babel/core": "^7.17.7",
     "@babel/node": "^7.16.8",
     "@babel/preset-env": "^7.16.11",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2"
   }
 }
