@@ -143,7 +143,7 @@ header {
   align-items: center;
 }
 header .header__logo {
-  color: #cc0d00;
+  color: #ff1300;
   font-size: 38px;
 }
 header ul {
@@ -254,7 +254,7 @@ input[type=submit],
   border-radius: 5px;
   padding: 12px 20px;
   background-color: white;
-  color: #cc0d00;
+  color: #ff1300;
   text-align: center;
   cursor: pointer;
   display: block;
