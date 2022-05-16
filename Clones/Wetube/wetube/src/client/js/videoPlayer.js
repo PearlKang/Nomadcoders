@@ -1,11 +1,14 @@
 const video = document.querySelector("video");
 const playBtn = document.getElementById("play");
+const playBtnIcon = playBtn.querySelector("i");
 const muteBtn = document.getElementById("mute");
+const muteBtnIcon = muteBtn.querySelector("i");
 const volumeRange = document.getElementById("volume");
 const currentTime = document.getElementById("currentTime");
 const totalTime = document.getElementById("totalTime");
 const timeline = document.getElementById("timeline");
 const fullScreenBtn = document.getElementById("fullScreen");
+const fullScreenIcon = fullScreenBtn.querySelector("i");
 const videoContainer = document.getElementById("videoContainer");
 const videoControls = document.getElementById("videoControls");
 
@@ -14,22 +17,27 @@ let controlsMovementTimeout = null;
 let volumeValue = 0.5;
 video.volume = volumeValue;
 
-const handelPlayClick = (e) => {
+const handlePlayClick = (e) => {
   if (video.paused) {
     video.play();
   } else {
     video.pause();
   }
-  playBtn.innerText = video.paused ? "Play" : "Pause";
+
+  playBtnIcon.classList = video.paused ? "fas fa-play" : "fas fa-pause";
 };
 
-const handelMuteClick = (e) => {
+const handleMuteClick = (e) => {
   if (video.muted) {
     video.muted = false;
   } else {
     video.muted = true;
   }
-  muteBtn.innerText = video.muted ? "Unmute" : "Mute";
+
+  muteBtnIcon.classList = video.muted
+    ? "fas fa-volume-mute"
+    : "fas fa-volume-up";
+
   volumeRange.value = video.muted ? 0 : volumeValue;
 };
 
@@ -43,12 +51,12 @@ const handleVolumeChange = (event) => {
 
   if (video.muted) {
     video.muted = false;
-    muteBtn.innerText = "Mute";
+    muteBtnIcon.classList = "fas fa-volume-up";
   }
 
-  if (volumeValue === "0") {
+  if (value === "0") {
     video.muted = true;
-    muteBtn.innerText = "Unmute";
+    muteBtnIcon.classList = "fas fa-volume-mute";
   }
 };
 
@@ -81,10 +89,10 @@ const handleFullscreen = () => {
 
   if (fullscreen) {
     document.exitFullscreen();
-    fullScreenBtn.innerText = "Enter Full Screen";
+    fullScreenIcon.classList = "fas fa-expand";
   } else {
     videoContainer.requestFullscreen();
-    fullScreenBtn.innerText = "Exit Full Screen";
+    fullScreenIcon.classList = "fas fa-compress";
   }
 };
 
@@ -110,12 +118,56 @@ const handleMouseLeave = () => {
   controlsTimeout = setTimeout(hideControls, 3000);
 };
 
-playBtn.addEventListener("click", handelPlayClick);
-muteBtn.addEventListener("click", handelMuteClick);
+const handleKeydown = (event) => {
+  const { keyCode } = event;
+
+  //event.preventDefault();
+
+  switch (keyCode) {
+    case 32:
+      handlePlayClick();
+      break;
+    case 13:
+    case 70:
+    case 102:
+      handleFullscreen();
+      break;
+    case 77:
+    case 109:
+      handleMuteClick();
+      break;
+    case 37:
+      video.currentTime = video.currentTime < 5 ? 0 : video.currentTime - 5;
+      break;
+    case 38:
+      video.volume = video.volume >= 1 ? 1 : video.volume + 0.1;
+      if (video.muted) {
+        video.muted = false;
+        muteBtnIcon.classList = "fas fa-volume-up";
+      }
+      break;
+    case 39:
+      video.currentTime =
+        video.currentTime > video.duration ? 0 : video.currentTime + 5;
+      break;
+    case 40:
+      video.volume = video.volume >= 0 ? 0 : video.volume - 0.1;
+      if (video.muted) {
+        video.muted = true;
+        muteBtnIcon.classList = "fas fa-volume-mute";
+      }
+      break;
+  }
+};
+
+playBtn.addEventListener("click", handlePlayClick);
+muteBtn.addEventListener("click", handleMuteClick);
 volumeRange.addEventListener("input", handleVolumeChange);
-video.addEventListener("loadedmetadata", handleLoadedMetadata);
+video.addEventListener("loadeddata", handleLoadedMetadata);
 video.addEventListener("timeupdate", handleTimeUpdate);
-video.addEventListener("mousemove", handleMouseMove);
-video.addEventListener("mouseleave", handleMouseLeave);
+videoContainer.addEventListener("mousemove", handleMouseMove);
+videoContainer.addEventListener("mouseleave", handleMouseLeave);
 timeline.addEventListener("input", handleTimelineChange);
 fullScreenBtn.addEventListener("click", handleFullscreen);
+video.addEventListener("click", handlePlayClick);
+window.addEventListener("keydown", handleKeydown);
