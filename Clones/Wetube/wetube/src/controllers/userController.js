@@ -134,7 +134,7 @@ export const finishGithubLogin = async (req, res) => {
 
     if (!user) {
       user = await User.create({
-        avatarUrl: userData.avatar_url,
+        avatarUrl: userData.avatar_url.replace(/[\\]/g, "/"),
         name: userData.name,
         username: userData.login,
         email: emailObj.email,
@@ -175,7 +175,9 @@ export const postEdit = async (req, res) => {
   const updatedUser = await User.findByIdAndUpdate(
     _id,
     {
-      avatarUrl: file ? file.path : avatarUrl,
+      avatarUrl: file
+        ? file.path.replace(/[\\]/g, "/")
+        : avatarUrl.replace(/[\\]/g, "/"),
       name,
       email,
       username,
