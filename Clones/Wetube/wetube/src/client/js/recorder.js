@@ -21,7 +21,7 @@ const handleDownload = async () => {
     "-i",
     "recording.webm",
     "-ss",
-    "00:00:01",
+    "00:00:00",
     "-frames:v",
     "1",
     "thumbnail.jpg"
