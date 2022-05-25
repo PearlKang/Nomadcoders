@@ -176,7 +176,7 @@ export const postEdit = async (req, res) => {
     _id,
     {
       avatarUrl: file
-        ? file.path.replace(/[\\]/g, "/")
+        ? "/" + file.path.replace(/[\\]/g, "/")
         : avatarUrl.replace(/[\\]/g, "/"),
       name,
       email,
