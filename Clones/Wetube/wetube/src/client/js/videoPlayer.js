@@ -128,14 +128,14 @@ const handleKeydown = (event) => {
       handlePlayClick();
       break;
     case 13:
-    case 70:
-    case 102:
+      //case 70:
+      //case 102:
       handleFullscreen();
       break;
-    case 77:
-    case 109:
-      handleMuteClick();
-      break;
+    //case 77:
+    //case 109:
+    //  handleMuteClick();
+    //  break;
     case 37:
       video.currentTime = video.currentTime < 5 ? 0 : video.currentTime - 5;
       break;
