@@ -1,6 +1,20 @@
 const videoContainer = document.getElementById("videoContainer");
-
 const form = document.getElementById("commentForm");
+
+const addComment = (text) => {
+  const videoComments = document.querySelector(".video__comments ul");
+  const newComment = document.createElement("li");
+  const icon = document.createElement("i");
+  const span = document.createElement("span");
+
+  newComment.className = "video__comment";
+  icon.className = "fas fa-comment";
+  span.innerText = ` ${text}`;
+
+  newComment.appendChild(icon);
+  newComment.appendChild(span);
+  videoComments.prepend(newComment);
+};
 
 const handleSubmit = async () => {
   event.preventDefault();
@@ -14,7 +28,7 @@ const handleSubmit = async () => {
     return;
   }
 
-  await fetch(`/api/videos/${videoId}/comment`, {
+  const { status } = await fetch(`/api/videos/${videoId}/comment`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -24,7 +38,9 @@ const handleSubmit = async () => {
 
   textarea.value = "";
 
-  window.location.reload();
+  if (status === 201) {
+    addComment(text);
+  }
 };
 
 if (form) {
