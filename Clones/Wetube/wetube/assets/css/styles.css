@@ -443,6 +443,14 @@ form label {
   margin-bottom: 10px;
 }
 
+#delete__comment:hover {
+  cursor: pointer;
+}
+
+#temp__comment:hover {
+  cursor: pointer;
+}
+
 a {
   color: inherit;
   text-decoration: none;
