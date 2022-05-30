@@ -136,27 +136,27 @@ const handleKeydown = (event) => {
     //case 109:
     //  handleMuteClick();
     //  break;
-    case 37:
-      video.currentTime = video.currentTime < 5 ? 0 : video.currentTime - 5;
-      break;
-    case 38:
-      video.volume = video.volume >= 1 ? 1 : video.volume + 0.1;
-      if (video.muted) {
-        video.muted = false;
-        muteBtnIcon.classList = "fas fa-volume-up";
-      }
-      break;
-    case 39:
-      video.currentTime =
-        video.currentTime > video.duration ? 0 : video.currentTime + 5;
-      break;
-    case 40:
-      video.volume = video.volume >= 0 ? 0 : video.volume - 0.1;
-      if (video.muted) {
-        video.muted = true;
-        muteBtnIcon.classList = "fas fa-volume-mute";
-      }
-      break;
+    //case 37:
+    //  video.currentTime = video.currentTime < 5 ? 0 : video.currentTime - 5;
+    //  break;
+    //case 38:
+    //  video.volume = video.volume >= 1 ? 1 : video.volume + 0.1;
+    //  if (video.muted) {
+    //    video.muted = false;
+    //    muteBtnIcon.classList = "fas fa-volume-up";
+    //  }
+    //  break;
+    //case 39:
+    //  video.currentTime =
+    //    video.currentTime > video.duration ? 0 : video.currentTime + 5;
+    //  break;
+    //case 40:
+    //  video.volume = video.volume >= 0 ? 0 : video.volume - 0.1;
+    //  if (video.muted) {
+    //    video.muted = true;
+    //    muteBtnIcon.classList = "fas fa-volume-mute";
+    //  }
+    //  break;
   }
 };
 
