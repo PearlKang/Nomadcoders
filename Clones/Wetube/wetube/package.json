@@ -4,9 +4,11 @@
   "description": "Wetube Clone built using NodeJS, Express, Mongo and ES6 - The best way to watch a videos.",
   "scripts": {
     "start": "node build/init.js",
+    "build": "npm run build:server && npm run build:assets",
     "build:server": "babel src -d build",
+    "build:assets": "webpack --mode=production",
     "dev:server": "nodemon",
-    "dev:assets": "webpack"
+    "dev:assets": "webpack --mode=development -w"
   },
   "author": "BenKang<rksk1588@gmail.com>",
   "license": "MIT",
