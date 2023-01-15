@@ -1,48 +1,55 @@
 void main() {
-  var name = "ben";
+  // var name = "ben";
   // name = 1;
   // name = bool;
   // name = true;
   // name = false;
-  name = "hi";
+  // name = "hi";
 
-  String name2 = "ben";
+  // String name = "ben";
 
   // dynamic type
-  var dynamic;
+  // var dynamic;
   // dynamic dynamic;
-  dynamic = "ben";
-  dynamic = 12;
-  dynamic = true;
+  // dynamic = "ben";
+  // dynamic = 12;
+  // dynamic = true;
 
-  if (dynamic is String) {
-    // dynamic.
-  } else if (dynamic is int) {
-    // dynamic.
-  }
+  // if (dynamic is String) {
+  // dynamic.
+  // } else if (dynamic is int) {
+  // dynamic.
+  // }
 
   // null safety
   // isEmpty(null);
-  String ben = "ben";
+  // String ben = "ben";
   // ben = null;
-  String? ben2 = "ben";
-  ben2 = null;
-  // ben2.length;
+  // String? ben = "ben";
+  // ben = null;
+  // ben.length;
 
-  if (ben2 != null) {
-    ben2.isNotEmpty;
-  }
+  // if (ben != null) {
+  //   ben.isNotEmpty;
+  // }
   // short cut, =
-  ben2?.isNotEmpty;
+  // ben?.isNotEmpty;
 
   // final type
-  // var name3 = "ben";
-  String name3 = "ben";
-  String x = "ben";
-  name3 = "last";
-  // final String name4 = "ben";
-  final name4 = "ben";
+  // var name = "ben";
+  // String name = "ben";
+  // String x = "ben";
+  // name = "last";
+  // final String name = "ben";
+  // final name = "ben";
+
+  // late
+  late final String name;
+  // do something, go to api
+  // print(name);
+  name = "ben";
+  // name = "12";
 }
 
 // Without null safety:
-bool isEmpty(String string) => string.length == 0;
+// bool isEmpty(String string) => string.length == 0;
