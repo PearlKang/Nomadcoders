@@ -43,12 +43,19 @@ void main() {
   // final String name = "ben";
   // final name = "ben";
 
-  // late
-  late final String name;
+  // late type
+  // late final String name;
   // do something, go to api
   // print(name);
-  name = "ben";
+  // name = "ben";
   // name = "12";
+
+  // const type
+  const name = "ben";
+  name = "12";
+  // const API = "121212";
+  // const API = fetchApi();
+  final API = fetchApi();
 }
 
 // Without null safety:
