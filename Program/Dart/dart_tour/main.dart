@@ -34,6 +34,14 @@ void main() {
   }
   // short cut, =
   ben2?.isNotEmpty;
+
+  // final type
+  // var name3 = "ben";
+  String name3 = "ben";
+  String x = "ben";
+  name3 = "last";
+  // final String name4 = "ben";
+  final name4 = "ben";
 }
 
 // Without null safety:
