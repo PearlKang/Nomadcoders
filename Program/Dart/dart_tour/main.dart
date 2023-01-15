@@ -51,11 +51,54 @@ void main() {
   // name = "12";
 
   // const type
-  const name = "ben";
-  name = "12";
+  // const name = "ben";
+  // name = "12";
   // const API = "121212";
   // const API = fetchApi();
-  final API = fetchApi();
+  // final API = fetchApi();
+
+  // Recap
+  // int i = 12;
+  // var name = "la";
+  // i = 12211212;
+  // name = "lalalal";
+
+  // once = final
+  // final name = "ben";
+  // name = "wefwefwef";
+
+  // dynamic type
+  // dynamic name;
+  // name = "1212";
+  // name = 12;
+  // name = true;
+  // if(name is String) {
+  //   name.
+  // }
+
+  // const type - 컴파일 할때 값을 알고 있는 변수를 만들 때, 앱스토어에 앱을 올리기 전에
+  // const api_key = "121212121212";
+  // api_key = 123123123;
+
+  // final type - 런타임 중에 만들어 질 수 있는,
+  // final String username;
+
+  // null safety
+  // String name = "ben";
+  // name = null;
+  // String? name = "ben";
+  // name = null;
+  // name.isEmpty;
+  // if (name != null) {
+  //   name.isEmpty;
+  // }
+  // name?.isEmpty;
+
+  // late type - late + final, var, String ...
+  late final String name;
+  // print(name);
+  name = "12";
+  print(name);
 }
 
 // Without null safety:
