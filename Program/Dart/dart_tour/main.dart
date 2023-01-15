@@ -95,10 +95,21 @@ void main() {
   // name?.isEmpty;
 
   // late type - late + final, var, String ...
-  late final String name;
+  // late final String name;
   // print(name);
-  name = "12";
-  print(name);
+  // name = "12";
+  // print(name);
+
+  // basic data types
+  String name = "ben";
+  name = 'change';
+  // name.
+  bool alive = true;
+  int age = 12;
+  // age.
+  double money = 69.99;
+  num x = 12;
+  x = 1.1;
 }
 
 // Without null safety:
