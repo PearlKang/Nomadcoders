@@ -101,15 +101,33 @@ void main() {
   // print(name);
 
   // basic data types
-  String name = "ben";
-  name = 'change';
+  // String name = "ben";
+  // name = 'change';
   // name.
-  bool alive = true;
-  int age = 12;
+  // bool alive = true;
+  // int age = 12;
   // age.
-  double money = 69.99;
-  num x = 12;
-  x = 1.1;
+  // double money = 69.99;
+  // num x = 12;
+  // x = 1.1;
+
+  // lists
+  // var numbers2 = [1, 2, 3, 4];
+  // List<int> numbers = [1, 2, 3, 4];
+  // numbers.add("1234124");
+  // numbers.add(1);
+  var giveMeFive = true;
+  var numbers = [
+    1,
+    2,
+    3,
+    4,
+    if (giveMeFive) 5,
+  ];
+  if (giveMeFive) {
+    numbers.add(5);
+  }
+  print(numbers);
 }
 
 // Without null safety:
