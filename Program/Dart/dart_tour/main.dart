@@ -116,18 +116,26 @@ void main() {
   // List<int> numbers = [1, 2, 3, 4];
   // numbers.add("1234124");
   // numbers.add(1);
-  var giveMeFive = true;
-  var numbers = [
-    1,
-    2,
-    3,
-    4,
-    if (giveMeFive) 5,
-  ];
-  if (giveMeFive) {
-    numbers.add(5);
-  }
-  print(numbers);
+  // var giveMeFive = true;
+  // var numbers = [
+  //   1,
+  //   2,
+  //   3,
+  //   4,
+  //   if (giveMeFive) 5,
+  // ];
+  // if (giveMeFive) {
+  //   numbers.add(5);
+  // }
+  // print(numbers);
+
+  // String Interpolation
+  var name = "ben";
+  var age = 10;
+  var greeting =
+      "Hello everyone, my name is $name, and I\'m ${age + 2}, nice to meet you!";
+
+  print(greeting);
 }
 
 // Without null safety:
