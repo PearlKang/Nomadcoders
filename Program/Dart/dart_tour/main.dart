@@ -130,12 +130,23 @@ void main() {
   // print(numbers);
 
   // String Interpolation
-  var name = "ben";
-  var age = 10;
-  var greeting =
-      "Hello everyone, my name is $name, and I\'m ${age + 2}, nice to meet you!";
+  // var name = "ben";
+  // var age = 10;
+  // var greeting =
+  //     "Hello everyone, my name is $name, and I\'m ${age + 2}, nice to meet you!";
 
-  print(greeting);
+  // print(greeting);
+
+  // Collection For
+  var oldFriends = ["nico", "lynn"];
+  var newFriends = [
+    "lewis",
+    "ralph",
+    "darren",
+    for (var friend in oldFriends) "💖 $friend",
+  ];
+
+  print(newFriends);
 }
 
 // Without null safety:
