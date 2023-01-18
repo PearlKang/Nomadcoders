@@ -149,30 +149,39 @@ void main() {
   // print(newFriends);
 
   // Map: Key, Value
-  var player = {
-    "name": "ben",
-    "xp": 19.99,
-    "superpower": false,
-  };
-  Map<int, bool> player2 = {
-    1: true,
-    2: false,
-    3: true,
-    // 4:"12",
-  };
-  Map<List<int>, bool> player3 = {
-    [1, 2, 3]: true,
-  };
-  List<Map<String, Object>> players = [
-    {
-      "name": "ben",
-      "xp": 199993.999,
-    },
-    {
-      "name": "ben",
-      "xp": 199993.999,
-    },
-  ];
+  // var player = {
+  //   "name": "ben",
+  //   "xp": 19.99,
+  //   "superpower": false,
+  // };
+  // Map<int, bool> player2 = {
+  //   1: true,
+  //   2: false,
+  //   3: true,
+  //   // 4:"12",
+  // };
+  // Map<List<int>, bool> player3 = {
+  //   [1, 2, 3]: true,
+  // };
+  // List<Map<String, Object>> players = [
+  //   {
+  //     "name": "ben",
+  //     "xp": 199993.999,
+  //   },
+  //   {
+  //     "name": "ben",
+  //     "xp": 199993.999,
+  //   },
+  // ];
+
+  // Set - unique
+  var numbers = {1, 2, 3, 4};
+  Set<int> numbers2 = {1, 2, 3, 4};
+  numbers.add(1);
+  numbers.add(1);
+  numbers.add(1);
+  numbers.add(1);
+  print(numbers);
 }
 
 // Without null safety:
