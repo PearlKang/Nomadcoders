@@ -138,15 +138,41 @@ void main() {
   // print(greeting);
 
   // Collection For
-  var oldFriends = ["nico", "lynn"];
-  var newFriends = [
-    "lewis",
-    "ralph",
-    "darren",
-    for (var friend in oldFriends) "💖 $friend",
-  ];
+  // var oldFriends = ["nico", "lynn"];
+  // var newFriends = [
+  //   "lewis",
+  //   "ralph",
+  //   "darren",
+  //   for (var friend in oldFriends) "💖 $friend",
+  // ];
 
-  print(newFriends);
+  // print(newFriends);
+
+  // Map: Key, Value
+  var player = {
+    "name": "ben",
+    "xp": 19.99,
+    "superpower": false,
+  };
+  Map<int, bool> player2 = {
+    1: true,
+    2: false,
+    3: true,
+    // 4:"12",
+  };
+  Map<List<int>, bool> player3 = {
+    [1, 2, 3]: true,
+  };
+  List<Map<String, Object>> players = [
+    {
+      "name": "ben",
+      "xp": 199993.999,
+    },
+    {
+      "name": "ben",
+      "xp": 199993.999,
+    },
+  ];
 }
 
 // Without null safety:
