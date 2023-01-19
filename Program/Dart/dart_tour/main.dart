@@ -175,14 +175,32 @@ void main() {
   // ];
 
   // Set - unique
-  var numbers = {1, 2, 3, 4};
-  Set<int> numbers2 = {1, 2, 3, 4};
-  numbers.add(1);
-  numbers.add(1);
-  numbers.add(1);
-  numbers.add(1);
-  print(numbers);
+  // var numbers = {1, 2, 3, 4};
+  // Set<int> numbers2 = {1, 2, 3, 4};
+  // numbers.add(1);
+  // numbers.add(1);
+  // numbers.add(1);
+  // numbers.add(1);
+  // print(numbers);
+
+  // Function
+  sayHello("ben1");
+  print(sayHello2("ben2"));
+  print(sayHello3("ben3"));
 }
+
+void sayHello(String name) {
+  print("Hello $name nice to meet you!");
+}
+
+String sayHello2(String name) {
+  return "Hello $name nice to meet you!";
+}
+
+// fat arrow syntax
+String sayHello3(String name) => "Hello $name nice to meet you!";
+
+num plus(num a, num b) => a + b;
 
 // Without null safety:
 // bool isEmpty(String string) => string.length == 0;
