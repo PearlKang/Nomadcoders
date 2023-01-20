@@ -184,10 +184,29 @@ void main() {
   // print(numbers);
 
   // Function
-  sayHello("ben1");
-  print(sayHello2("ben2"));
-  print(sayHello3("ben3"));
+  // sayHello("ben1");
+  // print(sayHello2("ben2"));
+  // print(sayHello3("ben3"));
+
+  // Named Parameters
+  print(sayHello4("ben", 36, "South Korea"));
+
+  // named argument
+  print(sayHello5(
+    name: "ben",
+    age: 36,
+    country: "S.K",
+  ));
+
+  print(sayHello6(
+    name: "ben",
+    age: 36,
+    country: "S.K",
+  ));
 }
+
+// Without null safety:
+bool isEmpty(String string) => string.length == 0;
 
 void sayHello(String name) {
   print("Hello $name nice to meet you!");
@@ -202,5 +221,24 @@ String sayHello3(String name) => "Hello $name nice to meet you!";
 
 num plus(num a, num b) => a + b;
 
-// Without null safety:
-// bool isEmpty(String string) => string.length == 0;
+String sayHello4(String name, int age, String country) {
+  return "Hello $name, you are $age, and you come from $country";
+}
+
+// named argument - null safety - default value
+String sayHello5({
+  String name = "anon",
+  int age = 99,
+  String country = "wakanda",
+}) {
+  return "Hello $name, you are $age, and you come from $country";
+}
+
+// named argument - null safety - required modifier
+String sayHello6({
+  required String name,
+  required int age,
+  required String country,
+}) {
+  return "Hello $name, you are $age, and you come from $country";
+}
