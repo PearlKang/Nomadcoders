@@ -203,6 +203,14 @@ void main() {
     age: 36,
     country: "S.K",
   ));
+
+  // Optonal Positional Parameters
+  sayHello7("ben", 12);
+
+  var results = sayHello7("Ben", 12);
+  print(results);
+  results = sayHello7("Ben", 12, "wefwefwe");
+  print(results);
 }
 
 // Without null safety:
@@ -243,3 +251,7 @@ String sayHello6({
 }) {
   return "Hello $name, you are $age, and you come from $country";
 }
+
+// Optional Position Parameters
+String sayHello7(String name, int age, [String? country = "cuba"]) =>
+    "Hello $name, you are $age years old from $country";
