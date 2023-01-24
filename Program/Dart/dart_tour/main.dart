@@ -189,28 +189,40 @@ void main() {
   // print(sayHello3("ben3"));
 
   // Named Parameters
-  print(sayHello4("ben", 36, "South Korea"));
+  // print(sayHello4("ben", 36, "South Korea"));
 
   // named argument
-  print(sayHello5(
-    name: "ben",
-    age: 36,
-    country: "S.K",
-  ));
+  // print(sayHello5(
+  //   name: "ben",
+  //   age: 36,
+  //   country: "S.K",
+  // ));
 
-  print(sayHello6(
-    name: "ben",
-    age: 36,
-    country: "S.K",
-  ));
+  // print(sayHello6(
+  //   name: "ben",
+  //   age: 36,
+  //   country: "S.K",
+  // ));
 
   // Optonal Positional Parameters
-  sayHello7("ben", 12);
+  // sayHello7("ben", 12);
 
-  var results = sayHello7("Ben", 12);
-  print(results);
-  results = sayHello7("Ben", 12, "wefwefwe");
-  print(results);
+  // var results = sayHello7("Ben", 12);
+  // print(results);
+  // results = sayHello7("Ben", 12, "wefwefwe");
+  // print(results);
+
+  // QQ Operator (question) - ??, question question, null aware operator
+  print(capitalizeName("ben"));
+  print(capitalizeName2(null));
+
+  String? name;
+  name ??= "ben";
+  print(name);
+  name = null;
+  print(name);
+  name ??= "another";
+  print(name);
 }
 
 // Without null safety:
@@ -255,3 +267,20 @@ String sayHello6({
 // Optional Position Parameters
 String sayHello7(String name, int age, [String? country = "cuba"]) =>
     "Hello $name, you are $age years old from $country";
+
+// QQ Operator
+String capitalizeName(String name) => name.toUpperCase();
+
+String capitalizeName2(String? name) {
+  if (name != null) {
+    return name.toUpperCase();
+  }
+  return "ANON";
+}
+
+// ternary operator - 3항연산자
+String capitalizeName3(String? name) =>
+    name != null ? name.toUpperCase() : "ANON";
+
+// question question operator - 왼쪽이 null이면 오른쪽, 아니면 왼쪽
+String capitalizeName4(String? name) => name?.toUpperCase() ?? "ANON";
