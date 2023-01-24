@@ -213,16 +213,23 @@ void main() {
   // print(results);
 
   // QQ Operator (question) - ??, question question, null aware operator
-  print(capitalizeName("ben"));
-  print(capitalizeName2(null));
+  // print(capitalizeName("ben"));
+  // print(capitalizeName2(null));
 
-  String? name;
-  name ??= "ben";
-  print(name);
-  name = null;
-  print(name);
-  name ??= "another";
-  print(name);
+  // String? name;
+  // name ??= "ben";
+  // print(name);
+  // name = null;
+  // print(name);
+  // name ??= "another";
+  // print(name);
+
+  // typedef
+  print(reverseListOfNumbers([1, 2, 3, 4]));
+  print(reverseListOfNumbers2([1, 2, 3, 4, 5]));
+
+  print(sayHi2({"name": "ben"}));
+  print(sayHi2({"sdfsdfwefwef": "ben"}));
 }
 
 // Without null safety:
@@ -284,3 +291,26 @@ String capitalizeName3(String? name) =>
 
 // question question operator - 왼쪽이 null이면 오른쪽, 아니면 왼쪽
 String capitalizeName4(String? name) => name?.toUpperCase() ?? "ANON";
+
+// typedef
+List<int> reverseListOfNumbers(List<int> list) {
+  var reversed = list.reversed;
+  return reversed.toList();
+}
+
+typedef ListOfInts = List<int>;
+
+ListOfInts reverseListOfNumbers2(ListOfInts list) {
+  var reversed = list.reversed;
+  return reversed.toList();
+}
+
+String sayHi(Map<String, String> userInfo) {
+  return "Hi ${userInfo['name']}";
+}
+
+typedef UserInfo = Map<String, String>;
+
+String sayHi2(UserInfo userInfo) {
+  return "Hi ${userInfo['name']}";
+}
