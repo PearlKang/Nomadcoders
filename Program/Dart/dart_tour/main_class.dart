@@ -43,16 +43,33 @@ class Player2 {
 
 class Player3 {
   final String name;
-  int xp;
+  int xp, age;
   String team;
-  int age;
 
+  // Named Constructor parameter
   Player3({
     required this.name,
     required this.xp,
     required this.team,
     required this.age,
   });
+
+  // syntax sugar
+  // named parameter, named syntax - default not required
+  Player3.createBluePlayer({
+    required String name,
+    required int age,
+  })  : this.age = age,
+        this.name = name,
+        this.team = "blue",
+        this.xp = 0;
+
+  // positional parameter, positional syntax - default required
+  Player3.createRedPlayer(String name, int age)
+      : this.age = age,
+        this.name = name,
+        this.team = "red",
+        this.xp = 0;
 
   void sayHello() {
     print("hi my name is $name");
@@ -99,4 +116,13 @@ void main() {
     age: 12,
   );
   player6.sayHello();
+
+  // named parameter
+  var bluePlayer = Player3.createBluePlayer(
+    name: "nico",
+    age: 21,
+  );
+
+  // positional parameter
+  var redPlayer = Player3.createRedPlayer("nico", 21);
 }
