@@ -27,11 +27,32 @@ class Player1 {
   }
 }
 
+// positional - 데이터가 많아 지면 위치가 헷갈림. position이 너무 많아지면 뭐가 뭔지 몰라서 별로임.
 class Player2 {
   final String name;
   int xp;
+  String team;
+  int age;
 
-  Player2(this.name, this.xp);
+  Player2(this.name, this.xp, this.team, this.age);
+
+  void sayHello() {
+    print("hi my name is $name");
+  }
+}
+
+class Player3 {
+  final String name;
+  int xp;
+  String team;
+  int age;
+
+  Player3({
+    required this.name,
+    required this.xp,
+    required this.team,
+    required this.age,
+  });
 
   void sayHello() {
     print("hi my name is $name");
@@ -56,8 +77,26 @@ void main() {
   player1.sayHello();
   var player2 = Player1("lynn1", 2500);
   player2.sayHello();
-  var player3 = Player2("nico2", 1500);
+
+  // positional parameter
+  var player3 = Player2("nico2", 1500, "red", 12);
   player3.sayHello();
-  var player4 = Player2("lynn2", 2500);
+  var player4 = Player2("lynn2", 2500, "blue", 12);
   player4.sayHello();
+
+  // named parameter
+  var player5 = Player3(
+    name: "nico3",
+    xp: 1200,
+    team: "blue",
+    age: 21,
+  );
+  player5.sayHello();
+  var player6 = Player3(
+    name: "lynn2",
+    xp: 2500,
+    team: "blue",
+    age: 12,
+  );
+  player6.sayHello();
 }
