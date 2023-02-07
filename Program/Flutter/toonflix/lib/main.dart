@@ -14,7 +14,9 @@ class App extends StatelessWidget {
         appBar: AppBar(
           title: Text("Hello flutter!"),
         ),
-        body: Text("Hello World!"),
+        body: Center(
+          child: Text("Hello World!"),
+        ),
       ),
     );
   }
