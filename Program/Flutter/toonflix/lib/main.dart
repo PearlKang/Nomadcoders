@@ -11,6 +11,9 @@ class App extends StatelessWidget {
     // Material = Google / Cupertino = ios // 테마 선택이라고 생각하면 됨.
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(
+          title: Text("Hello flutter!"),
+        ),
         body: Text("Hello World!"),
       ),
     );
