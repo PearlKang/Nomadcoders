@@ -10,7 +10,9 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     // Material = Google / Cupertino = ios // 테마 선택이라고 생각하면 됨.
     return MaterialApp(
-      home: Text("Hello World!"),
+      home: Scaffold(
+        body: Text("Hello World!"),
+      ),
     );
   }
 }
