@@ -13,6 +13,7 @@ class App extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(
           centerTitle: false,
+          elevation: 10,
           title: Text("Hello flutter!"),
         ),
         body: Center(
