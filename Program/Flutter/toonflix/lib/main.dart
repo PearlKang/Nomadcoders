@@ -1,6 +1,30 @@
 import 'package:flutter/material.dart';
 
+// position
+class Player1 {
+  String name;
+
+  Player1(this.name);
+}
+
+// named parameter
+class Player2 {
+  String name;
+
+  Player2({required this.name});
+}
+
+class Player3 {
+  String? name;
+
+  Player3();
+}
+
 void main() {
+  var ben1 = Player1("ben");
+  var ben2 = Player2(name: "ben");
+  var ben3 = Player3();
+
   runApp(App());
 }
 
