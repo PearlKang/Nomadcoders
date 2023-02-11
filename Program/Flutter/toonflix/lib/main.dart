@@ -11,8 +11,12 @@ class App extends StatelessWidget {
     // Material = Google / Cupertino = ios // 테마 선택이라고 생각하면 됨.
     return MaterialApp(
       home: Scaffold(
-          backgroundColor: Colors.black,
-          body: Column(
+        backgroundColor: Color(0xFF181818),
+        body: Padding(
+          padding: EdgeInsets.symmetric(
+            horizontal: 40,
+          ),
+          child: Column(
             children: [
               SizedBox(
                 height: 80,
@@ -43,7 +47,9 @@ class App extends StatelessWidget {
                 ],
               )
             ],
-          )),
+          ),
+        ),
+      ),
     );
   }
 }
