@@ -1,30 +1,6 @@
 import 'package:flutter/material.dart';
 
-// position
-class Player1 {
-  String name;
-
-  Player1(this.name);
-}
-
-// named parameter
-class Player2 {
-  String name;
-
-  Player2({required this.name});
-}
-
-class Player3 {
-  String? name;
-
-  Player3();
-}
-
 void main() {
-  var ben1 = Player1("ben");
-  var ben2 = Player2(name: "ben");
-  var ben3 = Player3();
-
   runApp(App());
 }
 
@@ -35,15 +11,31 @@ class App extends StatelessWidget {
     // Material = Google / Cupertino = ios // 테마 선택이라고 생각하면 됨.
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          centerTitle: false,
-          elevation: 10,
-          title: Text("Hello flutter!"),
-        ),
-        body: Center(
-          child: Text("Hello World!"),
-        ),
-      ),
+          backgroundColor: Colors.black,
+          body: Column(
+            children: [
+              Row(
+                children: [
+                  Column(
+                    children: [
+                      Text(
+                        "Hey, Selena",
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                      Text(
+                        "Welcome back",
+                        style: TextStyle(
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  )
+                ],
+              )
+            ],
+          )),
     );
   }
 }
