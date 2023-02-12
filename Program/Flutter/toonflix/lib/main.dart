@@ -39,6 +39,7 @@ class App extends StatelessWidget {
                         "Welcome back",
                         style: TextStyle(
                           color: Colors.white.withOpacity(0.8),
+                          // color: Color.fromRGBO(255, 255, 255, 0.8),
                           fontSize: 18,
                         ),
                       ),
