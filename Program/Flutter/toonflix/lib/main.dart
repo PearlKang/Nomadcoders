@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(App());
+  runApp(const App());
 }
 
 // Root Widget
 class App extends StatelessWidget {
+  const App({super.key});
+
   @override
   Widget build(BuildContext context) {
     // Material = Google / Cupertino = ios // 테마 선택이라고 생각하면 됨.
