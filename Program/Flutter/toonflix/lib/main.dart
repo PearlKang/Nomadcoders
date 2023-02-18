@@ -54,7 +54,7 @@ class App extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(
-                  height: 120,
+                  height: 70,
                 ),
                 Text(
                   "Total Balance",
@@ -93,7 +93,7 @@ class App extends StatelessWidget {
                   ],
                 ),
                 const SizedBox(
-                  height: 100,
+                  height: 50,
                 ),
                 Row(
                   crossAxisAlignment: CrossAxisAlignment.end,
@@ -124,12 +124,33 @@ class App extends StatelessWidget {
                   code: "EUR",
                   amount: "6 428",
                   icon: Icons.euro_rounded,
+                  isInverted: false,
                 ),
-                const CurrencyCard(
-                  name: "Bitcoin",
-                  code: "BTC",
-                  amount: "9 785",
-                  icon: Icons.currency_bitcoin,
+                Transform.translate(
+                  offset: const Offset(
+                    0,
+                    -20,
+                  ),
+                  child: const CurrencyCard(
+                    name: "Bitcoin",
+                    code: "BTC",
+                    amount: "9 785",
+                    icon: Icons.currency_bitcoin,
+                    isInverted: true,
+                  ),
+                ),
+                Transform.translate(
+                  offset: const Offset(
+                    0,
+                    -40,
+                  ),
+                  child: const CurrencyCard(
+                    name: "Dollar",
+                    code: "USD",
+                    amount: "428",
+                    icon: Icons.attach_money_outlined,
+                    isInverted: false,
+                  ),
                 ),
               ],
             ),
