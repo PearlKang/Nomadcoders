@@ -53,11 +53,16 @@ class _HomeScreenState extends State<HomeScreen> {
     var duration = Duration(
       seconds: seconds,
     );
-    print(duration.toString());
-    print(duration.toString().split("."));
-    print(duration.toString().split(".").first);
-    print(duration.toString().split(".").first.substring(2, 7));
     return duration.toString().split(".").first.substring(2, 7);
+  }
+
+  void onResetPressed() {
+    setState(() {
+      totalSeconds = twentyFiveMinutes;
+      totalPomodoros = 0;
+      isRunning = false;
+    });
+    timer.cancel();
   }
 
   @override
@@ -81,15 +86,24 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           Flexible(
             flex: 3,
-            child: Center(
-              child: IconButton(
-                iconSize: 120,
-                color: Theme.of(context).cardColor,
-                onPressed: isRunning ? onPausePressed : onStartPressed,
-                icon: Icon(isRunning
-                    ? Icons.pause_circle_outline
-                    : Icons.play_circle_outline),
-              ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                IconButton(
+                  iconSize: 120,
+                  color: Theme.of(context).cardColor,
+                  onPressed: isRunning ? onPausePressed : onStartPressed,
+                  icon: Icon(isRunning
+                      ? Icons.pause_circle_outline
+                      : Icons.play_circle_outline),
+                ),
+                IconButton(
+                  iconSize: 80,
+                  color: Theme.of(context).cardColor,
+                  onPressed: onResetPressed,
+                  icon: const Icon(Icons.restart_alt_outlined),
+                ),
+              ],
             ),
           ),
           Flexible(
