@@ -5,7 +5,7 @@ import 'package:toonflix/services/api_service.dart';
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
 
-  Future<List<WebtoonModel>> webtoons = ApiService.getTodaysToons();
+  final Future<List<WebtoonModel>> webtoons = ApiService.getTodaysToons();
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +26,15 @@ class HomeScreen extends StatelessWidget {
         future: webtoons,
         builder: (context, snapshot) {
           if (snapshot.hasData) {
-            return const Text("There is data!");
+            return ListView(
+              children: [
+                for (var webtoon in snapshot.data!) Text(webtoon.title),
+              ],
+            );
           }
-          return const Text("Loading....");
+          return const Center(
+            child: CircularProgressIndicator(),
+          );
         },
       ),
     );
