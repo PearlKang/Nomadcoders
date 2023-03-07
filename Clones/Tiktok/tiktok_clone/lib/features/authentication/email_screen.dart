@@ -9,9 +9,7 @@ class EmailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          "Sign up",
-        ),
+        title: const Text("Sign up"),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(
