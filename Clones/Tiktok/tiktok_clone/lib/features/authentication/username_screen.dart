@@ -92,12 +92,18 @@ class _UsernameScreenState extends State<UsernameScreen> {
                 duration: const Duration(
                   milliseconds: 300,
                 ),
-                child: const Text(
-                  "Next",
-                  textAlign: TextAlign.center,
+                child: AnimatedDefaultTextStyle(
+                  duration: const Duration(
+                    milliseconds: 300,
+                  ),
                   style: TextStyle(
-                    color: Colors.white,
+                    color:
+                        _username.isEmpty ? Colors.grey.shade400 : Colors.white,
                     fontWeight: FontWeight.w600,
+                  ),
+                  child: const Text(
+                    "Next",
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ),
