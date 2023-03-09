@@ -12,12 +12,16 @@ class UsernameScreen extends StatefulWidget {
 class _UsernameScreenState extends State<UsernameScreen> {
   final TextEditingController _usernameController = TextEditingController();
 
+  String _username = "";
+
   @override
   void initState() {
     super.initState();
 
     _usernameController.addListener(() {
-      print(_usernameController.text);
+      setState(() {
+        _username = _usernameController.text;
+      });
     });
   }
 
@@ -78,7 +82,9 @@ class _UsernameScreenState extends State<UsernameScreen> {
                   vertical: Sizes.size16,
                 ),
                 decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor,
+                  color: _username.isEmpty
+                      ? Colors.grey.shade300
+                      : Theme.of(context).primaryColor,
                 ),
                 child: const Text(
                   "Next",
