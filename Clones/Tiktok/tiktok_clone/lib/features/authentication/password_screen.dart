@@ -65,14 +65,11 @@ class _PasswordScreenState extends State<PasswordScreen> {
 
   void _toggleObscureText() {
     if (_obscureText == true) {
-      setState(() {
-        _obscureText = false;
-      });
+      _obscureText = false;
     } else {
-      setState(() {
-        _obscureText = true;
-      });
+      _obscureText = true;
     }
+    setState(() {});
   }
 
   @override
