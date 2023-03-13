@@ -14,17 +14,15 @@ class BirthdayScreen extends StatefulWidget {
 class _BirthdayScreenState extends State<BirthdayScreen> {
   final TextEditingController _birthdayController = TextEditingController();
 
-  String _birthday = "";
+  DateTime date = DateTime.now();
 
   @override
   void initState() {
     super.initState();
-
-    _birthdayController.addListener(() {
-      setState(() {
-        _birthday = _birthdayController.text;
-      });
-    });
+    final textDate = date.toString().split(" ").first;
+    _birthdayController.value = TextEditingValue(
+      text: textDate,
+    );
   }
 
   @override
@@ -34,7 +32,6 @@ class _BirthdayScreenState extends State<BirthdayScreen> {
   }
 
   void _onNextTap() {
-    if (_birthday.isEmpty) return;
     Navigator.of(context).push(
       MaterialPageRoute(
         builder: (context) => const EmailScreen(),
@@ -59,7 +56,7 @@ class _BirthdayScreenState extends State<BirthdayScreen> {
           children: [
             Gaps.v40,
             const Text(
-              "Create username",
+              "When's your birthday?",
               style: TextStyle(
                 fontSize: Sizes.size24,
                 fontWeight: FontWeight.w700,
@@ -67,7 +64,7 @@ class _BirthdayScreenState extends State<BirthdayScreen> {
             ),
             Gaps.v8,
             const Text(
-              "You can always change this later.",
+              "Your birthday won't be shown publicly.",
               style: TextStyle(
                 fontSize: Sizes.size16,
                 color: Colors.black54,
@@ -75,9 +72,9 @@ class _BirthdayScreenState extends State<BirthdayScreen> {
             ),
             Gaps.v16,
             TextField(
+              enabled: false,
               controller: _birthdayController,
               decoration: InputDecoration(
-                hintText: "Username",
                 enabledBorder: UnderlineInputBorder(
                   borderSide: BorderSide(
                     color: Colors.grey.shade400,
@@ -94,8 +91,8 @@ class _BirthdayScreenState extends State<BirthdayScreen> {
             Gaps.v28,
             GestureDetector(
               onTap: _onNextTap,
-              child: FormButton(
-                disabled: _birthday.isEmpty,
+              child: const FormButton(
+                disabled: false,
               ),
             ),
           ],
