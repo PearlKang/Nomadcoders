@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
+import 'package:tiktok_clone/features/authentication/birthday_screen.dart';
 import 'package:tiktok_clone/features/authentication/widgets/form_button.dart';
 
 class PasswordScreen extends StatefulWidget {
@@ -44,11 +45,11 @@ class _PasswordScreenState extends State<PasswordScreen> {
   }
 
   void _onSubmit() {
-    if (_isPasswordValid()) return;
+    if (!_isPasswordValid()) return;
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => const PasswordScreen(),
+        builder: (context) => const BirthdayScreen(),
       ),
     );
   }
@@ -131,6 +132,27 @@ class _PasswordScreenState extends State<PasswordScreen> {
                   ),
                 ),
                 cursorColor: Theme.of(context).primaryColor,
+              ),
+              Gaps.v10,
+              const Text(
+                "Your password must have:",
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Gaps.v10,
+              Row(
+                children: [
+                  FaIcon(
+                    FontAwesomeIcons.circleCheck,
+                    size: Sizes.size20,
+                    color: _isPasswordValid()
+                        ? Colors.green
+                        : Colors.grey.shade400,
+                  ),
+                  Gaps.h5,
+                  const Text("8 to 20 characters"),
+                ],
               ),
               Gaps.v28,
               GestureDetector(
