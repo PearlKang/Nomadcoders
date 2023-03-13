@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/features/authentication/widgets/form_button.dart';
@@ -56,6 +57,10 @@ class _PasswordScreenState extends State<PasswordScreen> {
     );
   }
 
+  void _onClearTap() {
+    _passwordController.clear();
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -85,10 +90,28 @@ class _PasswordScreenState extends State<PasswordScreen> {
               TextField(
                 controller: _passwordController,
                 onEditingComplete: _onSubmit,
+                obscureText: true,
                 autocorrect: false,
                 decoration: InputDecoration(
-                  prefixIcon: const Icon(Icons.abc_sharp),
-                  suffixIcon: const Icon(Icons.abc_sharp),
+                  suffix: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      GestureDetector(
+                        onTap: _onClearTap,
+                        child: FaIcon(
+                          FontAwesomeIcons.solidCircleXmark,
+                          color: Colors.grey.shade500,
+                          size: Sizes.size20,
+                        ),
+                      ),
+                      Gaps.h16,
+                      FaIcon(
+                        FontAwesomeIcons.eye,
+                        color: Colors.grey.shade500,
+                        size: Sizes.size20,
+                      ),
+                    ],
+                  ),
                   hintText: "Make it string!",
                   errorText: _isPasswordValid(),
                   enabledBorder: UnderlineInputBorder(
