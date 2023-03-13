@@ -32,7 +32,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
     super.dispose();
   }
 
-  String? _isEmailValid() {
+  String? _isPasswordValid() {
     if (_password.isEmpty) return null;
     final regExp = RegExp(
         r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+");
@@ -47,7 +47,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
   }
 
   void _onSubmit() {
-    if (_password.isEmpty || _isEmailValid() != null) return;
+    if (_password.isEmpty || _isPasswordValid() != null) return;
     Navigator.push(
       context,
       MaterialPageRoute(
@@ -75,7 +75,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
             children: [
               Gaps.v40,
               const Text(
-                "What is your email?",
+                "Password",
                 style: TextStyle(
                   fontSize: Sizes.size24,
                   fontWeight: FontWeight.w700,
@@ -84,12 +84,13 @@ class _PasswordScreenState extends State<PasswordScreen> {
               Gaps.v16,
               TextField(
                 controller: _passwordController,
-                keyboardType: TextInputType.emailAddress,
                 onEditingComplete: _onSubmit,
                 autocorrect: false,
                 decoration: InputDecoration(
-                  hintText: "Email",
-                  errorText: _isEmailValid(),
+                  prefixIcon: const Icon(Icons.abc_sharp),
+                  suffixIcon: const Icon(Icons.abc_sharp),
+                  hintText: "Make it string!",
+                  errorText: _isPasswordValid(),
                   enabledBorder: UnderlineInputBorder(
                     borderSide: BorderSide(
                       color: Colors.grey.shade400,
@@ -107,7 +108,7 @@ class _PasswordScreenState extends State<PasswordScreen> {
               GestureDetector(
                 onTap: _onSubmit,
                 child: FormButton(
-                  disabled: _password.isEmpty || _isEmailValid() != null,
+                  disabled: _password.isEmpty || _isPasswordValid() != null,
                 ),
               ),
             ],
