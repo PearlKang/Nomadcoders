@@ -15,6 +15,12 @@ class _LoginFormScreenState extends State<LoginFormScreen> {
 
   Map<String, String> formData = {};
 
+  void _onSavedFn(String key, String? value) {
+    if (value != null) {
+      formData[key] = value;
+    }
+  }
+
   void _onSubmitTap() {
     if (_formKey.currentState != null) {
       if (_formKey.currentState!.validate()) {
@@ -58,11 +64,7 @@ class _LoginFormScreenState extends State<LoginFormScreen> {
                   }
                   return null;
                 },
-                onSaved: (newValue) {
-                  if (newValue != null) {
-                    formData['email'] = newValue;
-                  }
-                },
+                onSaved: (newValue) => _onSavedFn("email", newValue),
               ),
               Gaps.v16,
               TextFormField(
@@ -85,16 +87,13 @@ class _LoginFormScreenState extends State<LoginFormScreen> {
                   }
                   return null;
                 },
-                onSaved: (newValue) {
-                  if (newValue != null) {
-                    formData['password'] = newValue;
-                  }
-                },
+                onSaved: (newValue) => _onSavedFn("password", newValue),
               ),
               Gaps.v28,
               GestureDetector(
                 onTap: _onSubmitTap,
                 child: const FormButton(
+                  text: "Log in",
                   disabled: false,
                 ),
               ),
