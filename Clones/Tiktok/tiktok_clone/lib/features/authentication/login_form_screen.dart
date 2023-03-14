@@ -41,7 +41,7 @@ class _LoginFormScreenState extends State<LoginFormScreen> {
                   hintText: "Email",
                 ),
                 validator: (value) {
-                  return "i dont like your email";
+                  return null;
                 },
                 onSaved: (newValue) => print(newValue),
               ),
@@ -51,7 +51,7 @@ class _LoginFormScreenState extends State<LoginFormScreen> {
                   hintText: "Password",
                 ),
                 validator: (value) {
-                  return "wrong password";
+                  return null;
                 },
                 onSaved: (newValue) => print(newValue),
               ),
