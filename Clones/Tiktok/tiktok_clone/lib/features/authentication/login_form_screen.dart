@@ -13,6 +13,12 @@ class LoginFormScreen extends StatefulWidget {
 class _LoginFormScreenState extends State<LoginFormScreen> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  void _onSubmitTap() {
+    if (_formKey.currentState != null) {
+      _formKey.currentState!.validate();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +52,12 @@ class _LoginFormScreenState extends State<LoginFormScreen> {
                 },
               ),
               Gaps.v28,
-              const FormButton(disabled: false),
+              GestureDetector(
+                onTap: _onSubmitTap,
+                child: const FormButton(
+                  disabled: false,
+                ),
+              ),
             ],
           ),
         ),
