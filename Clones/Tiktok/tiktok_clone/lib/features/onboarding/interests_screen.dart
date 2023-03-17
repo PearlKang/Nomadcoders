@@ -54,8 +54,10 @@ class InterestsScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-            horizontal: Sizes.size24,
+          padding: const EdgeInsets.only(
+            left: Sizes.size24,
+            right: Sizes.size24,
+            bottom: Sizes.size16,
           ),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -112,6 +114,33 @@ class InterestsScreen extends StatelessWidget {
                 ],
               ),
             ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: BottomAppBar(
+        elevation: 2,
+        child: Padding(
+          padding: const EdgeInsets.only(
+            bottom: Sizes.size40,
+            top: Sizes.size16,
+            left: Sizes.size24,
+            right: Sizes.size24,
+          ),
+          child: Container(
+            padding: const EdgeInsets.symmetric(
+              vertical: Sizes.size20,
+            ),
+            decoration: BoxDecoration(
+              color: Theme.of(context).primaryColor,
+            ),
+            child: const Text(
+              "Next",
+              textAlign: TextAlign.center,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: Sizes.size16,
+              ),
+            ),
           ),
         ),
       ),
