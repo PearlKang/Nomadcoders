@@ -1,5 +1,4 @@
 import 'package:flutter/cupertino.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class MainNavigationScreen extends StatefulWidget {
   const MainNavigationScreen({super.key});
@@ -41,11 +40,11 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
       tabBar: CupertinoTabBar(
         items: const [
           BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.house),
+            icon: Icon(CupertinoIcons.house),
             label: "Home",
           ),
           BottomNavigationBarItem(
-            icon: FaIcon(FontAwesomeIcons.magnifyingGlass),
+            icon: Icon(CupertinoIcons.search),
             label: "Search",
           ),
         ],
