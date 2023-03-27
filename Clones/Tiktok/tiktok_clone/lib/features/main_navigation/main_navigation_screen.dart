@@ -15,19 +15,37 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
 
   final screens = [
     const Center(
-      child: Text("Home"),
+      child: Text(
+        "Home",
+        style: TextStyle(
+          fontSize: 49,
+        ),
+      ),
     ),
     const Center(
-      child: Text("Search"),
+      child: Text(
+        "Discover",
+        style: TextStyle(
+          fontSize: 49,
+        ),
+      ),
+    ),
+    Container(),
+    const Center(
+      child: Text(
+        "Inbox",
+        style: TextStyle(
+          fontSize: 49,
+        ),
+      ),
     ),
     const Center(
-      child: Text("Search"),
-    ),
-    const Center(
-      child: Text("Search"),
-    ),
-    const Center(
-      child: Text("Search"),
+      child: Text(
+        "Profile",
+        style: TextStyle(
+          fontSize: 49,
+        ),
+      ),
     ),
   ];
 
@@ -40,6 +58,7 @@ class _MainNavigationScreenState extends State<MainNavigationScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      body: screens.elementAt(_selectedIndex),
       bottomNavigationBar: BottomAppBar(
         color: Colors.black,
         child: Padding(
