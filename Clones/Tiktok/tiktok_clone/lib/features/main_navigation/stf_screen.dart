@@ -17,6 +17,12 @@ class _StfScreenState extends State<StfScreen> {
   }
 
   @override
+  void dispose() {
+    print(_clicks);
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
