@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok_clone/features/videos/widgets/video_post.dart';
 
 class VideoTimelineScreen extends StatefulWidget {
   const VideoTimelineScreen({super.key});
@@ -47,17 +48,18 @@ class _VideoTimelineScreenState extends State<VideoTimelineScreen> {
       scrollDirection: Axis.vertical,
       onPageChanged: _onPageChanged,
       itemCount: _itemCount,
-      itemBuilder: (context, index) => Container(
-        color: colors[index],
-        child: Center(
-          child: Text(
-            "Screen $index",
-            style: const TextStyle(
-              fontSize: 68,
-            ),
-          ),
-        ),
-      ),
+      itemBuilder: (context, index) => const VideoPost(),
+      // Container(
+      //   color: colors[index],
+      //   child: Center(
+      //     child: Text(
+      //       "Screen $index",
+      //       style: const TextStyle(
+      //         fontSize: 68,
+      //       ),
+      //     ),
+      //   ),
+      // ),
     );
   }
 }
