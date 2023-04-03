@@ -32,7 +32,6 @@ class _VideoPostState extends State<VideoPost> {
 
   void _initVideoPlayer() async {
     await _videoPlayerController.initialize();
-    // _videoPlayerController.play();
     setState(() {});
     _videoPlayerController.addListener(_onVideoChange);
   }
@@ -49,14 +48,17 @@ class _VideoPostState extends State<VideoPost> {
     super.dispose();
   }
 
+  void _onVisibilityChanged(VisibilityInfo info) {
+    if (info.visibleFraction == 1 && !_videoPlayerController.value.isPlaying) {
+      _videoPlayerController.play();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return VisibilityDetector(
       key: Key("${widget.index}"),
-      onVisibilityChanged: (info) {
-        print(
-            "Video: #${widget.index} is ${info.visibleFraction * 100}% visible");
-      },
+      onVisibilityChanged: _onVisibilityChanged,
       child: Stack(
         children: [
           Positioned.fill(
