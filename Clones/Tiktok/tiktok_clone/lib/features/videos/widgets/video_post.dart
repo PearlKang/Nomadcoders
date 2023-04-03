@@ -32,7 +32,7 @@ class _VideoPostState extends State<VideoPost> {
 
   void _initVideoPlayer() async {
     await _videoPlayerController.initialize();
-    _videoPlayerController.play();
+    // _videoPlayerController.play();
     setState(() {});
     _videoPlayerController.addListener(_onVideoChange);
   }
@@ -54,7 +54,8 @@ class _VideoPostState extends State<VideoPost> {
     return VisibilityDetector(
       key: Key("${widget.index}"),
       onVisibilityChanged: (info) {
-        print(info.visibleFraction);
+        print(
+            "Video: #${widget.index} is ${info.visibleFraction * 100}% visible");
       },
       child: Stack(
         children: [
