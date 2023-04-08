@@ -30,6 +30,7 @@ class _VideoPostState extends State<VideoPost>
 
   bool _isPaused = false;
   bool _isSeeMore = false;
+  bool _isAllHashtags = false;
 
   int _maxLines = 1;
 
@@ -37,6 +38,19 @@ class _VideoPostState extends State<VideoPost>
 
   final String _caption =
       "It's only after we've lost everything that we're free to do anything - Fight Club, Tyler Durben";
+
+  final hashtags = [
+    "#one",
+    "#two",
+    "#three",
+    "#four",
+    "#five",
+    "#six",
+    "#seven",
+    "#eight",
+    "#nine",
+    "#ten",
+  ];
 
   void _onVideoChange() {
     if (_videoPlayerController.value.isInitialized) {
@@ -96,7 +110,7 @@ class _VideoPostState extends State<VideoPost>
   }
 
   void _onSeeMoreTap() {
-    if (!_isSeeMore) {
+    if (_isSeeMore) {
       _seeMoreText = "See more";
       _maxLines = 1;
     } else {
@@ -105,6 +119,7 @@ class _VideoPostState extends State<VideoPost>
     }
     setState(() {
       _isSeeMore = !_isSeeMore;
+      _isAllHashtags = !_isAllHashtags;
     });
   }
 
@@ -170,9 +185,22 @@ class _VideoPostState extends State<VideoPost>
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(
-                      width: 350,
+                      width: Sizes.size350,
                       child: Text(
                         _caption,
+                        style: const TextStyle(
+                          fontSize: Sizes.size16,
+                          color: Colors.white,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: _maxLines,
+                      ),
+                    ),
+                    Gaps.v10,
+                    SizedBox(
+                      width: Sizes.size350,
+                      child: Text(
+                        hashtags.join(" "),
                         style: const TextStyle(
                           fontSize: Sizes.size16,
                           color: Colors.white,
