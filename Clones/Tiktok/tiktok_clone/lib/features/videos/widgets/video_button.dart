@@ -4,27 +4,28 @@ import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 
 class VideoButton extends StatelessWidget {
-  final IconData icon;
-  final String text;
+  final IconData _icon;
+  final String _text;
 
   const VideoButton({
     super.key,
-    required this.icon,
-    required this.text,
-  });
+    required icon,
+    required text,
+  })  : _icon = icon,
+        _text = text;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         FaIcon(
-          icon,
+          _icon,
           color: Colors.white,
           size: Sizes.size40,
         ),
         Gaps.v5,
         Text(
-          text,
+          _text,
           style: const TextStyle(
             color: Colors.white,
             fontWeight: FontWeight.bold,

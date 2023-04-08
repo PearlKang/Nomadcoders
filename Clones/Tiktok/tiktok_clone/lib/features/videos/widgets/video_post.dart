@@ -23,13 +23,16 @@ class VideoPost extends StatefulWidget {
 
 class _VideoPostState extends State<VideoPost>
     with SingleTickerProviderStateMixin {
-  final VideoPlayerController _videoPlayerController =
-      VideoPlayerController.asset("assets/videos/video2.mp4");
+  late VideoPlayerController _videoPlayerController;
   final Duration _animationDuration = const Duration(milliseconds: 300);
 
   late final AnimationController _animationController;
 
   bool _isPaused = false;
+  bool _isSeeMore = false;
+
+  final String _caption =
+      "It's only after we've lost everything that we're free to do anything - Fight Club, Tyler Durben";
 
   void _onVideoChange() {
     if (_videoPlayerController.value.isInitialized) {
@@ -41,6 +44,8 @@ class _VideoPostState extends State<VideoPost>
   }
 
   void _initVideoPlayer() async {
+    _videoPlayerController =
+        VideoPlayerController.asset("assets/videos/video2.mp4");
     await _videoPlayerController.initialize();
     await _videoPlayerController.setLooping(true);
     _videoPlayerController.addListener(_onVideoChange);
@@ -84,6 +89,16 @@ class _VideoPostState extends State<VideoPost>
     setState(() {
       _isPaused = !_isPaused;
     });
+  }
+
+  void _onSeeMoreTap() {
+    setState(() {
+      _isSeeMore = !_isSeeMore;
+    });
+  }
+
+  String _checkCaptionLength() {
+    return _caption.length > 20 ? "${_caption.substring(0, 20)} ..." : _caption;
   }
 
   @override
@@ -134,8 +149,8 @@ class _VideoPostState extends State<VideoPost>
             left: 10,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: const [
-                Text(
+              children: [
+                const Text(
                   "@Ben",
                   style: TextStyle(
                     fontSize: Sizes.size20,
@@ -144,12 +159,28 @@ class _VideoPostState extends State<VideoPost>
                   ),
                 ),
                 Gaps.v10,
-                Text(
-                  "This is my house in Thailand!!!",
-                  style: TextStyle(
-                    fontSize: Sizes.size16,
-                    color: Colors.white,
-                  ),
+                Row(
+                  children: [
+                    Text(
+                      _isSeeMore ? _caption : _checkCaptionLength(),
+                      style: const TextStyle(
+                        fontSize: Sizes.size16,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Gaps.h10,
+                    GestureDetector(
+                      onTap: _onSeeMoreTap,
+                      child: Text(
+                        _isSeeMore ? "Close" : "See More",
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: Sizes.size16,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
