@@ -31,6 +31,10 @@ class _VideoPostState extends State<VideoPost>
   bool _isPaused = false;
   bool _isSeeMore = false;
 
+  int _maxLines = 1;
+
+  String _seeMoreText = "See more";
+
   final String _caption =
       "It's only after we've lost everything that we're free to do anything - Fight Club, Tyler Durben";
 
@@ -92,13 +96,16 @@ class _VideoPostState extends State<VideoPost>
   }
 
   void _onSeeMoreTap() {
+    if (!_isSeeMore) {
+      _seeMoreText = "See more";
+      _maxLines = 1;
+    } else {
+      _seeMoreText = "See less";
+      _maxLines = 5;
+    }
     setState(() {
       _isSeeMore = !_isSeeMore;
     });
-  }
-
-  String _checkCaptionLength() {
-    return _caption.length > 20 ? "${_caption.substring(0, 20)} ..." : _caption;
   }
 
   @override
@@ -159,20 +166,26 @@ class _VideoPostState extends State<VideoPost>
                   ),
                 ),
                 Gaps.v10,
-                Row(
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      _isSeeMore ? _caption : _checkCaptionLength(),
-                      style: const TextStyle(
-                        fontSize: Sizes.size16,
-                        color: Colors.white,
+                    SizedBox(
+                      width: 350,
+                      child: Text(
+                        _caption,
+                        style: const TextStyle(
+                          fontSize: Sizes.size16,
+                          color: Colors.white,
+                        ),
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: _maxLines,
                       ),
                     ),
-                    Gaps.h10,
+                    Gaps.v10,
                     GestureDetector(
                       onTap: _onSeeMoreTap,
                       child: Text(
-                        _isSeeMore ? "Close" : "See More",
+                        _seeMoreText,
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: Sizes.size16,
