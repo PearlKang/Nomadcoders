@@ -68,7 +68,8 @@ class _VideoCommentsState extends State<VideoComments> {
                     ),
                     Gaps.v3,
                     const Text(
-                        "That's not it l've seen the same thing but also in a cave"),
+                      "That's not it l've seen the same thing but also in a cave",
+                    ),
                   ],
                 ),
               ),
