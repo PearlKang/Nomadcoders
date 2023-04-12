@@ -104,11 +104,9 @@ class _VideoCommentsState extends State<VideoComments> {
               child: BottomAppBar(
                 color: Colors.white,
                 child: Padding(
-                  padding: const EdgeInsets.only(
-                    left: Sizes.size16,
-                    right: Sizes.size16,
-                    bottom: Sizes.size10,
-                    top: Sizes.size5,
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: Sizes.size16,
+                    vertical: Sizes.size10,
                   ),
                   child: Row(
                     children: [
@@ -119,8 +117,25 @@ class _VideoCommentsState extends State<VideoComments> {
                         child: const Text("Ben"),
                       ),
                       Gaps.h10,
-                      const Expanded(
-                        child: TextField(),
+                      Expanded(
+                        child: TextField(
+                          cursorColor: Theme.of(context).primaryColor,
+                          decoration: InputDecoration(
+                            hintText: "Write a comment...",
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(
+                                Sizes.size12,
+                              ),
+                              borderSide: BorderSide.none,
+                            ),
+                            filled: true,
+                            fillColor: Colors.grey.shade200,
+                            contentPadding: const EdgeInsets.symmetric(
+                              vertical: Sizes.size12,
+                              horizontal: Sizes.size10,
+                            ),
+                          ),
+                        ),
                       ),
                     ],
                   ),
