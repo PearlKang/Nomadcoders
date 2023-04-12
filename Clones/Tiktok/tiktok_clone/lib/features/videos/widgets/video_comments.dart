@@ -102,7 +102,11 @@ class _VideoCommentsState extends State<VideoComments> {
                 backgroundColor: Colors.grey.shade500,
                 foregroundColor: Colors.white,
                 child: const Text("Ben"),
-              )
+              ),
+              Gaps.h10,
+              const Expanded(
+                child: TextField(),
+              ),
             ],
           ),
         ),
