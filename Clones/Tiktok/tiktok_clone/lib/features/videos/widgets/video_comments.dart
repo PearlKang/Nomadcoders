@@ -20,7 +20,7 @@ class _VideoCommentsState extends State<VideoComments> {
     final size = MediaQuery.of(context).size;
 
     return Container(
-      height: size.height * 0.7,
+      height: size.height * 0.75,
       clipBehavior: Clip.hardEdge,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(
@@ -103,19 +103,27 @@ class _VideoCommentsState extends State<VideoComments> {
               width: size.width,
               child: BottomAppBar(
                 color: Colors.white,
-                child: Row(
-                  children: [
-                    CircleAvatar(
-                      radius: 18,
-                      backgroundColor: Colors.grey.shade500,
-                      foregroundColor: Colors.white,
-                      child: const Text("Ben"),
-                    ),
-                    Gaps.h10,
-                    const Expanded(
-                      child: TextField(),
-                    ),
-                  ],
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    left: Sizes.size16,
+                    right: Sizes.size16,
+                    bottom: Sizes.size10,
+                    top: Sizes.size5,
+                  ),
+                  child: Row(
+                    children: [
+                      CircleAvatar(
+                        radius: 18,
+                        backgroundColor: Colors.grey.shade500,
+                        foregroundColor: Colors.white,
+                        child: const Text("Ben"),
+                      ),
+                      Gaps.h10,
+                      const Expanded(
+                        child: TextField(),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
