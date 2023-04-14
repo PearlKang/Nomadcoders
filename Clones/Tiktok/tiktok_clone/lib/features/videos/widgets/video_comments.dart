@@ -118,21 +118,27 @@ class _VideoCommentsState extends State<VideoComments> {
                       ),
                       Gaps.h10,
                       Expanded(
-                        child: TextField(
-                          cursorColor: Theme.of(context).primaryColor,
-                          decoration: InputDecoration(
-                            hintText: "Write a comment...",
-                            border: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(
-                                Sizes.size12,
+                        child: SizedBox(
+                          height: Sizes.size44,
+                          child: TextField(
+                            expands: true,
+                            minLines: null,
+                            maxLines: null,
+                            textInputAction: TextInputAction.newline,
+                            cursorColor: Theme.of(context).primaryColor,
+                            decoration: InputDecoration(
+                              hintText: "Write a comment...",
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(
+                                  Sizes.size12,
+                                ),
+                                borderSide: BorderSide.none,
                               ),
-                              borderSide: BorderSide.none,
-                            ),
-                            filled: true,
-                            fillColor: Colors.grey.shade200,
-                            contentPadding: const EdgeInsets.symmetric(
-                              vertical: Sizes.size12,
-                              horizontal: Sizes.size10,
+                              filled: true,
+                              fillColor: Colors.grey.shade200,
+                              contentPadding: const EdgeInsets.symmetric(
+                                horizontal: Sizes.size10,
+                              ),
                             ),
                           ),
                         ),
