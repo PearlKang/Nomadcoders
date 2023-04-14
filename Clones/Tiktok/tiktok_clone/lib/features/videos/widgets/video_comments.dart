@@ -15,13 +15,13 @@ class _VideoCommentsState extends State<VideoComments> {
     Navigator.of(context).pop();
   }
 
+  void _onBodyTap() {
+    FocusScope.of(context).unfocus();
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
-    void _onBodyTap() {
-      FocusScope.of(context).unfocus();
-    }
 
     return Container(
       height: size.height * 0.75,
