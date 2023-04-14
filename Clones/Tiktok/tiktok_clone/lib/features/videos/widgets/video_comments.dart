@@ -11,12 +11,23 @@ class VideoComments extends StatefulWidget {
 }
 
 class _VideoCommentsState extends State<VideoComments> {
+  bool _isWriting = false;
+
   void _onClosedPressed() {
     Navigator.of(context).pop();
   }
 
-  void _onBodyTap() {
+  void _stopWriting() {
     FocusScope.of(context).unfocus();
+    setState(() {
+      _isWriting = false;
+    });
+  }
+
+  void _onStartWriting() {
+    setState(() {
+      _isWriting = true;
+    });
   }
 
   @override
@@ -47,7 +58,7 @@ class _VideoCommentsState extends State<VideoComments> {
           ],
         ),
         body: GestureDetector(
-          onTap: _onBodyTap,
+          onTap: _stopWriting,
           child: Stack(
             children: [
               ListView.separated(
@@ -127,6 +138,7 @@ class _VideoCommentsState extends State<VideoComments> {
                           child: SizedBox(
                             height: Sizes.size44,
                             child: TextField(
+                              onTap: _onStartWriting,
                               expands: true,
                               minLines: null,
                               maxLines: null,
@@ -144,6 +156,40 @@ class _VideoCommentsState extends State<VideoComments> {
                                 fillColor: Colors.grey.shade200,
                                 contentPadding: const EdgeInsets.symmetric(
                                   horizontal: Sizes.size10,
+                                ),
+                                suffixIcon: Padding(
+                                  padding: const EdgeInsets.only(
+                                    right: Sizes.size14,
+                                  ),
+                                  child: Row(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      FaIcon(
+                                        FontAwesomeIcons.at,
+                                        color: Colors.grey.shade900,
+                                      ),
+                                      Gaps.h14,
+                                      FaIcon(
+                                        FontAwesomeIcons.gift,
+                                        color: Colors.grey.shade900,
+                                      ),
+                                      Gaps.h14,
+                                      FaIcon(
+                                        FontAwesomeIcons.faceSmile,
+                                        color: Colors.grey.shade900,
+                                      ),
+                                      if (_isWriting) Gaps.h14,
+                                      if (_isWriting)
+                                        GestureDetector(
+                                          onTap: _stopWriting,
+                                          child: FaIcon(
+                                            FontAwesomeIcons.circleArrowUp,
+                                            color:
+                                                Theme.of(context).primaryColor,
+                                          ),
+                                        ),
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
