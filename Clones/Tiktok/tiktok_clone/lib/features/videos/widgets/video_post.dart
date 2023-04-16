@@ -104,6 +104,7 @@ class _VideoPostState extends State<VideoPost>
 
   void _onTogglePause() {
     if (!mounted) return;
+
     if (_videoPlayerController.value.isPlaying) {
       _videoPlayerController.pause();
       _animationController.reverse();
