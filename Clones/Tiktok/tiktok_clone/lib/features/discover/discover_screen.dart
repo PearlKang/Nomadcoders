@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tiktok_clone/constants/sizes.dart';
 
 final tabs = [
   "Top",
@@ -21,8 +22,14 @@ class DiscoverScreen extends StatelessWidget {
         appBar: AppBar(
           title: const Text("Discover"),
           bottom: TabBar(
+            splashFactory: NoSplash.splashFactory,
+            padding: const EdgeInsets.symmetric(
+              horizontal: Sizes.size16,
+            ),
+            isScrollable: true,
             labelStyle: const TextStyle(
               fontWeight: FontWeight.w600,
+              fontSize: Sizes.size16,
             ),
             indicatorColor: Colors.black,
             labelColor: Colors.black,
