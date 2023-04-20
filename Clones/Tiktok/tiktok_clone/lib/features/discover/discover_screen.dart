@@ -20,6 +20,7 @@ class DiscoverScreen extends StatelessWidget {
       length: tabs.length,
       child: Scaffold(
         appBar: AppBar(
+          elevation: 1,
           title: const Text("Discover"),
           bottom: TabBar(
             splashFactory: NoSplash.splashFactory,
@@ -41,6 +42,19 @@ class DiscoverScreen extends StatelessWidget {
                 ),
             ],
           ),
+        ),
+        body: TabBarView(
+          children: [
+            for (var tab in tabs)
+              Center(
+                child: Text(
+                  tab,
+                  style: const TextStyle(
+                    fontSize: 28,
+                  ),
+                ),
+              ),
+          ],
         ),
       ),
     );
