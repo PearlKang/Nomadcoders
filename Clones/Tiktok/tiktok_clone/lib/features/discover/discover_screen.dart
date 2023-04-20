@@ -45,7 +45,8 @@ class DiscoverScreen extends StatelessWidget {
         ),
         body: TabBarView(
           children: [
-            for (var tab in tabs)
+            Container(),
+            for (var tab in tabs.skip(1))
               Center(
                 child: Text(
                   tab,
