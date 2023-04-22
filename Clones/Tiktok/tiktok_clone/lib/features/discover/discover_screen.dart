@@ -57,7 +57,13 @@ class DiscoverScreen extends StatelessWidget {
                 childAspectRatio: 9 / 16,
               ),
               itemBuilder: (context, index) =>
-                  Image.asset("assets/images/iu.jpg"),
+                  // Image.asset("assets/images/iu.jpg"),
+                  // Image.network("https://images.unsplash.com/photo-1673844969019-c99b0c933e90?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"),
+                  FadeInImage.assetNetwork(
+                placeholder: "assets/images/iu.jpg",
+                image:
+                    "https://images.unsplash.com/photo-1673844969019-c99b0c933e90?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80",
+              ),
             ),
             for (var tab in tabs.skip(1))
               Center(
