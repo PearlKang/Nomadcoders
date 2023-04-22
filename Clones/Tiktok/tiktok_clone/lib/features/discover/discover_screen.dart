@@ -56,12 +56,8 @@ class DiscoverScreen extends StatelessWidget {
                 mainAxisSpacing: Sizes.size10,
                 childAspectRatio: 9 / 16,
               ),
-              itemBuilder: (context, index) => Container(
-                color: Colors.teal,
-                child: Center(
-                  child: Text("$index"),
-                ),
-              ),
+              itemBuilder: (context, index) =>
+                  Image.asset("assets/images/iu.jpg"),
             ),
             for (var tab in tabs.skip(1))
               Center(
