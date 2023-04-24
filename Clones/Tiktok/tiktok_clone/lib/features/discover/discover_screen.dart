@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
@@ -23,7 +24,7 @@ class DiscoverScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           elevation: 1,
-          title: const Text("Discover"),
+          title: const CupertinoSearchTextField(),
           bottom: TabBar(
             splashFactory: NoSplash.splashFactory,
             padding: const EdgeInsets.symmetric(
