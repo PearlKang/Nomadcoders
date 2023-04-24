@@ -17,6 +17,14 @@ final tabs = [
 class DiscoverScreen extends StatelessWidget {
   const DiscoverScreen({super.key});
 
+  void _onSearchChanged(String value) {
+    print("Searching form $value");
+  }
+
+  void _onSearchSubmitted(String value) {
+    print("Submitted $value");
+  }
+
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -24,7 +32,10 @@ class DiscoverScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           elevation: 1,
-          title: const CupertinoSearchTextField(),
+          title: CupertinoSearchTextField(
+            onChanged: _onSearchChanged,
+            onSubmitted: _onSearchSubmitted,
+          ),
           bottom: TabBar(
             splashFactory: NoSplash.splashFactory,
             padding: const EdgeInsets.symmetric(
