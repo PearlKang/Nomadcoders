@@ -45,6 +45,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
     return DefaultTabController(
       length: tabs.length,
       child: Scaffold(
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           elevation: 1,
           title: CupertinoSearchTextField(
@@ -76,6 +77,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
         body: TabBarView(
           children: [
             GridView.builder(
+              keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
               itemCount: 20,
               padding: const EdgeInsets.all(
                 Sizes.size6,
