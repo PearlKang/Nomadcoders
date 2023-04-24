@@ -34,6 +34,10 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
     print("Submitted $value");
   }
 
+  void _onTapChanged() {
+    FocusScope.of(context).unfocus();
+  }
+
   @override
   void dispose() {
     _textEditingController.dispose();
@@ -54,7 +58,7 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
             onSubmitted: _onSearchSubmitted,
           ),
           bottom: TabBar(
-            onTap: (value) => FocusScope.of(context).unfocus(),
+            onTap: (value) => _onTapChanged(),
             splashFactory: NoSplash.splashFactory,
             padding: const EdgeInsets.symmetric(
               horizontal: Sizes.size16,
