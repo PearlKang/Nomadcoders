@@ -16,7 +16,9 @@ class InboxScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: _onDmPressed,
-            icon: const FaIcon(FontAwesomeIcons.paperPlane),
+            icon: const FaIcon(
+              FontAwesomeIcons.paperPlane,
+            ),
           ),
         ],
       ),
