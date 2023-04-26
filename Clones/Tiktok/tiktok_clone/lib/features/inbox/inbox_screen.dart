@@ -24,15 +24,16 @@ class InboxScreen extends StatelessWidget {
       ),
       body: ListView(
         children: [
-          const ListTile(
-            title: Text(
+          ListTile(
+            onTap: () {},
+            title: const Text(
               "Activity",
               style: TextStyle(
                 fontWeight: FontWeight.w600,
                 fontSize: Sizes.size16,
               ),
             ),
-            trailing: FaIcon(
+            trailing: const FaIcon(
               FontAwesomeIcons.chevronRight,
               size: Sizes.size14,
               color: Colors.black,
