@@ -61,7 +61,7 @@ class ActivityScreen extends StatelessWidget {
                     ),
                   ),
                   TextSpan(
-                    text: " 1h",
+                    text: " 1 h",
                     style: TextStyle(
                       fontWeight: FontWeight.normal,
                       color: Colors.grey.shade500,
