@@ -13,28 +13,49 @@ class ActivityScreen extends StatelessWidget {
         title: const Text("All activity"),
       ),
       body: ListView(
-        padding: const EdgeInsets.symmetric(
-          horizontal: 0,
-        ),
         children: [
           Gaps.v14,
-          Text(
-            "New",
-            style: TextStyle(
-              fontSize: Sizes.size14,
-              color: Colors.grey.shade500,
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: Sizes.size12,
+            ),
+            child: Text(
+              "New",
+              style: TextStyle(
+                fontSize: Sizes.size14,
+                color: Colors.grey.shade500,
+              ),
             ),
           ),
           Gaps.v14,
           Dismissible(
             key: const Key("X"),
             background: Container(
+              alignment: Alignment.centerLeft,
               color: Colors.green,
               child: const Padding(
                 padding: EdgeInsets.only(
                   left: Sizes.size10,
                 ),
-                child: FaIcon(FontAwesomeIcons.checkDouble),
+                child: FaIcon(
+                  FontAwesomeIcons.checkDouble,
+                  color: Colors.white,
+                  size: Sizes.size32,
+                ),
+              ),
+            ),
+            secondaryBackground: Container(
+              alignment: Alignment.centerRight,
+              color: Colors.red,
+              child: const Padding(
+                padding: EdgeInsets.only(
+                  right: Sizes.size10,
+                ),
+                child: FaIcon(
+                  FontAwesomeIcons.trashCan,
+                  color: Colors.white,
+                  size: Sizes.size32,
+                ),
               ),
             ),
             child: ListTile(
