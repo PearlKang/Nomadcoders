@@ -14,7 +14,7 @@ class ActivityScreen extends StatelessWidget {
       ),
       body: ListView(
         padding: const EdgeInsets.symmetric(
-          horizontal: Sizes.size20,
+          horizontal: 0,
         ),
         children: [
           Gaps.v14,
@@ -26,53 +26,64 @@ class ActivityScreen extends StatelessWidget {
             ),
           ),
           Gaps.v14,
-          ListTile(
-            contentPadding: EdgeInsets.zero,
-            leading: Container(
-              width: Sizes.size52,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                color: Colors.white,
-                border: Border.all(
-                  color: Colors.grey.shade400,
-                  width: Sizes.size1,
+          Dismissible(
+            key: const Key("X"),
+            background: Container(
+              color: Colors.green,
+              child: const Padding(
+                padding: EdgeInsets.only(
+                  left: Sizes.size10,
                 ),
-              ),
-              child: const Center(
-                child: FaIcon(
-                  FontAwesomeIcons.bell,
-                  color: Colors.black,
-                ),
+                child: FaIcon(FontAwesomeIcons.checkDouble),
               ),
             ),
-            title: RichText(
-              text: TextSpan(
-                text: "Account updates:",
-                style: const TextStyle(
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black,
-                  fontSize: Sizes.size16,
+            child: ListTile(
+              leading: Container(
+                width: Sizes.size52,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  color: Colors.white,
+                  border: Border.all(
+                    color: Colors.grey.shade400,
+                    width: Sizes.size1,
+                  ),
                 ),
-                children: [
-                  const TextSpan(
-                    text: " Upload longer videos",
-                    style: TextStyle(
-                      fontWeight: FontWeight.normal,
-                    ),
+                child: const Center(
+                  child: FaIcon(
+                    FontAwesomeIcons.bell,
+                    color: Colors.black,
                   ),
-                  TextSpan(
-                    text: " 1 h",
-                    style: TextStyle(
-                      fontWeight: FontWeight.normal,
-                      color: Colors.grey.shade500,
-                    ),
-                  ),
-                ],
+                ),
               ),
-            ),
-            trailing: const FaIcon(
-              FontAwesomeIcons.chevronRight,
-              size: Sizes.size16,
+              title: RichText(
+                text: TextSpan(
+                  text: "Account updates:",
+                  style: const TextStyle(
+                    fontWeight: FontWeight.w600,
+                    color: Colors.black,
+                    fontSize: Sizes.size16,
+                  ),
+                  children: [
+                    const TextSpan(
+                      text: " Upload longer videos",
+                      style: TextStyle(
+                        fontWeight: FontWeight.normal,
+                      ),
+                    ),
+                    TextSpan(
+                      text: " 1 h",
+                      style: TextStyle(
+                        fontWeight: FontWeight.normal,
+                        color: Colors.grey.shade500,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              trailing: const FaIcon(
+                FontAwesomeIcons.chevronRight,
+                size: Sizes.size16,
+              ),
             ),
           ),
         ],
