@@ -16,6 +16,11 @@ class _ActivityScreenState extends State<ActivityScreen> {
     (index) => "${index}h",
   );
 
+  void _onDismissed(String notification) {
+    _notifications.remove(notification);
+    setState(() {});
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,6 +46,7 @@ class _ActivityScreenState extends State<ActivityScreen> {
           for (var notification in _notifications)
             Dismissible(
               key: Key(notification),
+              onDismissed: (direction) => _onDismissed(notification),
               background: Container(
                 alignment: Alignment.centerLeft,
                 color: Colors.green,
@@ -70,6 +76,7 @@ class _ActivityScreenState extends State<ActivityScreen> {
                 ),
               ),
               child: ListTile(
+                minVerticalPadding: Sizes.size16,
                 leading: Container(
                   width: Sizes.size52,
                   decoration: BoxDecoration(
