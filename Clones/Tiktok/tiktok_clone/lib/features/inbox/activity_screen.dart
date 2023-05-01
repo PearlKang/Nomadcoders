@@ -13,7 +13,7 @@ class ActivityScreen extends StatefulWidget {
 class _ActivityScreenState extends State<ActivityScreen> {
   final List<String> _notifications = List.generate(
     20,
-    (index) => "${index}h",
+    (index) => "$index h",
   );
 
   void _onDismissed(String notification) {
