@@ -10,11 +10,20 @@ class ActivityScreen extends StatefulWidget {
   State<ActivityScreen> createState() => _ActivityScreenState();
 }
 
-class _ActivityScreenState extends State<ActivityScreen> {
+class _ActivityScreenState extends State<ActivityScreen>
+    with SingleTickerProviderStateMixin {
   final List<String> _notifications = List.generate(
     20,
     (index) => "$index h",
   );
+
+  late final AnimationController _animationController;
+
+  @override
+  void initState() {
+    super.initState();
+    _animationController = AnimationController(vsync: this);
+  }
 
   void _onDismissed(String notification) {
     _notifications.remove(notification);
