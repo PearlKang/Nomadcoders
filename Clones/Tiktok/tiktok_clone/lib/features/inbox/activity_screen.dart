@@ -17,13 +17,8 @@ class _ActivityScreenState extends State<ActivityScreen>
     (index) => "$index h",
   );
 
-  late final AnimationController _animationController;
-
-  @override
-  void initState() {
-    super.initState();
-    _animationController = AnimationController(vsync: this);
-  }
+  late final AnimationController _animationController =
+      AnimationController(vsync: this);
 
   void _onDismissed(String notification) {
     _notifications.remove(notification);
