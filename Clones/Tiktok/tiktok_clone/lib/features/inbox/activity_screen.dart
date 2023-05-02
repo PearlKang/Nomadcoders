@@ -17,28 +17,47 @@ class _ActivityScreenState extends State<ActivityScreen>
     (index) => "$index h",
   );
 
-  late final AnimationController _animationController =
-      AnimationController(vsync: this);
+  late final AnimationController _animationController = AnimationController(
+    vsync: this,
+    duration: const Duration(
+      milliseconds: 300,
+    ),
+  );
+
+  late final Animation<double> _animation = Tween(
+    begin: 0.0,
+    end: 1.0,
+  ).animate(_animationController);
 
   void _onDismissed(String notification) {
     _notifications.remove(notification);
     setState(() {});
   }
 
+  void _onTitleTap() {
+    _animationController.forward();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Text("All activity"),
-            Gaps.h2,
-            FaIcon(
-              FontAwesomeIcons.chevronDown,
-              size: Sizes.size14,
-            ),
-          ],
+        title: GestureDetector(
+          onTap: _onTitleTap,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Text("All activity"),
+              Gaps.h2,
+              RotationTransition(
+                turns: _animation,
+                child: const FaIcon(
+                  FontAwesomeIcons.chevronDown,
+                  size: Sizes.size14,
+                ),
+              ),
+            ],
+          ),
         ),
       ),
       body: ListView(
