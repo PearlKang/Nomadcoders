@@ -20,13 +20,13 @@ class _ActivityScreenState extends State<ActivityScreen>
   late final AnimationController _animationController = AnimationController(
     vsync: this,
     duration: const Duration(
-      milliseconds: 300,
+      milliseconds: 200,
     ),
   );
 
   late final Animation<double> _animation = Tween(
     begin: 0.0,
-    end: 1.0,
+    end: 0.5,
   ).animate(_animationController);
 
   void _onDismissed(String notification) {
@@ -35,7 +35,11 @@ class _ActivityScreenState extends State<ActivityScreen>
   }
 
   void _onTitleTap() {
-    _animationController.forward();
+    if (_animationController.isCompleted) {
+      _animationController.reverse();
+    } else {
+      _animationController.forward();
+    }
   }
 
   @override
