@@ -170,18 +170,33 @@ class _ActivityScreenState extends State<ActivityScreen>
             decoration: const BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(Sizes.size4),
-                bottomRight: Radius.circular(Sizes.size4),
+                bottomLeft: Radius.circular(
+                  Sizes.size5,
+                ),
+                bottomRight: Radius.circular(
+                  Sizes.size5,
+                ),
               ),
             ),
             child: Column(
-              children: const [
+              mainAxisSize: MainAxisSize.min,
+              children: [
                 ListTile(
-                  title: Text(
-                    "Followers",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                    ),
+                  title: Row(
+                    children: const [
+                      FaIcon(
+                        FontAwesomeIcons.user,
+                        color: Colors.black,
+                        size: Sizes.size16,
+                      ),
+                      Gaps.h20,
+                      Text(
+                        "Followers",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
