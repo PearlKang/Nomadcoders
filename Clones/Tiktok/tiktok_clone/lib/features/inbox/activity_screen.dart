@@ -51,9 +51,14 @@ class _ActivityScreenState extends State<ActivityScreen>
     ),
   );
 
-  late final Animation<double> _animation = Tween(
+  late final Animation<double> _arrowAnimation = Tween(
     begin: 0.0,
     end: 0.5,
+  ).animate(_animationController);
+
+  late final Animation<Offset> _panelAnimation = Tween(
+    begin: const Offset(0, -0.5),
+    end: const Offset(0.5, 0.5),
   ).animate(_animationController);
 
   void _onDismissed(String notification) {
@@ -81,7 +86,7 @@ class _ActivityScreenState extends State<ActivityScreen>
               const Text("All activity"),
               Gaps.h2,
               RotationTransition(
-                turns: _animation,
+                turns: _arrowAnimation,
                 child: const FaIcon(
                   FontAwesomeIcons.chevronDown,
                   size: Sizes.size14,
@@ -193,40 +198,44 @@ class _ActivityScreenState extends State<ActivityScreen>
                 ),
             ],
           ),
-          Container(
-            decoration: const BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.only(
-                bottomLeft: Radius.circular(
-                  Sizes.size5,
-                ),
-                bottomRight: Radius.circular(
-                  Sizes.size5,
-                ),
-              ),
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                ListTile(
-                  title: Row(
-                    children: const [
-                      FaIcon(
-                        FontAwesomeIcons.user,
-                        color: Colors.black,
-                        size: Sizes.size16,
-                      ),
-                      Gaps.h20,
-                      Text(
-                        "Followers",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ],
+          SlideTransition(
+            position: _panelAnimation,
+            child: Container(
+              decoration: const BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.only(
+                  bottomLeft: Radius.circular(
+                    Sizes.size5,
+                  ),
+                  bottomRight: Radius.circular(
+                    Sizes.size5,
                   ),
                 ),
-              ],
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  for (var tab in _tabs)
+                    ListTile(
+                      title: Row(
+                        children: [
+                          FaIcon(
+                            tab["icon"],
+                            color: Colors.black,
+                            size: Sizes.size16,
+                          ),
+                          Gaps.h20,
+                          Text(
+                            tab["title"],
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                ],
+              ),
             ),
           ),
         ],
