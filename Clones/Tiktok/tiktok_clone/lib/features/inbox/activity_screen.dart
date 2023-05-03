@@ -166,6 +166,27 @@ class _ActivityScreenState extends State<ActivityScreen>
                 ),
             ],
           ),
+          Container(
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(Sizes.size4),
+                bottomRight: Radius.circular(Sizes.size4),
+              ),
+            ),
+            child: Column(
+              children: const [
+                ListTile(
+                  title: Text(
+                    "Followers",
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );
