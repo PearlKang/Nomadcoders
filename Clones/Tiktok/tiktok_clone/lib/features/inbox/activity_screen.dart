@@ -58,7 +58,7 @@ class _ActivityScreenState extends State<ActivityScreen>
 
   late final Animation<Offset> _panelAnimation = Tween(
     begin: const Offset(0, -1),
-    end: const Offset(0, 0),
+    end: Offset.zero,
   ).animate(_animationController);
 
   void _onDismissed(String notification) {
