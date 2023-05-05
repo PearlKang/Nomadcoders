@@ -61,6 +61,11 @@ class _ActivityScreenState extends State<ActivityScreen>
     end: Offset.zero,
   ).animate(_animationController);
 
+  late final Animation<Color?> _barrierAnimation = ColorTween(
+    begin: Colors.teal,
+    end: Colors.pink,
+  ).animate(_animationController);
+
   void _onDismissed(String notification) {
     _notifications.remove(notification);
     setState(() {});
@@ -237,6 +242,9 @@ class _ActivityScreenState extends State<ActivityScreen>
                 ],
               ),
             ),
+          ),
+          AnimatedModalBarrier(
+            color: _barrierAnimation,
           ),
         ],
       ),
