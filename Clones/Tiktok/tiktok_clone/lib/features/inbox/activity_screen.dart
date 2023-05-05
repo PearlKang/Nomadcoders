@@ -62,8 +62,8 @@ class _ActivityScreenState extends State<ActivityScreen>
   ).animate(_animationController);
 
   late final Animation<Color?> _barrierAnimation = ColorTween(
-    begin: Colors.teal,
-    end: Colors.pink,
+    begin: Colors.transparent,
+    end: Colors.black38,
   ).animate(_animationController);
 
   void _onDismissed(String notification) {
@@ -203,6 +203,9 @@ class _ActivityScreenState extends State<ActivityScreen>
                 ),
             ],
           ),
+          AnimatedModalBarrier(
+            color: _barrierAnimation,
+          ),
           SlideTransition(
             position: _panelAnimation,
             child: Container(
@@ -242,9 +245,6 @@ class _ActivityScreenState extends State<ActivityScreen>
                 ],
               ),
             ),
-          ),
-          AnimatedModalBarrier(
-            color: _barrierAnimation,
           ),
         ],
       ),
