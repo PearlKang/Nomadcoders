@@ -73,6 +73,12 @@ class _ActivityScreenState extends State<ActivityScreen>
     setState(() {});
   }
 
+  @override
+  void dispose() {
+    _animationController.dispose();
+    super.dispose();
+  }
+
   void _toggleAnimations() async {
     if (_animationController.isCompleted) {
       await _animationController.reverse();
