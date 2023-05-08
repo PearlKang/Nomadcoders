@@ -14,7 +14,7 @@ class _ActivityScreenState extends State<ActivityScreen>
     with SingleTickerProviderStateMixin {
   final List<String> _notifications = List.generate(
     20,
-    (index) => "${index}h",
+    (index) => "$index h",
   );
 
   final List<Map<String, dynamic>> _tabs = [
@@ -48,9 +48,7 @@ class _ActivityScreenState extends State<ActivityScreen>
 
   late final AnimationController _animationController = AnimationController(
     vsync: this,
-    duration: const Duration(
-      milliseconds: 400,
-    ),
+    duration: const Duration(milliseconds: 400),
   );
 
   late final Animation<double> _arrowAnimation = Tween(
