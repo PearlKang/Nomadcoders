@@ -14,7 +14,7 @@ class _ActivityScreenState extends State<ActivityScreen>
     with SingleTickerProviderStateMixin {
   final List<String> _notifications = List.generate(
     20,
-    (index) => "{$index} h",
+    (index) => "{$index}h",
   );
 
   final List<Map<String, dynamic>> _tabs = [
