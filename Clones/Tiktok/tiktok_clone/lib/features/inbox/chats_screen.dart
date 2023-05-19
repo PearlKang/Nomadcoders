@@ -57,7 +57,9 @@ class _ChatsScreenState extends State<ChatsScreen> {
                 ),
               ],
             ),
-            subtitle: const Text("Don't forget to make video"),
+            subtitle: const Text(
+              "Don't forget to make video",
+            ),
           ),
         ],
       ),
