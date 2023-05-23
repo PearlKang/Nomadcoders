@@ -39,35 +39,41 @@ class _ChatsScreenState extends State<ChatsScreen> {
           vertical: Sizes.size10,
         ),
         itemBuilder: (context, index, animation) {
-          return ListTile(
+          return FadeTransition(
             key: UniqueKey(),
-            leading: const CircleAvatar(
-              radius: 30,
-              foregroundImage: NetworkImage(
-                "https://avatars.githubusercontent.com/u/41991469",
+            opacity: animation,
+            child: SizeTransition(
+              sizeFactor: animation,
+              child: ListTile(
+                leading: const CircleAvatar(
+                  radius: 30,
+                  foregroundImage: NetworkImage(
+                    "https://avatars.githubusercontent.com/u/41991469",
+                  ),
+                  child: Text("Ben"),
+                ),
+                title: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    Text(
+                      "bennn ($index)",
+                      style: const TextStyle(
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                    Text(
+                      "2:16 PM",
+                      style: TextStyle(
+                        color: Colors.grey.shade500,
+                        fontSize: Sizes.size12,
+                      ),
+                    ),
+                  ],
+                ),
+                subtitle: const Text("Don't forget to make video"),
               ),
-              child: Text("Ben"),
             ),
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Text(
-                  "bennn ($index)",
-                  style: const TextStyle(
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                Text(
-                  "2:16 PM",
-                  style: TextStyle(
-                    color: Colors.grey.shade500,
-                    fontSize: Sizes.size12,
-                  ),
-                ),
-              ],
-            ),
-            subtitle: const Text("Don't forget to make video"),
           );
         },
       ),
