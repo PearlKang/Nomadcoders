@@ -12,6 +12,12 @@ class ChatsScreen extends StatefulWidget {
 class _ChatsScreenState extends State<ChatsScreen> {
   final GlobalKey<AnimatedListState> _key = GlobalKey<AnimatedListState>();
 
+  void _addItem() {
+    if (_key.currentState != null) {
+      _key.currentState!.insertItem(0);
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -20,7 +26,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
         title: const Text("Direct messages"),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: _addItem,
             icon: const FaIcon(
               FontAwesomeIcons.plus,
             ),
@@ -47,7 +53,7 @@ class _ChatsScreenState extends State<ChatsScreen> {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  "bennn $index",
+                  "bennn ($index)",
                   style: const TextStyle(
                     fontWeight: FontWeight.w600,
                   ),
