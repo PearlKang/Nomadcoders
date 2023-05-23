@@ -12,9 +12,17 @@ class ChatsScreen extends StatefulWidget {
 class _ChatsScreenState extends State<ChatsScreen> {
   final GlobalKey<AnimatedListState> _key = GlobalKey<AnimatedListState>();
 
+  final List<int> _items = [];
+
   void _addItem() {
     if (_key.currentState != null) {
-      _key.currentState!.insertItem(0);
+      _key.currentState!.insertItem(
+        _items.length,
+        duration: const Duration(
+          milliseconds: 500,
+        ),
+      );
+      _items.add(_items.length);
     }
   }
 
@@ -42,36 +50,39 @@ class _ChatsScreenState extends State<ChatsScreen> {
           return FadeTransition(
             key: UniqueKey(),
             opacity: animation,
-            child: SizeTransition(
-              sizeFactor: animation,
-              child: ListTile(
-                leading: const CircleAvatar(
-                  radius: 30,
-                  foregroundImage: NetworkImage(
-                    "https://avatars.githubusercontent.com/u/41991469",
+            child: ScaleTransition(
+              scale: animation,
+              child: SizeTransition(
+                sizeFactor: animation,
+                child: ListTile(
+                  leading: const CircleAvatar(
+                    radius: 30,
+                    foregroundImage: NetworkImage(
+                      "https://avatars.githubusercontent.com/u/41991469",
+                    ),
+                    child: Text("Ben"),
                   ),
-                  child: Text("Ben"),
-                ),
-                title: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Text(
-                      "bennn ($index)",
-                      style: const TextStyle(
-                        fontWeight: FontWeight.w600,
+                  title: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        "bennn ($index)",
+                        style: const TextStyle(
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
-                    ),
-                    Text(
-                      "2:16 PM",
-                      style: TextStyle(
-                        color: Colors.grey.shade500,
-                        fontSize: Sizes.size12,
+                      Text(
+                        "2:16 PM",
+                        style: TextStyle(
+                          color: Colors.grey.shade500,
+                          fontSize: Sizes.size12,
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
+                  subtitle: const Text("Don't forget to make video"),
                 ),
-                subtitle: const Text("Don't forget to make video"),
               ),
             ),
           );
