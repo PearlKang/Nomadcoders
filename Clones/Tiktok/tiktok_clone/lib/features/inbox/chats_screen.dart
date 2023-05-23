@@ -25,12 +25,12 @@ class _ChatsScreenState extends State<ChatsScreen> {
           ),
         ],
       ),
-      body: ListView(
+      body: AnimatedList(
         padding: const EdgeInsets.symmetric(
           vertical: Sizes.size10,
         ),
-        children: [
-          ListTile(
+        itemBuilder: (context, index, animation) {
+          return ListTile(
             leading: const CircleAvatar(
               radius: 30,
               foregroundImage: NetworkImage(
@@ -42,9 +42,9 @@ class _ChatsScreenState extends State<ChatsScreen> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                const Text(
-                  "bennn",
-                  style: TextStyle(
+                Text(
+                  "bennn $index",
+                  style: const TextStyle(
                     fontWeight: FontWeight.w600,
                   ),
                 ),
@@ -58,8 +58,8 @@ class _ChatsScreenState extends State<ChatsScreen> {
               ],
             ),
             subtitle: const Text("Don't forget to make video"),
-          ),
-        ],
+          );
+        },
       ),
     );
   }
