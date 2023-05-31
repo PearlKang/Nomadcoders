@@ -22,7 +22,6 @@ class _ChatsScreenState extends State<ChatsScreen> {
           milliseconds: 500,
         ),
       );
-
       _items.add(_items.length);
     }
   }
