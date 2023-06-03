@@ -25,6 +25,17 @@ class _ChatsScreenState extends State<ChatsScreen> {
     }
   }
 
+  void _deleteItem(int index) {
+    if (_key.currentState != null) {
+      _key.currentState!.removeItem(
+        index,
+        (context, animation) => const ListTile(
+          title: Text("byebye"),
+        ),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,11 +58,12 @@ class _ChatsScreenState extends State<ChatsScreen> {
         ),
         itemBuilder: (context, index, animation) {
           return FadeTransition(
-            key: UniqueKey(),
+            key: Key('$index'),
             opacity: animation,
             child: SizeTransition(
               sizeFactor: animation,
               child: ListTile(
+                onLongPress: _deleteItem,
                 leading: const CircleAvatar(
                   radius: 30,
                   foregroundImage: NetworkImage(
