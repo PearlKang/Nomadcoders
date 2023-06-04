@@ -16,6 +16,15 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
     return Scaffold(
       appBar: AppBar(
         title: ListTile(
+          contentPadding: EdgeInsets.zero,
+          horizontalTitleGap: Sizes.size8,
+          leading: const CircleAvatar(
+            radius: Sizes.size24,
+            foregroundImage: NetworkImage(
+              "https://avatars.githubusercontent.com/u/41991469?v=4",
+            ),
+            child: Text("BEN"),
+          ),
           title: const Text(
             "Ben",
             style: TextStyle(
@@ -40,6 +49,28 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
             ],
           ),
         ),
+      ),
+      body: Stack(
+        children: [
+          ListView.separated(
+            itemBuilder: (context, index) {
+              final isMine = index % 2 == 0;
+              return Container(
+                decoration: BoxDecoration(
+                  color: isMine ? Colors.blue : Theme.of(context).primaryColor,
+                ),
+                child: const Text(
+                  "This is a message!",
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              );
+            },
+            separatorBuilder: (context, index) => Gaps.v10,
+            itemCount: 10,
+          ),
+        ],
       ),
     );
   }
