@@ -112,9 +112,7 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
                   ),
                   Gaps.h20,
                   Container(
-                    child: const FaIcon(
-                      FontAwesomeIcons.paperPlane,
-                    ),
+                    child: const FaIcon(FontAwesomeIcons.paperPlane),
                   ),
                 ],
               ),
