@@ -56,6 +56,9 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
             itemBuilder: (context, index) {
               final isMine = index % 2 == 0;
               return Container(
+                padding: const EdgeInsets.all(
+                  Sizes.size14,
+                ),
                 decoration: BoxDecoration(
                   color: isMine ? Colors.blue : Theme.of(context).primaryColor,
                 ),
