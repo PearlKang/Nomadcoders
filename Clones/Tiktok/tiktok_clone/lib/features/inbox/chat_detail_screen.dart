@@ -18,12 +18,39 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
         title: ListTile(
           contentPadding: EdgeInsets.zero,
           horizontalTitleGap: Sizes.size8,
-          leading: const CircleAvatar(
-            radius: Sizes.size24,
-            foregroundImage: NetworkImage(
-              "https://avatars.githubusercontent.com/u/41991469?v=4",
-            ),
-            child: Text("BEN"),
+          leading: Stack(
+            children: [
+              const Padding(
+                padding: EdgeInsets.all(
+                  Sizes.size4,
+                ),
+                child: CircleAvatar(
+                  radius: Sizes.size24,
+                  foregroundImage: NetworkImage(
+                    "https://avatars.githubusercontent.com/u/41991469?v=4",
+                  ),
+                  child: Text("BEN"),
+                ),
+              ),
+              Positioned(
+                bottom: 0,
+                right: 0,
+                child: Container(
+                  width: Sizes.size18,
+                  height: Sizes.size18,
+                  decoration: BoxDecoration(
+                    color: Colors.green,
+                    border: Border.all(
+                      color: Colors.white,
+                      width: Sizes.size3,
+                    ),
+                    borderRadius: BorderRadius.circular(
+                      Sizes.size24,
+                    ),
+                  ),
+                ),
+              )
+            ],
           ),
           title: const Text(
             "Ben",
@@ -112,7 +139,9 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
                   ),
                   Gaps.h20,
                   Container(
-                    child: const FaIcon(FontAwesomeIcons.paperPlane),
+                    child: const FaIcon(
+                      FontAwesomeIcons.paperPlane,
+                    ),
                   ),
                 ],
               ),
