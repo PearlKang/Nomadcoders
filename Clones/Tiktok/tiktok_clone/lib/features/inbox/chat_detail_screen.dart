@@ -100,6 +100,26 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
             separatorBuilder: (context, index) => Gaps.v10,
             itemCount: 10,
           ),
+          Positioned(
+            bottom: 0,
+            width: MediaQuery.of(context).size.width,
+            child: BottomAppBar(
+              color: Colors.grey.shade50,
+              child: Row(
+                children: [
+                  const Expanded(
+                    child: TextField(),
+                  ),
+                  Gaps.h20,
+                  Container(
+                    child: const FaIcon(
+                      FontAwesomeIcons.paperPlane,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
     );
