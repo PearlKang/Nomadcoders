@@ -58,8 +58,16 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
               fontWeight: FontWeight.w600,
             ),
           ),
-          subtitle: const Text("Active now"),
-          trailing: Row(
+          subtitle: const Text(
+            "Active now",
+            style: TextStyle(
+              fontSize: Sizes.size12,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
+        ),
+        actions: [
+          Row(
             mainAxisSize: MainAxisSize.min,
             children: const [
               FaIcon(
@@ -73,9 +81,10 @@ class _ChatDetailScreenState extends State<ChatDetailScreen> {
                 color: Colors.black,
                 size: Sizes.size20,
               ),
+              Gaps.h24,
             ],
           ),
-        ),
+        ],
       ),
       body: Stack(
         children: [
