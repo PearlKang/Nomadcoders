@@ -15,15 +15,14 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
         SliverAppBar(
           floating: true,
           stretch: true,
+          pinned: true,
           backgroundColor: Colors.teal,
           elevation: 1,
-          title: const Text("1 hello!"),
           collapsedHeight: 80,
           expandedHeight: 200,
           flexibleSpace: FlexibleSpaceBar(
             stretchModes: const [
               StretchMode.blurBackground,
-              StretchMode.fadeTitle,
               StretchMode.zoomBackground,
             ],
             background: Image.asset(
