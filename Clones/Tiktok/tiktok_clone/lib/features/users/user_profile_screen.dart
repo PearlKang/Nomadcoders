@@ -12,7 +12,9 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   Widget build(BuildContext context) {
     return const CustomScrollView(
       slivers: [
-        SliverAppBar(),
+        SliverAppBar(
+          title: Text("hello!"),
+        ),
       ],
     );
   }
