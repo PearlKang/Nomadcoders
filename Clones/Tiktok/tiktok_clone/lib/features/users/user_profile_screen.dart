@@ -13,6 +13,10 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
     return CustomScrollView(
       slivers: [
         SliverAppBar(
+          snap: true,
+          floating: true,
+          pinned: true,
+          stretch: true,
           backgroundColor: Colors.teal,
           elevation: 1,
           collapsedHeight: 80,
@@ -21,6 +25,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
             stretchModes: const [
               StretchMode.blurBackground,
               StretchMode.zoomBackground,
+              StretchMode.fadeTitle,
             ],
             background: Image.asset(
               "assets/images/iu.jpg",
