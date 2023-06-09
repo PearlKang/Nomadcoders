@@ -48,6 +48,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
         ),
         SliverPersistentHeader(
           delegate: CustomDelegate(),
+          pinned: true,
         ),
         SliverGrid(
           delegate: SliverChildBuilderDelegate(
@@ -93,10 +94,10 @@ class CustomDelegate extends SliverPersistentHeaderDelegate {
   }
 
   @override
-  double get maxExtent => 100;
+  double get maxExtent => 150;
 
   @override
-  double get minExtent => 100;
+  double get minExtent => 80;
 
   @override
   bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
