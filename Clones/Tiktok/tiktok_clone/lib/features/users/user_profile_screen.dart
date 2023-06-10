@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
+import 'package:tiktok_clone/features/users/widgets/user_account.dart';
 
 class UserProfileScreen extends StatefulWidget {
   const UserProfileScreen({super.key});
@@ -11,6 +12,16 @@ class UserProfileScreen extends StatefulWidget {
 }
 
 class _UserProfileScreenState extends State<UserProfileScreen> {
+  VerticalDivider _verticalDivider() {
+    return VerticalDivider(
+      width: Sizes.size32,
+      thickness: Sizes.size1,
+      color: Colors.grey.shade400,
+      indent: Sizes.size14,
+      endIndent: Sizes.size14,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return CustomScrollView(
@@ -62,74 +73,11 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Column(
-                      children: [
-                        const Text(
-                          "97",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: Sizes.size18,
-                          ),
-                        ),
-                        Gaps.v3,
-                        Text(
-                          "Following",
-                          style: TextStyle(
-                            color: Colors.grey.shade500,
-                          ),
-                        ),
-                      ],
-                    ),
-                    VerticalDivider(
-                      width: Sizes.size32,
-                      thickness: Sizes.size1,
-                      color: Colors.grey.shade400,
-                      indent: Sizes.size14,
-                      endIndent: Sizes.size14,
-                    ),
-                    Column(
-                      children: [
-                        const Text(
-                          "10M",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: Sizes.size18,
-                          ),
-                        ),
-                        Gaps.v3,
-                        Text(
-                          "Followers",
-                          style: TextStyle(
-                            color: Colors.grey.shade500,
-                          ),
-                        ),
-                      ],
-                    ),
-                    VerticalDivider(
-                      width: Sizes.size32,
-                      thickness: Sizes.size1,
-                      color: Colors.grey.shade400,
-                      indent: Sizes.size14,
-                      endIndent: Sizes.size14,
-                    ),
-                    Column(
-                      children: [
-                        const Text(
-                          "194.3M",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: Sizes.size18,
-                          ),
-                        ),
-                        Gaps.v3,
-                        Text(
-                          "Likes",
-                          style: TextStyle(
-                            color: Colors.grey.shade500,
-                          ),
-                        ),
-                      ],
-                    ),
+                    const UserAccount(count: "97", text: "Following"),
+                    _verticalDivider(),
+                    const UserAccount(count: "10M", text: "Followers"),
+                    _verticalDivider(),
+                    const UserAccount(count: "194.3M", text: "Likes"),
                   ],
                 ),
               ),
