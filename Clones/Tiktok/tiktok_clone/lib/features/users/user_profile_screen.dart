@@ -57,64 +57,81 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 ],
               ),
               Gaps.v24,
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Column(
-                    children: [
-                      const Text(
-                        "97",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: Sizes.size18,
+              SizedBox(
+                height: Sizes.size48,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Column(
+                      children: [
+                        const Text(
+                          "97",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: Sizes.size18,
+                          ),
                         ),
-                      ),
-                      Gaps.v5,
-                      Text(
-                        "Following",
-                        style: TextStyle(
-                          color: Colors.grey.shade500,
+                        Gaps.v3,
+                        Text(
+                          "Following",
+                          style: TextStyle(
+                            color: Colors.grey.shade500,
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      const Text(
-                        "97",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: Sizes.size18,
+                      ],
+                    ),
+                    VerticalDivider(
+                      width: Sizes.size32,
+                      thickness: Sizes.size1,
+                      color: Colors.grey.shade400,
+                      indent: Sizes.size14,
+                      endIndent: Sizes.size14,
+                    ),
+                    Column(
+                      children: [
+                        const Text(
+                          "10M",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: Sizes.size18,
+                          ),
                         ),
-                      ),
-                      Gaps.v5,
-                      Text(
-                        "Following",
-                        style: TextStyle(
-                          color: Colors.grey.shade500,
+                        Gaps.v3,
+                        Text(
+                          "Followers",
+                          style: TextStyle(
+                            color: Colors.grey.shade500,
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      const Text(
-                        "97",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: Sizes.size18,
+                      ],
+                    ),
+                    VerticalDivider(
+                      width: Sizes.size32,
+                      thickness: Sizes.size1,
+                      color: Colors.grey.shade400,
+                      indent: Sizes.size14,
+                      endIndent: Sizes.size14,
+                    ),
+                    Column(
+                      children: [
+                        const Text(
+                          "194.3M",
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: Sizes.size18,
+                          ),
                         ),
-                      ),
-                      Gaps.v5,
-                      Text(
-                        "Following",
-                        style: TextStyle(
-                          color: Colors.grey.shade500,
+                        Gaps.v3,
+                        Text(
+                          "Likes",
+                          style: TextStyle(
+                            color: Colors.grey.shade500,
+                          ),
                         ),
-                      ),
-                    ],
-                  ),
-                ],
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ],
           ),
