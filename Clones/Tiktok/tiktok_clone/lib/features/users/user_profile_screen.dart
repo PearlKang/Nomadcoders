@@ -106,6 +106,16 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   ),
                 ),
               ),
+              Gaps.v14,
+              const Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: Sizes.size32,
+                ),
+                child: Text(
+                  "All highlights and where to watch live matches on FIFA+ I wonder how it would loook",
+                  textAlign: TextAlign.center,
+                ),
+              ),
             ],
           ),
         ),
