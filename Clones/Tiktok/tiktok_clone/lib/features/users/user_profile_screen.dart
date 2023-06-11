@@ -116,6 +116,24 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   textAlign: TextAlign.center,
                 ),
               ),
+              Gaps.v14,
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  FaIcon(
+                    FontAwesomeIcons.link,
+                    size: Sizes.size12,
+                  ),
+                  Gaps.h4,
+                  Text(
+                    "https://www.github.com/pearlkang",
+                    style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                    ),
+                  ),
+                ],
+              ),
+              Gaps.v5,
             ],
           ),
         ),
