@@ -81,6 +81,31 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                   ],
                 ),
               ),
+              Gaps.v14,
+              FractionallySizedBox(
+                widthFactor: 0.33,
+                child: Container(
+                  padding: const EdgeInsets.symmetric(
+                    vertical: Sizes.size12,
+                  ),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).primaryColor,
+                    borderRadius: const BorderRadius.all(
+                      Radius.circular(
+                        Sizes.size4,
+                      ),
+                    ),
+                  ),
+                  child: const Text(
+                    "Follow",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                ),
+              ),
             ],
           ),
         ),
