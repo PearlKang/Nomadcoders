@@ -88,27 +88,75 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     ),
                     Gaps.v14,
                     FractionallySizedBox(
-                      widthFactor: 0.33,
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(
-                          vertical: Sizes.size12,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Theme.of(context).primaryColor,
-                          borderRadius: const BorderRadius.all(
-                            Radius.circular(
-                              Sizes.size4,
+                      widthFactor: 0.66,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: Sizes.size12,
+                              horizontal: Sizes.size40,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).primaryColor,
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(
+                                  Sizes.size4,
+                                ),
+                              ),
+                            ),
+                            child: const Text(
+                              "Follow",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                              ),
+                              textAlign: TextAlign.center,
                             ),
                           ),
-                        ),
-                        child: const Text(
-                          "Follow",
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontWeight: FontWeight.w600,
+                          Gaps.h4,
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: Sizes.size12,
+                              horizontal: Sizes.size12,
+                            ),
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.grey.shade400,
+                              ),
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(
+                                  Sizes.size4,
+                                ),
+                              ),
+                            ),
+                            child: const FaIcon(
+                              FontAwesomeIcons.youtube,
+                              size: Sizes.size16,
+                            ),
                           ),
-                          textAlign: TextAlign.center,
-                        ),
+                          Gaps.h4,
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: Sizes.size12,
+                              horizontal: Sizes.size12,
+                            ),
+                            decoration: BoxDecoration(
+                              border: Border.all(
+                                color: Colors.grey.shade400,
+                              ),
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(
+                                  Sizes.size4,
+                                ),
+                              ),
+                            ),
+                            child: const FaIcon(
+                              FontAwesomeIcons.caretDown,
+                              size: Sizes.size16,
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     Gaps.v14,
