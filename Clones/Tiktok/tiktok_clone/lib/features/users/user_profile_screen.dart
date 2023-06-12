@@ -26,7 +26,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
-      child: CustomScrollView(
+      child: NestedScrollView(
+        headerSliverBuilder: (context, innerBoxIsScrolled) {},
         slivers: [
           SliverAppBar(
             title: const Text("Ben"),
