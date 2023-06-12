@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
@@ -20,6 +22,28 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
       color: Colors.grey.shade400,
       indent: Sizes.size14,
       endIndent: Sizes.size14,
+    );
+  }
+
+  Container _userIcon(IconData icon) {
+    return Container(
+      height: Sizes.size40,
+      width: Sizes.size40,
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: Colors.grey.shade400,
+        ),
+        borderRadius: const BorderRadius.all(
+          Radius.circular(
+            Sizes.size4,
+          ),
+        ),
+      ),
+      child: FaIcon(
+        icon,
+        size: Sizes.size16,
+      ),
     );
   }
 
@@ -87,77 +111,36 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                       ),
                     ),
                     Gaps.v14,
-                    FractionallySizedBox(
-                      widthFactor: 0.66,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              vertical: Sizes.size12,
-                              horizontal: Sizes.size40,
-                            ),
-                            decoration: BoxDecoration(
-                              color: Theme.of(context).primaryColor,
-                              borderRadius: const BorderRadius.all(
-                                Radius.circular(
-                                  Sizes.size4,
-                                ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          padding: const EdgeInsets.symmetric(
+                            vertical: Sizes.size12,
+                            horizontal: Sizes.size40,
+                          ),
+                          decoration: BoxDecoration(
+                            color: Theme.of(context).primaryColor,
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(
+                                Sizes.size4,
                               ),
-                            ),
-                            child: const Text(
-                              "Follow",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                              ),
-                              textAlign: TextAlign.center,
                             ),
                           ),
-                          Gaps.h4,
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              vertical: Sizes.size12,
-                              horizontal: Sizes.size12,
+                          child: const Text(
+                            "Follow",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.w600,
                             ),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Colors.grey.shade400,
-                              ),
-                              borderRadius: const BorderRadius.all(
-                                Radius.circular(
-                                  Sizes.size4,
-                                ),
-                              ),
-                            ),
-                            child: const FaIcon(
-                              FontAwesomeIcons.youtube,
-                              size: Sizes.size16,
-                            ),
+                            textAlign: TextAlign.center,
                           ),
-                          Gaps.h4,
-                          Container(
-                            padding: const EdgeInsets.symmetric(
-                              vertical: Sizes.size12,
-                              horizontal: Sizes.size12,
-                            ),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                color: Colors.grey.shade400,
-                              ),
-                              borderRadius: const BorderRadius.all(
-                                Radius.circular(
-                                  Sizes.size4,
-                                ),
-                              ),
-                            ),
-                            child: const FaIcon(
-                              FontAwesomeIcons.caretDown,
-                              size: Sizes.size16,
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                        Gaps.h4,
+                        _userIcon(FontAwesomeIcons.youtube),
+                        Gaps.h4,
+                        _userIcon(FontAwesomeIcons.caretDown),
+                      ],
                     ),
                     Gaps.v14,
                     const Padding(
@@ -212,15 +195,40 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                 ),
                 itemBuilder: (context, index) => Column(
                   children: [
-                    AspectRatio(
-                      aspectRatio: 9 / 14,
-                      child: FadeInImage.assetNetwork(
-                        fit: BoxFit.cover,
-                        placeholderFit: BoxFit.cover,
-                        placeholder: "assets/images/iu.jpg",
-                        image:
-                            "https://images.unsplash.com/photo-1673844969019-c99b0c933e90?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80",
-                      ),
+                    Stack(
+                      children: [
+                        AspectRatio(
+                          aspectRatio: 9 / 14,
+                          child: FadeInImage.assetNetwork(
+                            fit: BoxFit.cover,
+                            placeholderFit: BoxFit.cover,
+                            placeholder: "assets/images/iu.jpg",
+                            image:
+                                "https://images.unsplash.com/photo-1673844969019-c99b0c933e90?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80",
+                          ),
+                        ),
+                        Positioned(
+                          bottom: 0,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.min,
+                            children: [
+                              const Icon(
+                                Icons.play_arrow_outlined,
+                                color: Colors.white,
+                                size: Sizes.size28,
+                              ),
+                              Text(
+                                "${(Random().nextDouble() * 10).toStringAsFixed(1)}M",
+                                style: const TextStyle(
+                                  fontSize: Sizes.size16,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.w500,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
