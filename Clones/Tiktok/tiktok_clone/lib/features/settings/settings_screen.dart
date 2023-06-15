@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SettingScreen extends StatelessWidget {
@@ -12,11 +11,6 @@ class SettingScreen extends StatelessWidget {
       ),
       body: Column(
         children: const [
-          CupertinoActivityIndicator(
-            radius: 40,
-            animating: false,
-          ),
-          CircularProgressIndicator(),
           CircularProgressIndicator.adaptive(),
         ],
       ),
