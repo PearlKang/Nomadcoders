@@ -17,6 +17,7 @@ class SettingScreen extends StatelessWidget {
             animating: false,
           ),
           CircularProgressIndicator(),
+          CircularProgressIndicator.adaptive(),
         ],
       ),
     );
