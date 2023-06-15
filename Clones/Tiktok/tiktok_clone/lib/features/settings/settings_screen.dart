@@ -10,8 +10,8 @@ class SettingScreen extends StatelessWidget {
         title: const Text("Settings"),
       ),
       body: ListWheelScrollView(
-        useMagnifier: true,
-        magnification: 1.5,
+        diameterRatio: 1.5,
+        offAxisFraction: 1.5,
         itemExtent: 200,
         children: [
           for (var i in [1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1])
