@@ -12,7 +12,10 @@ class SettingScreen extends StatelessWidget {
       ),
       body: Column(
         children: const [
-          CupertinoActivityIndicator(),
+          CupertinoActivityIndicator(
+            radius: 40,
+            animating: false,
+          ),
           CircularProgressIndicator(),
         ],
       ),
