@@ -12,7 +12,11 @@ class SettingScreen extends StatelessWidget {
       body: ListView(
         children: [
           ListTile(
-            onTap: () => showAboutDialog(context: context),
+            onTap: () => showAboutDialog(
+              context: context,
+              applicationVersion: "1.0",
+              applicationLegalese: "All rights reseverd. Please dont copy me.",
+            ),
             title: const Text(
               "About",
               style: TextStyle(
