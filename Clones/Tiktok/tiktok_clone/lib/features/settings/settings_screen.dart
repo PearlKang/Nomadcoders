@@ -10,7 +10,18 @@ class SettingScreen extends StatelessWidget {
         title: const Text("Settings"),
       ),
       body: ListView(
-        children: const [],
+        children: [
+          ListTile(
+            onTap: () => showAboutDialog(context: context),
+            title: const Text(
+              "About",
+              style: TextStyle(
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            subtitle: const Text("About this app...."),
+          ),
+        ],
       ),
     );
   }
