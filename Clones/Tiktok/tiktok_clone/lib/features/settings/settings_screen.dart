@@ -25,6 +25,7 @@ class SettingScreen extends StatelessWidget {
             ),
             subtitle: const Text("About this app...."),
           ),
+          const AboutListTile(),
         ],
       ),
     );
