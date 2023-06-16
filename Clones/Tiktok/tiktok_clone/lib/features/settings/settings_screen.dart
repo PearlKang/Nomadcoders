@@ -9,10 +9,8 @@ class SettingScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text("Settings"),
       ),
-      body: Column(
-        children: const [
-          CircularProgressIndicator.adaptive(),
-        ],
+      body: ListView(
+        children: const [],
       ),
     );
   }
