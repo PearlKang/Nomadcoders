@@ -10,11 +10,17 @@ class SettingScreen extends StatelessWidget {
         title: const Text("Settings"),
       ),
       body: ListView(
-        children: const [
+        children: [
           ListTile(
-            title: Text("What is your birthday?"),
+            onTap: () => showDatePicker(
+              context: context,
+              initialDate: DateTime.now(),
+              firstDate: DateTime.now(),
+              lastDate: DateTime.now(),
+            ),
+            title: const Text("What is your birthday?"),
           ),
-          AboutListTile(),
+          const AboutListTile(),
         ],
       ),
     );
