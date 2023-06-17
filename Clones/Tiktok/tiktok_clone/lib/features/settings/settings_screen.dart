@@ -11,6 +11,9 @@ class SettingScreen extends StatelessWidget {
       ),
       body: ListView(
         children: const [
+          ListTile(
+            title: Text("What is your birthday?"),
+          ),
           AboutListTile(),
         ],
       ),
