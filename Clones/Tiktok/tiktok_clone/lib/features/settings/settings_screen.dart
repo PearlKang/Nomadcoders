@@ -12,12 +12,15 @@ class SettingScreen extends StatelessWidget {
       body: ListView(
         children: [
           ListTile(
-            onTap: () => showDatePicker(
-              context: context,
-              initialDate: DateTime.now(),
-              firstDate: DateTime.now(),
-              lastDate: DateTime.now(),
-            ),
+            onTap: () async {
+              final date = await showDatePicker(
+                context: context,
+                initialDate: DateTime.now(),
+                firstDate: DateTime(1980),
+                lastDate: DateTime(2030),
+              );
+              print(date);
+            },
             title: const Text("What is your birthday?"),
           ),
           const AboutListTile(),
