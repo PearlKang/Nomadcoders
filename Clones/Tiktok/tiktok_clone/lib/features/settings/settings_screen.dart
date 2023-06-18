@@ -26,6 +26,14 @@ class _SettingScreenState extends State<SettingScreen> {
       ),
       body: ListView(
         children: [
+          Switch(
+            value: _notifications,
+            onChanged: _onNotificationsChanged,
+          ),
+          Checkbox(
+            value: _notifications,
+            onChanged: _onNotificationsChanged,
+          ),
           CheckboxListTile(
             activeColor: Colors.black,
             value: _notifications,
