@@ -35,6 +35,11 @@ class _SettingScreenState extends State<SettingScreen> {
             value: _notifications,
             onChanged: _onNotificationsChanged,
           ),
+          SwitchListTile(
+            value: _notifications,
+            onChanged: _onNotificationsChanged,
+            title: const Text("Enable notifications"),
+          ),
           Checkbox(
             value: _notifications,
             onChanged: _onNotificationsChanged,
