@@ -8,6 +8,16 @@ class SettingScreen extends StatefulWidget {
 }
 
 class _SettingScreenState extends State<SettingScreen> {
+  bool _notifications = false;
+
+  void _onNotificationsChanged(bool? newValue) {
+    if (newValue == null) return;
+
+    setState(() {
+      _notifications = newValue;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,6 +26,11 @@ class _SettingScreenState extends State<SettingScreen> {
       ),
       body: ListView(
         children: [
+          CheckboxListTile(
+            value: _notifications,
+            onChanged: _onNotificationsChanged,
+            title: const Text("Enable notifications"),
+          ),
           ListTile(
             onTap: () async {
               final date = await showDatePicker(
