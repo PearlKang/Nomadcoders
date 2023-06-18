@@ -27,6 +27,16 @@ class _SettingScreenState extends State<SettingScreen> {
       ),
       body: ListView(
         children: [
+          SwitchListTile.adaptive(
+            value: _notifications,
+            onChanged: _onNotificationsChanged,
+            title: const Text("Enable notifications"),
+            subtitle: const Text("Enable notifications"),
+          ),
+          Switch.adaptive(
+            value: _notifications,
+            onChanged: _onNotificationsChanged,
+          ),
           CupertinoSwitch(
             value: _notifications,
             onChanged: _onNotificationsChanged,
