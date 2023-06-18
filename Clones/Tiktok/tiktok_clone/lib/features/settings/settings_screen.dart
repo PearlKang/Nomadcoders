@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SettingScreen extends StatefulWidget {
@@ -26,6 +27,10 @@ class _SettingScreenState extends State<SettingScreen> {
       ),
       body: ListView(
         children: [
+          CupertinoSwitch(
+            value: _notifications,
+            onChanged: _onNotificationsChanged,
+          ),
           Switch(
             value: _notifications,
             onChanged: _onNotificationsChanged,
