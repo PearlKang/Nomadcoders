@@ -96,6 +96,10 @@ class _SettingScreenState extends State<SettingScreen> {
             },
             title: const Text("What is your birthday?"),
           ),
+          const ListTile(
+            title: Text("Log out (iOS)"),
+            textColor: Colors.red,
+          ),
           const AboutListTile(),
         ],
       ),
