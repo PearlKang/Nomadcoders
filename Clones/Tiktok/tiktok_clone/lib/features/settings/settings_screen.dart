@@ -128,6 +128,9 @@ class _SettingScreenState extends State<SettingScreen> {
               showDialog(
                 context: context,
                 builder: (context) => AlertDialog(
+                  icon: const FaIcon(
+                    FontAwesomeIcons.skull,
+                  ),
                   title: const Text("Are you sure?"),
                   content: const Text("Plx dont go"),
                   actions: [
