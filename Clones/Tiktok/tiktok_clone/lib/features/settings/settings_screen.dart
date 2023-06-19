@@ -38,10 +38,6 @@ class _SettingScreenState extends State<SettingScreen> {
             value: _notifications,
             onChanged: _onNotificationsChanged,
           ),
-          CupertinoSwitch(
-            value: _notifications,
-            onChanged: _onNotificationsChanged,
-          ),
           Switch(
             value: _notifications,
             onChanged: _onNotificationsChanged,
