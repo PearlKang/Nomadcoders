@@ -96,9 +96,29 @@ class _SettingScreenState extends State<SettingScreen> {
             },
             title: const Text("What is your birthday?"),
           ),
-          const ListTile(
-            title: Text("Log out (iOS)"),
+          ListTile(
+            title: const Text("Log out (iOS)"),
             textColor: Colors.red,
+            onTap: () {
+              showCupertinoDialog(
+                context: context,
+                builder: (context) => CupertinoAlertDialog(
+                  title: const Text("Are you sure?"),
+                  content: const Text("Plx dont go"),
+                  actions: [
+                    CupertinoDialogAction(
+                      onPressed: () => Navigator.of(context).pop(),
+                      child: const Text("No"),
+                    ),
+                    CupertinoDialogAction(
+                      onPressed: () => Navigator.of(context).pop(),
+                      isDestructiveAction: true,
+                      child: const Text("Yes"),
+                    ),
+                  ],
+                ),
+              );
+            },
           ),
           const AboutListTile(),
         ],
