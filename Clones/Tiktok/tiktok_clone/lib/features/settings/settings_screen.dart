@@ -94,10 +94,34 @@ class _SettingScreenState extends State<SettingScreen> {
             title: const Text("What is your birthday?"),
           ),
           ListTile(
-            title: const Text("Log out (iOS)"),
+            title: const Text("Log out (iOS) 1"),
             textColor: Colors.red,
             onTap: () {
               showCupertinoDialog(
+                context: context,
+                builder: (context) => CupertinoAlertDialog(
+                  title: const Text("Are you sure?"),
+                  content: const Text("Plx dont go"),
+                  actions: [
+                    CupertinoDialogAction(
+                      onPressed: () => Navigator.of(context).pop(),
+                      child: const Text("No"),
+                    ),
+                    CupertinoDialogAction(
+                      onPressed: () => Navigator.of(context).pop(),
+                      isDestructiveAction: true,
+                      child: const Text("Yes"),
+                    ),
+                  ],
+                ),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text("Log out (iOS) 2"),
+            textColor: Colors.red,
+            onTap: () {
+              showCupertinoModalPopup(
                 context: context,
                 builder: (context) => CupertinoAlertDialog(
                   title: const Text("Are you sure?"),
@@ -149,7 +173,7 @@ class _SettingScreenState extends State<SettingScreen> {
             title: const Text("Log out (iOS / Bottom)"),
             textColor: Colors.red,
             onTap: () {
-              showDialog(
+              showCupertinoModalPopup(
                 context: context,
                 builder: (context) => AlertDialog(
                   icon: const FaIcon(
