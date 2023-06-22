@@ -71,8 +71,33 @@ class SignUpScreen extends StatelessWidget {
                         FontAwesomeIcons.apple,
                       ),
                       text: "Continue with Apple",
-                    )
+                    ),
                   ],
+                  if (orientation == Orientation.landscape)
+                    Row(
+                      children: [
+                        Expanded(
+                          child: GestureDetector(
+                            onTap: () => _onEmailTap(context),
+                            child: const AuthButton(
+                              icon: FaIcon(
+                                FontAwesomeIcons.user,
+                              ),
+                              text: "Use email & password",
+                            ),
+                          ),
+                        ),
+                        Gaps.h16,
+                        const Expanded(
+                          child: AuthButton(
+                            icon: FaIcon(
+                              FontAwesomeIcons.apple,
+                            ),
+                            text: "Continue with Apple",
+                          ),
+                        ),
+                      ],
+                    ),
                 ],
               ),
             ),
