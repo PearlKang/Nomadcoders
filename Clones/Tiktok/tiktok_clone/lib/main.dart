@@ -16,11 +16,15 @@ void main() async {
     SystemUiOverlayStyle.dark,
   );
 
-  runApp(const TikTokApp());
+  runApp(
+    const TikTokApp(),
+  );
 }
 
 class TikTokApp extends StatelessWidget {
-  const TikTokApp({super.key});
+  const TikTokApp({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
