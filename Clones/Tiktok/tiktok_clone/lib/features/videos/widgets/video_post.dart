@@ -153,14 +153,8 @@ class _VideoPostState extends State<VideoPost>
   }
 
   void _onVolumeTap() async {
+    await _videoPlayerController.setVolume(_isMuted ? 1 : 0);
     _isMuted = !_isMuted;
-
-    if (_isMuted) {
-      await _videoPlayerController.setVolume(0);
-    } else {
-      await _videoPlayerController.setVolume(1);
-    }
-
     setState(() {});
   }
 
@@ -278,27 +272,19 @@ class _VideoPostState extends State<VideoPost>
                     height: 50,
                     width: 50,
                     alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Colors.transparent,
-                      border: Border.all(
-                        color: Colors.white,
-                        width: 2,
-                      ),
-                    ),
                     child: AnimatedCrossFade(
                       duration: const Duration(
                         milliseconds: 200,
                       ),
                       firstChild: const FaIcon(
-                        FontAwesomeIcons.volumeOff,
+                        FontAwesomeIcons.volumeXmark,
                         color: Colors.white,
-                        size: Sizes.size20,
+                        size: Sizes.size36,
                       ),
                       secondChild: const FaIcon(
                         FontAwesomeIcons.volumeHigh,
                         color: Colors.white,
-                        size: Sizes.size20,
+                        size: Sizes.size36,
                       ),
                       crossFadeState: _isMuted
                           ? CrossFadeState.showFirst
