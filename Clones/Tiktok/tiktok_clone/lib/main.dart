@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
-import 'package:tiktok_clone/features/main_navigation/main_navigation_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -59,16 +58,18 @@ class LayoutBuilderCodeLab extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    return Container(
-      width: size.width,
-      height: size.height,
-      color: Colors.teal,
-      child: Center(
-        child: Text(
-          "${size.width}",
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 98,
+    return Scaffold(
+      body: Container(
+        width: size.width,
+        height: size.height,
+        color: Colors.teal,
+        child: Center(
+          child: Text(
+            "${size.width}",
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 98,
+            ),
           ),
         ),
       ),
