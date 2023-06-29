@@ -48,7 +48,30 @@ class TikTokApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const MainNavigationScreen(),
+      home: const LayoutBuilderCodeLab(),
+    );
+  }
+}
+
+class LayoutBuilderCodeLab extends StatelessWidget {
+  const LayoutBuilderCodeLab({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    return Container(
+      width: size.width,
+      height: size.height,
+      color: Colors.teal,
+      child: Center(
+        child: Text(
+          "${size.width}",
+          style: const TextStyle(
+            color: Colors.white,
+            fontSize: 98,
+          ),
+        ),
+      ),
     );
   }
 }
