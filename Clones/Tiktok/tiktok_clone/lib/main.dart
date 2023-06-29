@@ -59,17 +59,20 @@ class LayoutBuilderCodeLab extends StatelessWidget {
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return Scaffold(
-      body: LayoutBuilder(
-        builder: (context, constraints) => Container(
-          width: constraints.maxWidth,
-          height: constraints.maxHeight,
-          color: Colors.teal,
-          child: Center(
-            child: Text(
-              "${size.width} / ${constraints.maxWidth}",
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 98,
+      body: SizedBox(
+        width: size.width / 2,
+        child: LayoutBuilder(
+          builder: (context, constraints) => Container(
+            width: constraints.maxWidth,
+            height: constraints.maxHeight,
+            color: Colors.teal,
+            child: Center(
+              child: Text(
+                "${size.width} / ${constraints.maxWidth}",
+                style: const TextStyle(
+                  color: Colors.white,
+                  fontSize: 98,
+                ),
               ),
             ),
           ),
