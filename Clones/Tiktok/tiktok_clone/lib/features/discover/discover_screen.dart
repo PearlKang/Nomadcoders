@@ -98,7 +98,9 @@ class _DiscoverScreenState extends State<DiscoverScreen> {
                     Container(
                       clipBehavior: Clip.hardEdge,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(Sizes.size4),
+                        borderRadius: BorderRadius.circular(
+                          Sizes.size4,
+                        ),
                       ),
                       child: AspectRatio(
                         aspectRatio: 9 / 16,
