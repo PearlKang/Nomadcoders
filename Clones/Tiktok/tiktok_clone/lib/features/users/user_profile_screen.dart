@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:tiktok_clone/constants/breakpoints.dart';
 import 'package:tiktok_clone/constants/gaps.dart';
 import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/features/settings/settings_screen.dart';
@@ -58,6 +59,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final width = MediaQuery.of(context).size.width;
+
     return SafeArea(
       child: DefaultTabController(
         length: 2,
@@ -120,36 +123,41 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                       ),
                     ),
                     Gaps.v14,
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.symmetric(
-                            vertical: Sizes.size12,
-                            horizontal: Sizes.size40,
-                          ),
-                          decoration: BoxDecoration(
-                            color: Theme.of(context).primaryColor,
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(
-                                Sizes.size4,
+                    ConstrainedBox(
+                      constraints: const BoxConstraints(
+                        maxWidth: Breakpoints.sm,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.symmetric(
+                              vertical: Sizes.size12,
+                              horizontal: Sizes.size40,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Theme.of(context).primaryColor,
+                              borderRadius: const BorderRadius.all(
+                                Radius.circular(
+                                  Sizes.size4,
+                                ),
                               ),
                             ),
-                          ),
-                          child: const Text(
-                            "Follow",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w600,
+                            child: const Text(
+                              "Follow",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w600,
+                              ),
+                              textAlign: TextAlign.center,
                             ),
-                            textAlign: TextAlign.center,
                           ),
-                        ),
-                        Gaps.h4,
-                        _userIcon(FontAwesomeIcons.youtube),
-                        Gaps.h4,
-                        _userIcon(FontAwesomeIcons.caretDown),
-                      ],
+                          Gaps.h4,
+                          _userIcon(FontAwesomeIcons.youtube),
+                          Gaps.h4,
+                          _userIcon(FontAwesomeIcons.caretDown),
+                        ],
+                      ),
                     ),
                     Gaps.v14,
                     const Padding(
@@ -196,8 +204,8 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
                     ScrollViewKeyboardDismissBehavior.onDrag,
                 itemCount: 20,
                 padding: EdgeInsets.zero,
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 3,
+                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  crossAxisCount: width > Breakpoints.lg ? 5 : 2,
                   crossAxisSpacing: Sizes.size2,
                   mainAxisSpacing: Sizes.size2,
                   childAspectRatio: 9 / 14,
