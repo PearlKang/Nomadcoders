@@ -8,6 +8,7 @@ import 'package:tiktok_clone/constants/sizes.dart';
 import 'package:tiktok_clone/features/settings/settings_screen.dart';
 import 'package:tiktok_clone/features/users/widgets/persistent_tab_bar.dart';
 import 'package:tiktok_clone/features/users/widgets/user_account.dart';
+import 'package:tiktok_clone/utils.dart';
 
 class UserProfileScreen extends StatefulWidget {
   const UserProfileScreen({super.key});
@@ -69,6 +70,7 @@ class _UserProfileScreenState extends State<UserProfileScreen> {
             return [
               SliverAppBar(
                 title: const Text("Ben"),
+                backgroundColor: isDarkMode(context) ? Colors.black : null,
                 actions: [
                   IconButton(
                     onPressed: _onGearPressed,
