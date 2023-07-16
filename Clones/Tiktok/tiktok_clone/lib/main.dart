@@ -38,6 +38,7 @@ class TikTokApp extends StatelessWidget {
       supportedLocales: const [
         Locale("en"),
         Locale("ko"),
+        Locale("es"),
       ],
       themeMode: ThemeMode.system,
       theme: ThemeData(
