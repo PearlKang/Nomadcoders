@@ -59,7 +59,10 @@ class _VideoCommentsState extends State<VideoComments> {
             backgroundColor: isDark ? null : Colors.grey.shade50,
             automaticallyImplyLeading: false,
             title: Text(
-              S.of(context).commentTitle(22796, 22796),
+              S.of(context).commentTitle(
+                    22796,
+                    22796,
+                  ),
             ),
             actions: [
               IconButton(
