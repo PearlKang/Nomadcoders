@@ -6,6 +6,9 @@
       "nameOfTheApp": {
         "type": "String",
         "example": "TikTok"
+      },
+      "when": {
+        "type": "DateTime"
       }
     }
   },
