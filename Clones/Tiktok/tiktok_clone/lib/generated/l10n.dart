@@ -52,11 +52,14 @@ class S {
 
   /// `Sign up for {nameOfTheApp} {when}`
   String signUpTitle(String nameOfTheApp, DateTime when) {
+    final DateFormat whenDateFormat = DateFormat.yM(Intl.getCurrentLocale());
+    final String whenString = whenDateFormat.format(when);
+
     return Intl.message(
-      'Sign up for $nameOfTheApp $when',
+      'Sign up for $nameOfTheApp $whenString',
       name: 'signUpTitle',
       desc: 'The title people see when they open the app for the first time.',
-      args: [nameOfTheApp, when],
+      args: [nameOfTheApp, whenString],
     );
   }
 
