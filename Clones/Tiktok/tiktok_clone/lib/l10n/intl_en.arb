@@ -9,7 +9,8 @@
       },
       "when": {
         "type": "DateTime",
-        "format": "yM"
+        "format": "yQQQQ / LLLL : Hm",
+        "isCustomDateFormat": "true"
       }
     }
   },
