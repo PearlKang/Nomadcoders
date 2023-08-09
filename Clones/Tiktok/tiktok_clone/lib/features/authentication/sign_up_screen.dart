@@ -19,7 +19,7 @@ class SignUpScreen extends StatelessWidget {
     //   ),
     // );
     // print("user came back");
-    final result = await Navigator.of(context).pushNamed(LoginScreen.routeName);
+    final result = await Navigator.pushNamed(context, LoginScreen.routeName);
     print(result);
   }
 
