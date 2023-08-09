@@ -25,7 +25,6 @@ class SignUpScreen extends StatelessWidget {
         builder: (context) => const LoginScreen(),
       ),
     );
-    print(result);
   }
 
   void _onEmailTap(BuildContext context) {
