@@ -26,8 +26,8 @@ final router = GoRouter(
     GoRoute(
       path: "/users/:username",
       builder: (context, state) {
-        print(state.params);
-        return const UserProfileScreen();
+        final username = state.params["params"];
+        return UserProfileScreen(username: username!);
       },
     ),
   ],
