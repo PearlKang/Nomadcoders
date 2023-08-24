@@ -20,7 +20,6 @@ class SignUpScreen extends StatelessWidget {
   }
 
   void _onEmailTap(BuildContext context) {
-    // context.push(UsernameScreen.routeName);
     context.pushNamed(UsernameScreen.routeName);
   }
 
