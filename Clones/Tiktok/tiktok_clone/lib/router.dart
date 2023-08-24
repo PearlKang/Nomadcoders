@@ -17,6 +17,7 @@ final router = GoRouter(
       builder: (context, state) => const LoginScreen(),
     ),
     GoRoute(
+      name: "username_screen",
       path: UsernameScreen.routeName,
       pageBuilder: (context, state) {
         return CustomTransitionPage(
