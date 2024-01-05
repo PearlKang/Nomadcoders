@@ -14,3 +14,9 @@ myAge = 88  #camel case, 보통 javascript에서 사용
 my_age123 = 88
 #*/my_age = 88
 #my age = 88
+
+#2.2 Booleans and Strings
+my_name = "Ben"
+print(my_name)
+
+dead = False # True
