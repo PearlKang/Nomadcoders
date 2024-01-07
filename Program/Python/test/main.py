@@ -41,11 +41,19 @@
 # say_hello()
 
 #2.5 Indentation
-def say_hello():
-    print("hello how r u?")
+# def say_hello():
+#     print("hello how r u?")
 
-def say_bye():
-    print("bye bye")
+# def say_bye():
+#     print("bye bye")
 
-say_hello()
+# say_hello()
+
+#2.6 Parameters
+def say_hello(user_name):
+    print("hello", user_name, "how are you?")
+
+say_hello("ben")
+say_hello("ben2")
+say_hello("ben3")
 
