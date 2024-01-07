@@ -50,10 +50,18 @@
 # say_hello()
 
 #2.6 Parameters
-def say_hello(user_name):
-    print("hello", user_name, "how are you?")
+# def say_hello(user_name):
+#     print("hello", user_name, "how are you?")
 
-say_hello("ben")
-say_hello("ben2")
-say_hello("ben3")
+# say_hello("ben")
+# say_hello("ben2")
+# say_hello("ben3")
+
+#2.7 Multiple Parameters
+def say_hello(user_name, user_age):
+    print("hello", user_name)
+    print("you are", user_age, "years old")
+
+say_hello("ben", 35)
+
 
