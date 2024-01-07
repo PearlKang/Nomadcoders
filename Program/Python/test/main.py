@@ -35,7 +35,17 @@
 # print(12)
 # print(True, "hello", 12)
 
+# def say_hello():
+#     print("hello how r u?")
+
+# say_hello()
+
+#2.5 Indentation
 def say_hello():
     print("hello how r u?")
 
+def say_bye():
+    print("bye bye")
+
 say_hello()
+
