@@ -62,20 +62,31 @@
 # tax_calculator(150)
 
 #2.9 Default Parameters
-def say_hello(user_name="anonymous"):
-    print("hello", user_name)
-say_hello("Ben")
-say_hello()
-def plus(a=0, b=0):
-    print(a + b)
-def minus(a=0, b=0):
-    print(a - b)
-def multiply(a=0, b=0):
-    print(a * b)
-def divide(a=0, b=1):
-    print(a / b)
-def power_of(a=0, b=0):
-    print(a ** b)
+# def say_hello(user_name="anonymous"):
+#     print("hello", user_name)
+# say_hello("Ben")
+# say_hello()
+# def plus(a=0, b=0):
+#     print(a + b)
+# def minus(a=0, b=0):
+#     print(a - b)
+# def multiply(a=0, b=0):
+#     print(a * b)
+# def divide(a=0, b=1):
+#     print(a / b)
+# def power_of(a=0, b=0):
+#     print(a ** b)
 
-
+#2.10 Return Values
+# def tax_calc(money):
+#     print(money * 0.35)
+# def pay_tax(tax):
+#     print("thank you for paying", tax)
+def tax_calc(money):
+    return money * 0.35
+def pay_tax(tax):
+    print("thank you for paying", tax)
+to_pay = tax_calc(150000000)
+pay_tax(to_pay)
+pay_tax(tax_calc(150000000))
 
