@@ -128,14 +128,28 @@
 #     print("Winner is 10")
 
 #3.2 Recap
-winner = 5
-if winner <= 10:
-    print("If")
-elif winner <= 25:
-    print("elif")
-elif winner == 0:
-    print("elif 2")
-elif winner == 50:
-    print("elif 3")
+# winner = 5
+# if winner <= 10:
+#     print("If")
+# elif winner <= 25:
+#     print("elif")
+# elif winner == 0:
+#     print("elif 2")
+# elif winner == 50:
+#     print("elif 3")
+# else:
+#     print("Else")
+
+#3.3 And & Or
+age = int(input("How old are you? "))
+print("user answer is", age)
+print(type(age))
+if age < 18:
+    print("You can't drink.")
+elif age >= 18 and age <= 35:
+    print("You drink beer!")
+elif age == 60 or age == 70:
+    print("Birthday party!")
 else:
-    print("Else")
+    print("Go ahead!")
+
