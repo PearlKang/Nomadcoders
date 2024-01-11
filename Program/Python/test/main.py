@@ -141,15 +141,30 @@
 #     print("Else")
 
 #3.3 And & Or
-age = int(input("How old are you? "))
-print("user answer is", age)
-print(type(age))
-if age < 18:
-    print("You can't drink.")
-elif age >= 18 and age <= 35:
-    print("You drink beer!")
-elif age == 60 or age == 70:
-    print("Birthday party!")
-else:
-    print("Go ahead!")
+# age = int(input("How old are you? "))
+# print("user answer is", age)
+# print(type(age))
+# if age < 18:
+#     print("You can't drink.")
+# elif age >= 18 and age <= 35:
+#     print("You drink beer!")
+# elif age == 60 or age == 70:
+#     print("Birthday party!")
+# else:
+#     print("Go ahead!")
+
+#3.4 Python Standard Library
+from random import randint
+user_choice = int(input("choose number: "))
+pc_choice = randint(1, 50)
+if user_choice == pc_choice:
+    print("You won!")
+elif user_choice > pc_choice:
+    print("Lower! Computer chose", pc_choice)
+elif user_choice < pc_choice:
+    print("Higher! Computer chose", pc_choice)
+
+
+
+
 
