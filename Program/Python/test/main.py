@@ -1,3 +1,4 @@
+#2 Variables and Functions
 #2.0 Hello world
 # print("Hello world!")
 
@@ -106,6 +107,7 @@
 # perfect_juice = add_sugar(cold_juice)
 # print(perfect_juice)
 
+#3 Control Flow
 #3.0 If
 # if 10 > 5:
 #     print("Corrent!")
@@ -214,5 +216,23 @@ while playing:
     elif user_choice < pc_choice:
         print("Higher!")
 """
+
+#4 Data Structures
+#4.0 Methods
+mon = "Mon"
+tue = "Tue"
+wed = "Wed"
+thu = "Thu"
+fri = "Fri"
+days_of_week = ["Mon", "Thu", "Wed", "Thur", "Fri"]
+name = "ben"
+print(name.upper())
+print(name.capitalize())
+print(name.startswith("b"))
+print(name.endswith("n"))
+print(name.replace("e", "😂"))
+
+
+
 
 
