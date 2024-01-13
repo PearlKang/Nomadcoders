@@ -219,20 +219,34 @@ while playing:
 
 #4 Data Structures
 #4.0 Methods
-mon = "Mon"
-tue = "Tue"
-wed = "Wed"
-thu = "Thu"
-fri = "Fri"
+# mon = "Mon"
+# tue = "Tue"
+# wed = "Wed"
+# thu = "Thu"
+# fri = "Fri"
+# days_of_week = ["Mon", "Thu", "Wed", "Thur", "Fri"]
+# name = "ben"
+# print(name.upper())
+# print(name.capitalize())
+# print(name.startswith("b"))
+# print(name.endswith("n"))
+# print(name.replace("e", "😂"))
+
+#4.1 Lists
 days_of_week = ["Mon", "Thu", "Wed", "Thur", "Fri"]
-name = "ben"
-print(name.upper())
-print(name.capitalize())
-print(name.startswith("b"))
-print(name.endswith("n"))
-print(name.replace("e", "😂"))
-
-
+sample = [1, 2, 3, True, False, "hi", "blar", [1, 2, 3, [False, True]]]]
+print(days_of_week.count("Wed"))
+print(days_of_week)
+days_of_week.append("Sat")
+days_of_week.append("Sun")
+print(days_of_week[3])
+print(days_of_week)
+days_of_week.reverse()
+print(days_of_week)
+days_of_week.remove("Fri")
+print(days_of_week)
+days_of_week.clear()
+print(days_of_week)
 
 
 
