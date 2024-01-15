@@ -249,5 +249,12 @@ while playing:
 # print(days_of_week)
 
 #4.2 Tuples
+days_list = ["Mon", "Thu", "Wed"]
+days_tuple = ("Mon", "Thu", "Wed")
+# days_list.~~~
+# days_tuple.count or .index # 변경x
+print(days_list[0], days_tuple[0])
+print(days_list[-1], days_tuple[-1])
+print(days_list[-3], days_tuple[-3])
 
 
