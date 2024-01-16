@@ -258,32 +258,55 @@ while playing:
 # print(days_list[-3], days_tuple[-3])
 
 #4.3 Dicts
+# player = {
+#     'name': 'ben',
+#     'age': 35,
+#     "live": True,
+#     'fav_food': ["🍕", "🍔"]
+# }
+# print(player)
+# print(player.get('age'))
+# print(player.get('fav_food'))
+# print(player['fav_food'])
+# print(player)
+# player.pop('age')
+# print(player)
+# player['xp'] = 1500
+# print(player)
+# player['fav_food'].append("🍜")
+# print(player)
+# print(player.get('fav_food'))
+# print(player['fav_food'])
+
+#4.4 Recap
+print("ben".upper())
+print("ben".endswith("a"))
+numbers = [5, 3, 1, 5, 7, 3, "True", True, 12]
+print(numbers)
+numbers.append(["🍕", "🍔"])
+print(numbers[7])
+print(numbers[-1])
+print(numbers)
+numbers.clear()
+print(numbers)
+number = (1, 2, 3, 4, 5, True, "xxxxx")
+print(number.count)
 player = {
-    'name': 'ben',
-    'age': 35,
-    "live": True,
-    'fav_food': ["🍕", "🍔"]
+    "name": "ben",
+    "age": 12,
+    "alive": True,
+    "fav_food": ("🍕", "🍔"),
+    "friend": {
+        "name": "lynn",
+        "fav_food": ["🍎"]
+    }
 }
 print(player)
-print(player.get('age'))
-print(player.get('fav_food'))
-print(player['fav_food'])
+print(player["friend"]["fav_food"])
+player["fav_food"] = "🍎"
 print(player)
-player.pop('age')
+player.pop("alive")
 print(player)
-player['xp'] = 1500
+player['friend']['fav_food'].append("🍌")
 print(player)
-player['fav_food'].append("🍜")
-print(player)
-print(player.get('fav_food'))
-print(player['fav_food'])
-
-
-
-
-
-
-
-
-
 
