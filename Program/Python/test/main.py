@@ -279,34 +279,47 @@ while playing:
 # print(player['fav_food'])
 
 #4.4 Recap
-print("ben".upper())
-print("ben".endswith("a"))
-numbers = [5, 3, 1, 5, 7, 3, "True", True, 12]
-print(numbers)
-numbers.append(["🍕", "🍔"])
-print(numbers[7])
-print(numbers[-1])
-print(numbers)
-numbers.clear()
-print(numbers)
-number = (1, 2, 3, 4, 5, True, "xxxxx")
-print(number.count)
-player = {
-    "name": "ben",
-    "age": 12,
-    "alive": True,
-    "fav_food": ("🍕", "🍔"),
-    "friend": {
-        "name": "lynn",
-        "fav_food": ["🍎"]
-    }
-}
-print(player)
-print(player["friend"]["fav_food"])
-player["fav_food"] = "🍎"
-print(player)
-player.pop("alive")
-print(player)
-player['friend']['fav_food'].append("🍌")
-print(player)
+# print("ben".upper())
+# print("ben".endswith("a"))
+# numbers = [5, 3, 1, 5, 7, 3, "True", True, 12]
+# print(numbers)
+# numbers.append(["🍕", "🍔"])
+# print(numbers[7])
+# print(numbers[-1])
+# print(numbers)
+# numbers.clear()
+# print(numbers)
+# number = (1, 2, 3, 4, 5, True, "xxxxx")
+# print(number.count)
+# player = {
+#     "name": "ben",
+#     "age": 12,
+#     "alive": True,
+#     "fav_food": ("🍕", "🍔"),
+#     "friend": {
+#         "name": "lynn",
+#         "fav_food": ["🍎"]
+#     }
+# }
+# print(player)
+# print(player["friend"]["fav_food"])
+# player["fav_food"] = "🍎"
+# print(player)
+# player.pop("alive")
+# print(player)
+# player['friend']['fav_food'].append("🍌")
+# print(player)
+
+#4.5 For Loops
+websites = (
+    "google.com",
+    "airbnb.com",
+    "twitter.com",
+    "facebook.com",
+    "tiktok.com"
+)
+for webstie in websites:
+    print("webstie is equals to", webstie)
+
+
 
