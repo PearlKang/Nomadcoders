@@ -322,6 +322,27 @@ while playing:
 #     print("webstie is equals to", webstie)
 
 #4.6 URL Formatting
+# websites = (
+#     "google.com",
+#     "airbnb.com",
+#     "https://twitter.com",
+#     "facebook.com",
+#     "https://tiktok.com"
+# )
+# for website in websites:
+#     # if website.startswith("https://"):
+#     #     print("good to go")
+#     # else:
+#     #     print("we have to fix it")
+#     # if not website.startswith("https://"): # == False
+#     #     print("have to fix it")
+#     if not website.startswith("https://"): # == False
+#         website = f"https://{website}"
+#     print(website)
+
+#4.7 Requests
+# import requests
+from requests import get
 websites = (
     "google.com",
     "airbnb.com",
@@ -339,7 +360,6 @@ for website in websites:
     if not website.startswith("https://"): # == False
         website = f"https://{website}"
     print(website)
-
 
 
 
