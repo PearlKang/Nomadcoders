@@ -311,15 +311,36 @@ while playing:
 # print(player)
 
 #4.5 For Loops
+# websites = (
+#     "google.com",
+#     "airbnb.com",
+#     "twitter.com",
+#     "facebook.com",
+#     "tiktok.com"
+# )
+# for webstie in websites:
+#     print("webstie is equals to", webstie)
+
+#4.6 URL Formatting
 websites = (
     "google.com",
     "airbnb.com",
-    "twitter.com",
+    "https://twitter.com",
     "facebook.com",
-    "tiktok.com"
+    "https://tiktok.com"
 )
-for webstie in websites:
-    print("webstie is equals to", webstie)
+for website in websites:
+    # if website.startswith("https://"):
+    #     print("good to go")
+    # else:
+    #     print("we have to fix it")
+    # if not website.startswith("https://"): # == False
+    #     print("have to fix it")
+    if not website.startswith("https://"): # == False
+        website = f"https://{website}"
+    print(website)
+
+
 
 
 
