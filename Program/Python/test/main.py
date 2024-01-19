@@ -341,6 +341,7 @@ while playing:
 #     print(website)
 
 #4.7 Requests
+"""
 # import requests
 from requests import get
 websites = (
@@ -360,7 +361,31 @@ for website in websites:
     if not website.startswith("https://"): # == False
         website = f"https://{website}"
     print(website)
+"""
 
+#4.8 Status Codes
+from requests import get
+websites = (
+    "google.com",
+    "airbnb.com",
+    "https://twitter.com",
+    "facebook.com",
+    "https://tiktok.com"
+)
+results = {}
+for website in websites:
+    if not website.startswith("https://"): # == False
+        website = f"https://{website}"
+    response = get(website)
+    # print(response)
+    # print(response.status_code)
+    if response.status_code == 200:
+        # print(f"{website} is OK")
+        results[website] = "OK"
+    else:
+        # print(f"{website} not OK")
+        results[website] = "FAILED"
+print(results)
 
 
 
