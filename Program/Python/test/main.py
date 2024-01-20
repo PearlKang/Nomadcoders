@@ -364,6 +364,7 @@ for website in websites:
 """
 
 #4.8 Status Codes
+"""
 from requests import get
 websites = (
     "google.com",
@@ -386,6 +387,39 @@ for website in websites:
         # print(f"{website} not OK")
         results[website] = "FAILED"
 print(results)
+"""
 
+#4.9 Recap
+from requests import get
+websites = (
+    "google.com",
+    "airbnb.com",
+    "https://twitter.com",
+    "facebook.com",
+    "https://tiktok.com",
+    "https://httpstat.us/101",
+    "https://httpstat.us/200",
+    "https://httpstat.us/300",
+    "https://httpstat.us/404",
+    "https://httpstat.us/502",
+)
+results = {}
+for website in websites:
+    if not website.startswith("https://"):
+        website = f"https://{website}"
+    response_stat_code = get(website).status_code
+    if response_stat_code >= 500:
+        results[website] = f"{response_stat_code} status code is Server Error"
+    elif response_stat_code >= 400:
+        results[website] = f"{response_stat_code} status code is Client Error"
+    elif response_stat_code >= 300:
+        results[website] = f"{response_stat_code} status code is Redirection"
+    elif response_stat_code >= 200:
+        results[website] = f"{response_stat_code} status code is Successful"
+    elif response_stat_code >= 100:
+        results[website] = f"{response_stat_code} status code is Informational Response"
+    else:
+        results[website] = "FAILED"
+print(results)
 
 
