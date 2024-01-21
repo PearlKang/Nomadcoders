@@ -427,6 +427,7 @@ print(results)
 #5 OOP
 #5.0 Introduction
 #5.1 Why We Need OOP
+"""
 ben = {
     "name": "Ben",
     "XP": 1000,
@@ -452,3 +453,22 @@ teams = {
     "Team X": [ben2],
     "Team Blue": [ben3],
 }
+"""
+
+#5.2 Classes
+class Puppy:
+    # pass
+    def __init__(self):
+        # print(self)
+        # print("Puppy is born!")
+        self.name = "Ruffus"
+        self.age = 0.1
+        self.breed = "Beagle"
+ruffus = Puppy()
+bibi = Puppy()
+print(ruffus.name, ruffus.age, ruffus.breed)
+print(bibi.name, bibi.age, bibi.breed)
+
+
+
+
