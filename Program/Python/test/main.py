@@ -456,6 +456,7 @@ teams = {
 """
 
 #5.2 Classes
+"""
 class Puppy:
     # pass
     def __init__(self):
@@ -468,6 +469,30 @@ ruffus = Puppy()
 bibi = Puppy()
 print(ruffus.name, ruffus.age, ruffus.breed)
 print(bibi.name, bibi.age, bibi.breed)
+"""
+
+#5.3 Methods
+class Puppy:
+    def __init__(self, name, age, breed):
+        self.name = name
+        self.age = age
+        self.breed = breed
+    def __str__(self):
+        # return "Hello!"
+        return f"{self.breed} puppy named {self.name}"
+ruffus = Puppy(
+    name="Ruffus",
+    age=0.1,
+    breed="Beagle",
+)
+bibi = Puppy(
+    name="Bibi",
+    age=0.3,
+    breed="Dalmatian",
+)
+print(ruffus.name, ruffus.age, ruffus.breed)
+print(bibi.name, bibi.age, bibi.breed)
+print(ruffus, bibi)
 
 
 
