@@ -390,6 +390,7 @@ print(results)
 """
 
 #4.9 Recap
+"""
 from requests import get
 websites = (
     "google.com",
@@ -421,5 +422,33 @@ for website in websites:
     else:
         results[website] = "FAILED"
 print(results)
+"""
 
-
+#5 OOP
+#5.0 Introduction
+#5.1 Why We Need OOP
+ben = {
+    "name": "Ben",
+    "XP": 1000,
+    "team": "Team X",
+}
+def create_player_for_team(name, xp, team):
+    return ""
+def create_player(name, xp, team):
+    return {
+        "name": name,
+        "XP": xp,
+        "team": team,
+    }
+def introduce_player(player):
+    name = player["name"]
+    team = player["team"]
+    print(f"Hello! My name is {name} and I play for {team}")
+introduce_player(ben)
+# introduce_player(1212)
+ben2 = create_player("Ben2", 1500, "Team X")
+ben3 = create_player("Ben3", 1500, "Team Blue")
+teams = {
+    "Team X": [ben2],
+    "Team Blue": [ben3],
+}
