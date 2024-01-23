@@ -472,6 +472,7 @@ print(bibi.name, bibi.age, bibi.breed)
 """
 
 #5.3 Methods
+"""
 class Puppy:
     def __init__(self, name, age, breed):
         self.name = name
@@ -493,6 +494,54 @@ bibi = Puppy(
 print(ruffus.name, ruffus.age, ruffus.breed)
 print(bibi.name, bibi.age, bibi.breed)
 print(ruffus, bibi)
+"""
+
+#5.4 Inheritance
+class Dog:
+    def __init__(self, name, breed, age):
+        self.name = name
+        self.breed = breed
+        self.age = age
+class GuardDog(Dog):
+    # def __init__(self, name, breed):
+    #     self.name = name
+    #     self.breed = breed
+    #     self.age = 5
+    def rrrrr(self):
+        print("stay away!")
+class Puppy(Dog):
+    # def __init__(self, name, age, breed):
+    #     self.name = name
+    #     self.age = age
+    #     self.breed = breed
+    # def __str__(self):
+    #     return f"{self.breed} puppy named {self.name}"
+    def woof_woof(self):
+        print("Woof Woof!")
+    # def introduce(self):
+    #     self.woof_woof()
+    #     print(f"My name is {self.name} and I am a baby {self.breed}")
+    #     self.woof_woof()
+ruffus = Puppy(
+    name="Ruffus",
+    age=0.1,
+    breed="Beagle",
+)
+bibi = Puppy(
+    name="Bibi",
+    age=0.3,
+    breed="Dalmatian",
+)
+# ruffus.woof_woof()
+ruffus.introduce()
+bibi.introduce()
+
+
+
+
+
+
+
 
 
 
