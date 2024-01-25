@@ -574,6 +574,7 @@ bibi.sleep()
 """
 
 #5.6 Recap
+"""
 class Dog:
     def __init__(self, name, breed, age):
         self.name = name
@@ -601,12 +602,62 @@ bibi = GuardDog(
     name="Bibi",
     breed="Dalmatian",
 )
+"""
 
-
-
-
-
-
-
+#5.7 Code Challenge
+"""
+class Player:
+    def __init__(self, name, team):
+        self.name = name
+        self.xp = 1500
+        self.team = team
+    def introduce(self):
+        print(f"Hello! I'm {self.name} and I play for {self.team}")
+ben1 = Player(
+    name="ben1",
+    team="Team X"
+)
+ben2 = Player(
+    name="ben2",
+    team="Team Blue"
+)
+ben1.introduce()
+ben2.introduce()
+"""
+class Player:
+    def __init__(self, name, team):
+        self.name = name
+        self.xp = 1500
+        self.team = team
+    def introduce(self):
+        print(f"Hello! I'm {self.name} and I play for {self.team}")
+class Team:
+    def __init__(self, team_name):
+        self.team_name = team_name
+        self.players = []
+    def show_players(self):
+        for player in self.players:
+            player.introduce()
+    def add_player(self, name):
+        new_player = Player(name, self.team_name)
+        self.players.append(new_player)
+    def remove_player(self, name):
+        for player in self.players:
+            if player.name == name:
+                self.players.remove(player)
+    def show_total_xp(self):
+        total_xp = 0
+        for player in self.players:
+            total_xp += player.xp
+        print(f"{self.team_name} is {total_xp} Points.")
+team_x = Team("Team X")
+team_x.add_player("ben1")
+team_blue = Team("Team Blue")
+team_blue.add_player("ben1")
+team_blue.add_player("ben2")
+team_blue.show_players()
+team_blue.show_total_xp()
+team_blue.remove_player("ben2")
+team_blue.show_players()
 
 
