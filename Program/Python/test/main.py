@@ -666,6 +666,7 @@ team_blue.show_players()
 #6.0 Introduction
 #6.1 Disclaimer
 #6.2 BeautifulSoup
+"""
 # from requests import get
 import requests
 from bs4 import BeautifulSoup
@@ -675,7 +676,8 @@ response = requests.get(url)
 soup = BeautifulSoup(response.content, "html.parser")
 jobs = soup.find("section", id="category-2", class_="jobs").find_all("li", )
 print(jobs)
+"""
 
-
+#6.3 Jobs
 
 
