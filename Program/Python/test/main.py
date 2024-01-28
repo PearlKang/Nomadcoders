@@ -665,5 +665,17 @@ team_blue.show_players()
 #6 Job Scraper
 #6.0 Introduction
 #6.1 Disclaimer
+#6.2 BeautifulSoup
+# from requests import get
+import requests
+from bs4 import BeautifulSoup
+url = "https://weworkremotely.com/categories/remote-full-stack-programming-jobs"
+response = requests.get(url)
+# print(response.content)
+soup = BeautifulSoup(response.content, "html.parser")
+jobs = soup.find("section", id="category-2", class_="jobs").find_all("li", )
+print(jobs)
+
+
 
 
