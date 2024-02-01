@@ -785,6 +785,7 @@ r = requests.get(f"https://remoteok.com/remote-{keywords[2]}-jobs", headers={
 print(r.status_code)
 print(r.content)
 """
+"""
 import requests
 from bs4 import BeautifulSoup
 keywords = [
@@ -818,7 +819,54 @@ def scrape_page(url):
 for keyword in keywords:
     url = f"https://remoteok.com/remote-{keyword}-jobs"
     scrape_page(url)
-print(all_jobs[0])
+print(all_jobs)
+"""
+import requests
+from bs4 import BeautifulSoup
+# class Jobs:
+#     def __init__(self, title, company, location, salary, url):
+#         self.title = title
+#         self.company = company
+#         self.location = location
+#         self.salary = salary
+#         self.url = url
+class JobScraper:
+    def __init__(self, keywords):
+        self.keywords = keywords
+        self.all_lists = []
+    def job_scraping(self, keyword):
+        print(f"{keyword} Page Scrapping ...")
+        response = requests.get(f"https://remoteok.com/remote-{keyword}-jobs", headers={
+            "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
+        })
+        soup = BeautifulSoup(response.content, "html.parser")
+        jobs = soup.find_all("td", class_="company")[1:]
+        for job in jobs:
+            title = job.find("h2", itemprop="title")
+            company = job.find("h3", itemprop="name")
+            if len(job.find_all("div", class_="location")) >= 2:
+                location, *others, salary = job.find_all("div", class_="location")
+            else:
+                location = job.find("div", class_="location")
+            company_url = job.find("a", itemprop="url")["href"]
+            job_data = {
+                "title": title.text,
+                "company": company.text,
+                "location": location.text,
+                "salary": salary.text,
+                "url": f"https://remoteok.com{company_url}"
+            }
+            self.all_lists.append(job_data)
+    def all_job_scraping(self):
+        for keyword in self.keywords:
+            self.job_scraping(keyword)
+    def print_lists(self):
+        print(self.all_lists)
+keywords = ["flutter", "python", "golang"]
+job_scraping = JobScraper(keywords)
+job_scraping.all_job_scraping()
+job_scraping.print_lists()
+
 
 
 
