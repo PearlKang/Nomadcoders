@@ -729,6 +729,7 @@ print(all_jobs)
 """
 
 #6.5 Pagination
+"""
 import requests
 from bs4 import BeautifulSoup
 # url = "https://weworkremotely.com/categories/remote-full-stack-programming-jobs"
@@ -763,6 +764,61 @@ for x in range(total_pages):
     # print(url)
     scrape_page(url)
 print(len(all_jobs))
+"""
+
+#6.6 Code Challenge
+"""
+import requests
+from bs4 import BeautifulSoup
+keywords = [
+    "flutter",
+    "python",
+    "golang"
+]
+# r = requests.get("https://remoteok.com/remote-flutter-jobs")
+# print(r.status_code)
+# print(r.content)
+# inspect (refresh) > network pannel > first request(type document) > header > request header > User-Agent
+r = requests.get(f"https://remoteok.com/remote-{keywords[2]}-jobs", headers={
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
+})
+print(r.status_code)
+print(r.content)
+"""
+import requests
+from bs4 import BeautifulSoup
+keywords = [
+    "flutter",
+    "python",
+    "golang"
+]
+all_jobs = []
+def scrape_page(url):
+    print(f"Scrapping {url}...")
+    response = requests.get(url, headers={
+    "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36"
+    })
+    soup = BeautifulSoup(response.content, "html.parser")
+    jobs = soup.find_all("td", class_="company")[1:]
+    for job in jobs:
+        title = job.find("h2", itemprop="title")
+        name = job.find("h3", itemprop="name")
+        # location, location_tooltip = job.find_all("div", class_="location")
+        location = job.find("div", class_="location")
+        salary = job.find("div", class_="location").next_sibling
+        compny_url = job.find("a", itemprop="url")["href"]
+        job_data = {
+            "title": title.text,
+            "name": name.text,
+            "location": location.text,
+            "salary": salary.text,
+            "url": f"https://remoteok.com{compny_url}"
+        }
+        all_jobs.append(job_data)
+for keyword in keywords:
+    url = f"https://remoteok.com/remote-{keyword}-jobs"
+    scrape_page(url)
+print(all_jobs[0])
 
 
 
