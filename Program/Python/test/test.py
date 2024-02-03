@@ -821,6 +821,7 @@ for keyword in keywords:
     scrape_page(url)
 print(all_jobs)
 """
+"""
 import requests
 from bs4 import BeautifulSoup
 # class Jobs:
@@ -866,7 +867,10 @@ keywords = ["flutter", "python", "golang"]
 job_scraping = JobScraper(keywords)
 job_scraping.all_job_scraping()
 job_scraping.print_lists()
+"""
 
+#6.7 Dynamic Scraping
+#6.8 Playwright
 
 
 
