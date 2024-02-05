@@ -886,5 +886,23 @@ page.screenshot(path="screenshot.png")
 """
 
 #6.9 Keyword Arguments
+"""
+# a, b > positional argument
+# def plus(a, b):
+#     return a + b
 
+# plus(1, 2)
+
+# keyword argument
+def plus(a, b, c, d, e):
+    return a + b
+
+plus(1, 2, False, [1, 2], "hello")
+plus(a=1, b=2, c=False, d=[1, 2], e="hello")
+plus(e=1, c=2, b=False, d=[1, 2], a="hello")
+# plus(e=1, c=2, b=False, d=[1, 2], "hello")
+plus(1, c=2, b=False, d=[1, 2], a="hello")
+"""
+
+#6.10 Interactivity
 
