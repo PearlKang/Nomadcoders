@@ -12,10 +12,7 @@ page.goto("https://www.wanted.co.kr/jobsfeed")
 
 time.sleep(5)
 
-# selector . class
 page.click("button.Aside_searchButton__Xhqq3")
-
-# page.locator("button.Aside_searchButton__Xhqq3").click()
 
 time.sleep(5)
 
@@ -27,34 +24,14 @@ page.keyboard.down("Enter")
 
 time.sleep(5)
 
-# selector # id
 page.click("a#search_tab_position")
-"""
-time.sleep(5)
-
-page.keyboard.down("End")
-
-time.sleep(5)
-
-page.keyboard.down("End")
-
-time.sleep(5)
-
-page.keyboard.down("End")
-
-time.sleep(5)
-
-page.keyboard.down("End")
-
-time.sleep(5)
-"""
 
 for x in range(5):
     time.sleep(5)
     page.keyboard.down("End")
 
 time.sleep(5)
-# print(page.content())
+
 content = page.content()
 
 p.stop()
