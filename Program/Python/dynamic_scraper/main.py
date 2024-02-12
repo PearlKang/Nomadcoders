@@ -60,7 +60,6 @@ for job in jobs:
 
 file = open("jobs.csv", "w")
 writer = csv.writer(file)
-# writer.writerow(["1","2","3","4"])
 writer.writerow(
     [
         "Title",
