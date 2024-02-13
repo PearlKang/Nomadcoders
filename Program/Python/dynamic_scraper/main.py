@@ -72,5 +72,5 @@ writer.writerow(
 for job in jobs_db:
     writer.writerow(job.values())
 
-
+file.close()
 
