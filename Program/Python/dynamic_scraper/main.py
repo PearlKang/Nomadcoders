@@ -3,7 +3,7 @@ import time
 from bs4 import BeautifulSoup
 import csv
 
-def job_scraper(keyword):
+def get_content(keyword):
     p = sync_playwright().start()
     browser = p.chromium.launch(headless=False)
     page = browser.new_page()
@@ -12,12 +12,17 @@ def job_scraper(keyword):
     for x in range(5):
         time.sleep(2)
         page.keyboard.down("End")
-
+    
     content = page.content()
+
     p.stop()
 
+    return content
+
+def get_job_lists(content):
     soup = BeautifulSoup(content, "html.parser")
     jobs = soup.find_all("div", class_="JobCard_container__FqChn")
+    
     jobs_db = []
 
     for job in jobs:
@@ -39,7 +44,7 @@ def job_scraper(keyword):
 
     return jobs_db
 
-def create_csv(keyword):
+def create_csv(keyword, jobs_db):
     file = open(f"{keyword} jobs.csv", "w", encoding="utf-8", newline="")
     writer = csv.writer(file)
     writer.writerow(
@@ -52,12 +57,19 @@ def create_csv(keyword):
         ]
     )
 
-    jobs_db = job_scraper(keyword)
-
     for job in jobs_db:
         writer.writerow(job.values())
 
     file.close()
+
+def job_scraper(keyword):
+    content = get_content(keyword)
+    jobs_db = get_job_lists(content)
+    create_csv(keyword, jobs_db)
+
+def run_app(keywords):
+    for keyword in keywords:
+        job_scraper(keyword)
 
 keywords = [
     "flutter",
@@ -67,5 +79,4 @@ keywords = [
     "javascript",
 ]
 
-for keyword in keywords:
-    create_csv(keyword)
+run_app(keywords)
