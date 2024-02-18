@@ -1281,3 +1281,16 @@ job_scraper.run_app()
 #7 [Bonus] Build a website with flask
 #7.0 Introduction
 #7.1 Hello Flask
+"""
+from flask import Flask
+
+app = Flask("JobScrapper")
+
+@app.route("/")
+def home():
+    return "hey there!!"
+
+app.run("127.0.0.1", port=8080, debug=True)
+"""
+
+#7.2 Render Template
