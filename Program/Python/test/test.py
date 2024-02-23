@@ -1328,3 +1328,40 @@ app.run("127.0.0.1", port=8080, debug=True)
 """
 
 #7.3 Form
+"""
+from flask import Flask, render_template
+
+app = Flask("JobScrapper")
+
+@app.route("/")
+def home():
+    # return "<h1>hey there!</h1><a href='/hello'>go to hello</a>"
+    return render_template("home.html", name="ben")
+
+@app.route("/search")
+def hello():
+    return render_template("search.html")
+
+app.run("127.0.0.1", port=8080, debug=True)
+"""
+"""
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Scrapper</title>
+  </head>
+  <body>
+    <h1>Job Scrapper</h1>
+    <h4>What job do you want?</h4>
+    <form action="/search">
+      <input type="text" name="keyword" placeholder="Write keyword please" />
+      <button>Search</button>
+    </form>
+  </body>
+</html>
+"""
+
+#7.4 Recap
