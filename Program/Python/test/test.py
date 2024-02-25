@@ -1461,3 +1461,138 @@ app.run("127.0.0.1", port=8080, debug=True)
 """
 
 #7.6 For Loops
+"""
+from flask import Flask, render_template, request
+import jobscrapper
+import csv
+
+app = Flask("JobScrapper")
+
+@app.route("/")
+def home():
+    return render_template("home.html", name="ben")
+
+@app.route("/search")
+def hello():
+    keyword = request.args.get("keyword")
+
+    job_scraper = jobscrapper.JobScraper(keyword)
+    jobs = job_scraper.run_app()
+
+    return render_template("search.html", keyword=keyword, jobs=jobs)
+
+app.run("127.0.0.1", port=8080, debug=True)
+"""
+"""
+from playwright.sync_api import sync_playwright
+import time
+from bs4 import BeautifulSoup
+import csv
+
+class JobScraper():
+    def __init__(self, keywords):
+        self.keywords = keywords
+
+    def get_content(self, keyword):
+        p = sync_playwright().start()
+        browser = p.chromium.launch(headless=False)
+        page = browser.new_page()
+        page.goto(f"https://www.wanted.co.kr/search?query={keyword}&tab=position")
+
+        for x in range(5):
+            time.sleep(2)
+            page.keyboard.down("End")
+        
+        content = page.content()
+
+        p.stop()
+
+        return content
+
+    def get_job_lists(self, content):
+        soup = BeautifulSoup(content, "html.parser")
+        jobs = soup.find_all("div", class_="JobCard_container__FqChn")
+        
+        jobs_db = []
+
+        for job in jobs:
+            link = f"https://www.wanted.co.kr{job.find('a')['href']}"
+            title = job.find("strong", class_="JobCard_title__ddkwM").text
+            company_name = job.find("span", class_="JobCard_companyName__vZMqJ").text
+            reward = job.find("span", class_="JobCard_reward__sdyHn").text
+
+            job = {
+                "title": title,
+                "company_name": company_name,
+                "reward": reward,
+                "link": link,
+            }
+
+            jobs_db.append(job)
+
+        return jobs_db
+
+    def create_csv(self, keyword, jobs_db):
+        if len(jobs_db) <= 0:
+            return
+
+        file = open(f"{keyword}_jobs.csv", mode="w", encoding="utf-8", newline="")
+        writer = csv.writer(file)
+        writer.writerow(jobs_db[0].keys())
+
+        for job in jobs_db:
+            writer.writerow(job.values())
+
+        file.close()
+
+    def job_scraper(self, keyword):
+        content = self.get_content(keyword)
+        jobs_db = self.get_job_lists(content)
+        return jobs_db
+
+    def run_app(self):
+        return self.job_scraper(self.keywords)
+"""
+"""
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Scrapper</title>
+  </head>
+  <body>
+    <h1>Job Scrapper</h1>
+    <h4>What job do you want?</h4>
+    <form action="/search" method="get">
+      <input type="text" name="keyword" placeholder="Write keyword please" />
+      <button>Search</button>
+    </form>
+  </body>
+</html>
+"""
+"""
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Scrapper</title>
+  </head>
+  <body>
+    <h1>Search Results for "{{keyword}}":</h1>
+    {% for job in jobs %}
+    <div>
+      <span>{{job.title}}</span>
+      <span>{{job.company_name}}</span>
+      <span>{{job.reward}}</span>
+      <a href="{{job.link}}" target="_blank">Apply now &rarr;</a>
+    </div>
+    {% endfor %}
+  </body>
+</html>
+"""
+
+#7.7 Pico

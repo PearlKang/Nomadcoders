@@ -33,13 +33,11 @@ class JobScraper():
             link = f"https://www.wanted.co.kr{job.find('a')['href']}"
             title = job.find("strong", class_="JobCard_title__ddkwM").text
             company_name = job.find("span", class_="JobCard_companyName__vZMqJ").text
-            location = job.find("span", class_="JobCard_location__2EOr5").text
             reward = job.find("span", class_="JobCard_reward__sdyHn").text
 
             job = {
                 "title": title,
                 "company_name": company_name,
-                "location": location,
                 "reward": reward,
                 "link": link,
             }
@@ -64,20 +62,7 @@ class JobScraper():
     def job_scraper(self, keyword):
         content = self.get_content(keyword)
         jobs_db = self.get_job_lists(content)
-        # self.create_csv(keyword, jobs_db)
         return jobs_db
 
     def run_app(self):
-        for keyword in self.keywords:
-            self.job_scraper(keyword)
-
-# keywords = [
-#     "flutter",
-#     "nextjs",
-#     "kotlin",
-#     "python",
-#     "javascript",
-# ]
-
-# job_scraper = JobScraper(keywords)
-# job_scraper.run_app()
+        return self.job_scraper(self.keywords)
