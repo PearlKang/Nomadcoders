@@ -1596,3 +1596,73 @@ class JobScraper():
 """
 
 #7.7 Pico
+"""
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Scrapper</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
+    />
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.min.css" /> -->
+  </head>
+  <body>
+    <main class="container">
+      <h1>Job Scrapper</h1>
+      <h4>What job do you want?</h4>
+      <form action="/search" method="get">
+        <input type="text" name="keyword" placeholder="Write keyword please" />
+        <button>Search</button>
+      </form>
+    </main>
+  </body>
+</html>
+"""
+"""
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Scrapper</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
+    />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Search Results for "{{keyword}}":</h1>
+      <figure>
+        <table role="grid">
+          <thead>
+            <tr>
+              <th>Position</th>
+              <th>Company</th>
+              <th>reward</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for job in jobs %}
+            <tr>
+              <td>{{job.title}}</td>
+              <td>{{job.company_name}}</td>
+              <td>{{job.reward}}</td>
+              <td><a href="{{job.link}}" target="_blank">Apply &rarr;</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </figure>
+    </main>
+  </body>
+</html>
+"""
+
+#7.8 Cache
