@@ -4,6 +4,8 @@ import csv
 
 app = Flask("JobScrapper")
 
+db = {}
+
 @app.route("/")
 def home():
     return render_template("home.html", name="ben")
@@ -12,8 +14,12 @@ def home():
 def hello():
     keyword = request.args.get("keyword")
 
-    job_scraper = jobscrapper.JobScraper(keyword)
-    jobs = job_scraper.run_app()
+    if keyword in db:
+        jobs = db[keyword]
+    else:
+        job_scraper = jobscrapper.JobScraper(keyword)
+        jobs = job_scraper.run_app()
+        db[keyword] = jobs
 
     return render_template("search.html", keyword=keyword, jobs=jobs)
 
