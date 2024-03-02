@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, send_file
 import jobscrapper
-import csv
+from file import save_to_file
+# import csv
 
 app = Flask("JobScrapper")
 
@@ -11,8 +12,11 @@ def home():
     return render_template("home.html", name="ben")
 
 @app.route("/search")
-def hello():
+def search():
     keyword = request.args.get("keyword")
+
+    if keyword == None:
+        return redirect("/")
 
     if keyword in db:
         jobs = db[keyword]
@@ -22,5 +26,19 @@ def hello():
         db[keyword] = jobs
 
     return render_template("search.html", keyword=keyword, jobs=jobs)
+
+@app.route("/export")
+def export():
+    keyword = request.args.get("keyword")
+
+    if keyword == None:
+        return redirect("/")
+    
+    if keyword not in db:
+        return redirect(f"/search?keyword={keyword}")
+
+    save_to_file(keyword, db[keyword])
+
+    return send_file(f"{keyword}.csv", as_attachment=True)
 
 app.run("127.0.0.1", port=8080, debug=True)
