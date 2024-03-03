@@ -1695,3 +1695,213 @@ app.run("127.0.0.1", port=8080, debug=True)
 """
 
 #7.9 File Download
+"""
+from flask import Flask, render_template, request, redirect, send_file
+import jobscrapper
+from file import save_to_file
+# import csv
+
+app = Flask("JobScrapper")
+
+db = {}
+
+@app.route("/")
+def home():
+    return render_template("home.html", name="ben")
+
+@app.route("/search")
+def search():
+    keyword = request.args.get("keyword")
+
+    if keyword == None:
+        return redirect("/")
+
+    if keyword in db:
+        jobs = db[keyword]
+    else:
+        job_scraper = jobscrapper.JobScraper(keyword)
+        jobs = job_scraper.run_app()
+        db[keyword] = jobs
+
+    return render_template("search.html", keyword=keyword, jobs=jobs)
+
+@app.route("/export")
+def export():
+    keyword = request.args.get("keyword")
+
+    if keyword == None:
+        return redirect("/")
+    
+    if keyword not in db:
+        return redirect(f"/search?keyword={keyword}")
+
+    save_to_file(keyword, db[keyword])
+
+    return send_file(f"{keyword}.csv", as_attachment=True)
+
+app.run("127.0.0.1", port=8080, debug=True)
+"""
+"""
+import csv
+
+def save_to_file(file_name, jobs):
+    file = open(f"{file_name}.csv", mode="w", encoding="utf-8", newline="")
+    writer = csv.writer(file)
+    writer.writerow(jobs[0].keys())
+
+    for job in jobs:
+        writer.writerow(job.values())
+
+    file.close()
+
+# old version
+# def save_to_file(file_name, jobs):
+#     file = open(f"{file_name}.csv", "w")
+#     file.write("Position,Company,Location,URL\n")
+
+#     for job in jobs:
+#         file.write(f"{job['position']},{job['compony']},{job['location']},{job['link']}\n")
+#         file.close()
+"""
+"""
+from playwright.sync_api import sync_playwright
+import time
+from bs4 import BeautifulSoup
+import csv
+
+class JobScraper():
+    def __init__(self, keywords):
+        self.keywords = keywords
+
+    def get_content(self, keyword):
+        p = sync_playwright().start()
+        browser = p.chromium.launch(headless=False)
+        page = browser.new_page()
+        page.goto(f"https://www.wanted.co.kr/search?query={keyword}&tab=position")
+
+        for x in range(5):
+            time.sleep(2)
+            page.keyboard.down("End")
+        
+        content = page.content()
+
+        p.stop()
+
+        return content
+
+    def get_job_lists(self, content):
+        soup = BeautifulSoup(content, "html.parser")
+        jobs = soup.find_all("div", class_="JobCard_container__FqChn")
+        
+        jobs_db = []
+
+        for job in jobs:
+            link = f"https://www.wanted.co.kr{job.find('a')['href']}"
+            title = job.find("strong", class_="JobCard_title__ddkwM").text
+            company_name = job.find("span", class_="JobCard_companyName__vZMqJ").text
+            reward = job.find("span", class_="JobCard_reward__sdyHn").text
+
+            job = {
+                "title": title,
+                "company_name": company_name,
+                "reward": reward,
+                "link": link,
+            }
+
+            jobs_db.append(job)
+
+        return jobs_db
+
+    def create_csv(self, keyword, jobs_db):
+        if len(jobs_db) <= 0:
+            return
+
+        file = open(f"{keyword}_jobs.csv", mode="w", encoding="utf-8", newline="")
+        writer = csv.writer(file)
+        writer.writerow(jobs_db[0].keys())
+
+        for job in jobs_db:
+            writer.writerow(job.values())
+
+        file.close()
+
+    def job_scraper(self, keyword):
+        content = self.get_content(keyword)
+        jobs_db = self.get_job_lists(content)
+        return jobs_db
+
+    def run_app(self):
+        return self.job_scraper(self.keywords)
+"""
+"""
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Scrapper</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
+    />
+  </head>
+  <body>
+    <main class="container">
+      <h1>Job Scrapper</h1>
+      <h4>What job do you want?</h4>
+      <form action="/search" method="get">
+        <input type="text" name="keyword" placeholder="Write keyword please" />
+        <button>Search</button>
+      </form>
+    </main>
+  </body>
+</html>
+"""
+"""
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Scrapper</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/@picocss/pico@latest/css/pico.min.css"
+    />
+  </head>
+  <body>
+    <main class="container">
+      <hgroup>
+        <h1>Search Results for "{{keyword}}":</h1>
+        <a target="_blank" href="/export?keyword={{keyword}}">Export to file</a>
+      </hgroup>
+      <figure>
+        <table role="grid">
+          <thead>
+            <tr>
+              <th>Position</th>
+              <th>Company</th>
+              <th>reward</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for job in jobs %}
+            <tr>
+              <td>{{job.title}}</td>
+              <td>{{job.company_name}}</td>
+              <td>{{job.reward}}</td>
+              <td><a href="{{job.link}}" target="_blank">Apply &rarr;</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </figure>
+    </main>
+  </body>
+</html>
+"""
+
+#7.10 Recap
