@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, send_file
 import jobscrapper
 from file import save_to_file
-# import csv
 
 app = Flask("JobScrapper")
 
@@ -17,7 +16,6 @@ def search():
 
     if keyword == None:
         return redirect("/")
-
     if keyword in db:
         jobs = db[keyword]
     else:
@@ -33,7 +31,6 @@ def export():
 
     if keyword == None:
         return redirect("/")
-    
     if keyword not in db:
         return redirect(f"/search?keyword={keyword}")
 
