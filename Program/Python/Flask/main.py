@@ -6,9 +6,11 @@ app = Flask("JobScrapper")
 
 db = {}
 
+
 @app.route("/")
 def home():
     return render_template("home.html", name="ben")
+
 
 @app.route("/search")
 def search():
@@ -25,6 +27,7 @@ def search():
 
     return render_template("search.html", keyword=keyword, jobs=jobs)
 
+
 @app.route("/export")
 def export():
     keyword = request.args.get("keyword")
@@ -37,5 +40,6 @@ def export():
     save_to_file(keyword, db[keyword])
 
     return send_file(f"{keyword}.csv", as_attachment=True)
+
 
 app.run("127.0.0.1", port=8080, debug=True)

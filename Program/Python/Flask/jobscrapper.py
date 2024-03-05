@@ -3,7 +3,8 @@ import time
 from bs4 import BeautifulSoup
 import csv
 
-class JobScraper():
+
+class JobScraper:
     def __init__(self, keywords):
         self.keywords = keywords
 
@@ -16,7 +17,7 @@ class JobScraper():
         for x in range(5):
             time.sleep(2)
             page.keyboard.down("End")
-        
+
         content = page.content()
 
         p.stop()
@@ -26,7 +27,7 @@ class JobScraper():
     def get_job_lists(self, content):
         soup = BeautifulSoup(content, "html.parser")
         jobs = soup.find_all("div", class_="JobCard_container__FqChn")
-        
+
         jobs_db = []
 
         for job in jobs:
