@@ -1,3 +1,11 @@
-import streamlit
+import streamlit as st
 
-streamlit.title("Hello world!")
+st.title("Hello world!")
+
+st.subheader("Welcome to Streamlit!")
+
+st.markdown(
+    """
+    #### I love it!
+"""
+)
