@@ -14,5 +14,4 @@ a
 
 d
 
-
 st.selectbox("Choose your model", ("GPT-3", "GPT-4"))
