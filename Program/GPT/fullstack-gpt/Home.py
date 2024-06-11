@@ -15,8 +15,6 @@ model = st.selectbox(
     ),
 )
 
-# st.write(model)
-
 if model == "GPT-3":
     st.write("cheap")
 else:
