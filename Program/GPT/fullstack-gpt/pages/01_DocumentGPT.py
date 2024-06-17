@@ -1,4 +1,3 @@
-import time
 import streamlit as st
 from langchain.storage import LocalFileStore
 from langchain.text_splitter import CharacterTextSplitter
