@@ -1,14 +1,20 @@
+from langchain.schema.runnable import RunnablePassthrough, RunnableLambda
 from langchain.prompts import ChatPromptTemplate
 from langchain.document_loaders import UnstructuredFileLoader
 from langchain.embeddings import OpenAIEmbeddings, CacheBackedEmbeddings
 from langchain.storage import LocalFileStore
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.vectorstores.faiss import FAISS
+from langchain.chat_models import ChatOpenAI
 import streamlit as st
 
 st.set_page_config(
     page_title="FullstackGPT Home",
     page_icon="😱",
+)
+
+llm = ChatOpenAI(
+    temperature=0.1,
 )
 
 
@@ -49,7 +55,11 @@ def paint_history():
         )
 
 
-template = ChatPromptTemplate.from_messages(
+def format_docs(docs):
+    return "\n\n".join(document.page_content for document in docs)
+
+
+prompt = ChatPromptTemplate.from_messages(
     [
         (
             "system",
@@ -89,13 +99,15 @@ if file:
     message = st.chat_input("Ask anything about your file...")
     if message:
         send_message(message, "human")
-        # chain={
-        #     "context":
-        # }
-        docs = retriever.invoke(message)
-        docs = "\n\n".join(document.page_content for document in docs)
-        prompt = template.format_messages(context=docs, question=message)
-        # llm.predict_messages(prompt)
-
+        chain = (
+            {
+                "context": retriever | RunnableLambda(format_docs),
+                "question": RunnablePassthrough(),
+            }
+            | prompt
+            | llm
+        )
+        response = chain.invoke(message)
+        send_message(response.content, "ai")
 else:
     st.session_state["messages"] = []
