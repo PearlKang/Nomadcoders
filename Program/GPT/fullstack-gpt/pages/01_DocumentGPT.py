@@ -8,6 +8,7 @@ from langchain.vectorstores.faiss import FAISS
 from langchain.chat_models import ChatOpenAI
 import streamlit as st
 
+
 st.set_page_config(
     page_title="FullstackGPT Home",
     page_icon="😱",
@@ -91,6 +92,7 @@ with st.sidebar:
         "Upload a .txt .pdf or .docx file",
         type=["pdf", "txt", "docx"],
     )
+
 
 if file:
     retriever = embed_file(file)
