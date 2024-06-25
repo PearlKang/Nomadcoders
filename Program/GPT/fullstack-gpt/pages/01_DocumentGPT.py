@@ -6,6 +6,7 @@ from langchain.storage import LocalFileStore
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.vectorstores.faiss import FAISS
 from langchain.chat_models import ChatOpenAI
+from langchain.callbacks.base import BaseCallbackHandler
 import streamlit as st
 
 
@@ -14,8 +15,26 @@ st.set_page_config(
     page_icon="😱",
 )
 
+
+class ChatCallbackHandler(BaseCallbackHandler):
+    def on_llm_start(self, *args, **kwargs):
+        with st.sidebar:
+            st.write("llm started!!")
+
+    def on_llm_end(self, *args, **kwargs):
+        with st.sidebar:
+            st.write("llm ended!!")
+
+    def on_llm_new_token(self, token, *args, **kwargs):
+        print(token)
+
+
 llm = ChatOpenAI(
     temperature=0.1,
+    streaming=True,
+    callbacks=[
+        ChatCallbackHandler(),
+    ],
 )
 
 
