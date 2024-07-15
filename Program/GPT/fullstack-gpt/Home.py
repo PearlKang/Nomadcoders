@@ -6,8 +6,6 @@ st.set_page_config(
     page_icon="🥶",
 )
 
-st.title("FullstackGPT Home")
-
 st.markdown(
     """
     # Hello!
