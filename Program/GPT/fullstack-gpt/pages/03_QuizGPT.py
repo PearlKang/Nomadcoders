@@ -47,6 +47,7 @@ with st.sidebar:
     else:
         topic = st.text_input("Search Wikipedia...")
         if topic:
-            retriever = WikipediaRetriever(top_k_results=5)
+            retriever = WikipediaRetriever(top_k_results=5, lang="ko")
             with st.status("Searching Wikipedia..."):
                 docs = retriever.get_relevant_documents(topic)
+            st.write(docs)
