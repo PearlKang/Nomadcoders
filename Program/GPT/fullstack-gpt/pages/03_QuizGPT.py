@@ -235,6 +235,7 @@ with st.sidebar:
             docs = split_file(file)
     else:
         topic = st.text_input("Search Wikipedia...")
+
         if topic:
             retriever = WikipediaRetriever(top_k_results=5, lang="ko")
             with st.status("Searching Wikipedia..."):
