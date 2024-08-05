@@ -264,7 +264,6 @@ if not docs:
     )
 else:
     response = run_quiz_chain(docs, topic if topic else file.name)
-    st.write(response)
     with st.form("questions_form"):
         for question in response["questions"]:
             st.write(question["question"])
@@ -273,12 +272,8 @@ else:
                 [answer["answer"] for answer in question["answers"]],
                 index=None,
             )
-            # st.write(value)
-            # st.json({"answer": value, "correct": True})
-            # st.write({"answer": value, "correct": True} in question["answers"])
             if {"answer": value, "correct": True} in question["answers"]:
                 st.success("Correct!")
             elif value is not None:
                 st.error("Wrong!!")
-
         button = st.form_submit_button()
