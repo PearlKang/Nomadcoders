@@ -273,5 +273,12 @@ else:
                 [answer["answer"] for answer in question["answers"]],
                 index=None,
             )
-            st.write(value)
+            # st.write(value)
+            # st.json({"answer": value, "correct": True})
+            # st.write({"answer": value, "correct": True} in question["answers"])
+            if {"answer": value, "correct": True} in question["answers"]:
+                st.success("Correct!")
+            elif value is not None:
+                st.error("Wrong!!")
+
         button = st.form_submit_button()
