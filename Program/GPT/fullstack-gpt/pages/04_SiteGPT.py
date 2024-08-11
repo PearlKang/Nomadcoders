@@ -1,6 +1,15 @@
 from langchain.document_loaders import SitemapLoader
 import streamlit as st
 
+
+@st.cache_data(show_spinner="Loading website...")
+def load_website(url):
+    loader = SitemapLoader(url)
+    loader.requests_per_second = 5
+    docs = loader.load()
+    return docs
+
+
 st.set_page_config(
     page_title="SiteGPT",
     page_icon="🖥️",
@@ -29,7 +38,4 @@ if url:
         with st.sidebar:
             st.error("Please write down a Sitemap URL.")
     else:
-        loader = SitemapLoader(url)
-        loader.requests_per_second = 1
-        docs = loader.load()
-        st.write(docs)
+        docs = load_website(url)
