@@ -25,13 +25,11 @@ st.markdown(
 """
 )
 
-
 with st.sidebar:
     url = st.text_input(
         "Write down a URL",
         placeholder="https://example.com",
     )
-
 
 if url:
     if ".xml" not in url:
