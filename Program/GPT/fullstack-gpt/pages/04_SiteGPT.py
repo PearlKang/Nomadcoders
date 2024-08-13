@@ -6,9 +6,10 @@ def parse_page(soup):
     header = soup.find("header")
     footer = soup.find("footer")
     if header:
-        text = header.get_text()
-        return text
-    return "hello"
+        header.decompose()
+    if footer:
+        footer.decompose()
+    return soup.get_text()
 
 
 @st.cache_data(show_spinner="Loading website...")
