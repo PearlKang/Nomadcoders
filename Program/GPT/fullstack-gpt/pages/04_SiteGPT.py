@@ -2,13 +2,19 @@ from langchain.document_loaders import SitemapLoader
 import streamlit as st
 
 
+def parse_page(soup):
+    print(soup)
+    return "hello"
+
+
 @st.cache_data(show_spinner="Loading website...")
 def load_website(url):
     loader = SitemapLoader(
         url,
         filter_urls=[
-            r"^(?!.*\/blog/\).*",
+            r"^(.*\/blog/\).*",
         ],
+        parsing_function=parse_page,
     )
     loader.requests_per_second = 5
     docs = loader.load()
