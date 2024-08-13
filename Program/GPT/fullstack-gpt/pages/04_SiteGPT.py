@@ -1,4 +1,5 @@
 from langchain.document_loaders import SitemapLoader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
 import streamlit as st
 
 
@@ -9,11 +10,20 @@ def parse_page(soup):
         header.decompose()
     if footer:
         footer.decompose()
-    return soup.get_text()
+    return (
+        str(soup.get_text())
+        .replace("\n", " ")
+        .replace("\xa0", " ")
+        .replace("CloseSearch Submit Blog", "")
+    )
 
 
 @st.cache_data(show_spinner="Loading website...")
 def load_website(url):
+    splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
+        chunk_size=1000,
+        chunk_overlap=200,
+    )
     loader = SitemapLoader(
         url,
         filter_urls=[
@@ -22,7 +32,7 @@ def load_website(url):
         parsing_function=parse_page,
     )
     loader.requests_per_second = 5
-    docs = loader.load()
+    docs = loader.load_and_split(text_splitter=splitter)
     return docs
 
 
