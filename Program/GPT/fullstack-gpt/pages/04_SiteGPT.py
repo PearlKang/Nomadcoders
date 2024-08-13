@@ -3,7 +3,11 @@ import streamlit as st
 
 
 def parse_page(soup):
-    print(soup)
+    header = soup.find("header")
+    footer = soup.find("footer")
+    if header:
+        text = header.get_text()
+        return text
     return "hello"
 
 
