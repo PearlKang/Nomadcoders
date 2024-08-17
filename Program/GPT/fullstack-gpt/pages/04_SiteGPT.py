@@ -10,12 +10,7 @@ def parse_page(soup):
         header.decompose()
     if footer:
         footer.decompose()
-    return (
-        str(soup.get_text())
-        .replace("\n", " ")
-        .replace("\xa0", " ")
-        .replace("CloseSearch Submit Blog", "")
-    )
+    return str(soup.get_text()).replace("\n", " ").replace("\xa0", " ")
 
 
 @st.cache_data(show_spinner="Loading website...")
