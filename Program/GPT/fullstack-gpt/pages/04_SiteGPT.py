@@ -1,5 +1,7 @@
 from langchain.document_loaders import SitemapLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.vectorstores.faiss import FAISS
+from langchain.embeddings import OpenAIEmbeddings
 import streamlit as st
 
 
@@ -21,14 +23,15 @@ def load_website(url):
     )
     loader = SitemapLoader(
         url,
-        filter_urls=[
-            r"^(.*\/blog/\).*",
-        ],
         parsing_function=parse_page,
     )
-    loader.requests_per_second = 5
+    loader.requests_per_second = 2
     docs = loader.load_and_split(text_splitter=splitter)
-    return docs
+    vector_store = FAISS.from_documents(
+        docs,
+        OpenAIEmbeddings(),
+    )
+    return vector_store.as_retriever()
 
 
 st.set_page_config(
@@ -57,4 +60,6 @@ if url:
         with st.sidebar:
             st.error("Please write down a Sitemap URL.")
     else:
-        docs = load_website(url)
+        retriever = load_website(url)
+        docs = retriever.invoke("What is the price of GPT-4 Turbo")
+        docs
