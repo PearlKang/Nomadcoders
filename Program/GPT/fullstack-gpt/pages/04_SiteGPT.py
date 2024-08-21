@@ -63,7 +63,6 @@ def parse_page(soup):
         header.decompose()
     if footer:
         footer.decompose()
-
     return str(soup.get_text()).replace("\n", " ").replace("\xa0", " ")
 
 
