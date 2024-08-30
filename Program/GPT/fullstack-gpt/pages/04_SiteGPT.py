@@ -119,4 +119,5 @@ if url:
             "docs": retriever,
             "question": RunnablePassthrough(),
         } | RunnableLambda(get_answers)
+
         chain.invoke("What is the pricing of GPT-4 Turbo with vision.")
