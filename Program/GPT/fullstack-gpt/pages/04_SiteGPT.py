@@ -98,11 +98,11 @@ def choose_answer(inputs):
     answers = inputs["answers"]
     question = inputs["question"]
     choose_chain = choose_prompt | llm
-    condensed = ""
-    for answer in answers:
-        condensed += f"Answer:{answer['answer']}\nSource:{answer['source']}\nDate:{answer['date']}\n"
-    st.write(condensed)
-    choose_chain.invoke(
+    condensed = "\n\n".join(
+        f"{answer['answer']}\nSource:{answer['source']}\nDate:{answer['date']}\n"
+        for answer in answers
+    )
+    return choose_chain.invoke(
         {
             "question": question,
             "answers": condensed,
@@ -168,14 +168,15 @@ if url:
             st.error("Please write down a Sitemap URL.")
     else:
         retriever = load_website(url)
-
-        chain = (
-            {
-                "docs": retriever,
-                "question": RunnablePassthrough(),
-            }
-            | RunnableLambda(get_answers)
-            | RunnableLambda(choose_answer)
-        )
-
-        chain.invoke("What is the pricing of GPT-4 Turbo with vision.")
+        query = st.text_input("Ask a question to the website.")
+        if query:
+            chain = (
+                {
+                    "docs": retriever,
+                    "question": RunnablePassthrough(),
+                }
+                | RunnableLambda(get_answers)
+                | RunnableLambda(choose_answer)
+            )
+            result = chain.invoke(query)
+            st.write(result.content.replace("$", "\$"))
