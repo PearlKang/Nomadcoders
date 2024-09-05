@@ -44,16 +44,25 @@ def get_answers(inputs):
     docs = inputs["docs"]
     question = inputs["question"]
     answers_chain = answers_prompt | llm
-    answers = []
-    for doc in docs:
-        result = answers_chain.invoke(
+    # answers = []
+    # for doc in docs:
+    #     result = answers_chain.invoke(
+    #         {
+    #             "question": question,
+    #             "context": doc.page_content,
+    #         }
+    #     )
+    #     answers.append(result.content)
+    # st.write(answers)
+    return [
+        answers_chain.invoke(
             {
                 "question": question,
                 "context": doc.page_content,
             }
-        )
-        answers.append(result.content)
-    st.write(answers)
+        ).content
+        for doc in docs
+    ]
 
 
 def parse_page(soup):
