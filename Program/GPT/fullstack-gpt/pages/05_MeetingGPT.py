@@ -81,7 +81,7 @@ with st.sidebar:
 
 if video:
     chunks_folder = "./.cache/chunks"
-    with st.status("Loading video..."):
+    with st.status("Loading video...") as status:
         video_content = video.read()
         video_path = f"./.cache/{video.name}"
         audio_path = video_path.replace("mp4", "mp3")
