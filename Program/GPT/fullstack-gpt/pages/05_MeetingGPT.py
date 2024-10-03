@@ -88,9 +88,9 @@ if video:
         transcript_path = video_path.replace("mp4", "txt")
         with open(video_path, "wb") as f:
             f.write(video_content)
-    with st.status("Extracting audio..."):
+        status.update(label="Extracting audio...")
         extract_audio_from_video(video_path)
-    with st.status("Cutting audio segments..."):
+        status.update(label="Cutting audio segments...")
         cut_audio_in_chunks(audio_path, 1, chunks_folder)
-    with st.status("Transcribing audio..."):
+        status.update(label="Transcribing audio...")
         transcribe_chunks(chunks_folder, transcript_path)
