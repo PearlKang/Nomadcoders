@@ -94,3 +94,15 @@ if video:
         cut_audio_in_chunks(audio_path, 1, chunks_folder)
         status.update(label="Transcribing audio...")
         transcribe_chunks(chunks_folder, transcript_path)
+
+    transcript_tab, summary_tab, qa_tab = st.tabs(
+        [
+            "Transcript",
+            "Summary",
+            "Q&A",
+        ]
+    )
+
+    with transcript_tab:
+        with open(transcript_path, "r") as file:
+            st.write(file.read())
