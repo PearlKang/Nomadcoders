@@ -5,7 +5,11 @@ from pydub import AudioSegment
 import glob
 import openai
 import os
+from langchain.chat_models import ChatOpenAI
 
+llm = ChatOpenAI(
+    temperature=0.1,
+)
 
 has_transcript = os.path.exists("./.cache/videoplayback.txt")
 
