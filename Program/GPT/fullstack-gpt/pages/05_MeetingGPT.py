@@ -1,3 +1,4 @@
+from reprlib import recursive_repr
 import streamlit as st
 import subprocess
 import math
@@ -6,6 +7,9 @@ import glob
 import openai
 import os
 from langchain.chat_models import ChatOpenAI
+from langchain.prompts import ChatPromptTemplate
+from langchain.document_loaders import TextLoader
+from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 llm = ChatOpenAI(
     temperature=0.1,
@@ -110,3 +114,16 @@ if video:
     with transcript_tab:
         with open(transcript_path, "r") as file:
             st.write(file.read())
+
+    with summary_tab:
+        start = st.button("Generate summary")
+
+        if start:
+            loader = TextLoader(transcript_path)
+
+            splitter = RecursiveCharacterTextSplitter.from_tiktoken_encoder(
+                chunk_size=800,
+                chunk_overlap=100,
+            )
+            docs = loader.load_and_split(text_splitter=splitter)
+            st.write(docs)
