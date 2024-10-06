@@ -1,4 +1,3 @@
-from reprlib import recursive_repr
 import streamlit as st
 import subprocess
 import math
@@ -10,6 +9,7 @@ from langchain.chat_models import ChatOpenAI
 from langchain.prompts import ChatPromptTemplate
 from langchain.document_loaders import TextLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain.schema import StrOutputParser
 
 llm = ChatOpenAI(
     temperature=0.1,
@@ -126,4 +126,21 @@ if video:
                 chunk_overlap=100,
             )
             docs = loader.load_and_split(text_splitter=splitter)
-            st.write(docs)
+
+            first_summary_prompt = ChatPromptTemplate.from_template(
+                """
+                Write a concise summary of the following:
+                "{text}"
+                CONCISE SUMMARY:   
+            """
+            )
+
+            first_summary_chain = first_summary_prompt | llm | StrOutputParser()
+
+            summary = first_summary_chain.invoke(
+                {
+                    "text": docs[0].page_content,
+                }
+            )
+
+            st.write(summary)
