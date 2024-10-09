@@ -11,6 +11,7 @@ from langchain.document_loaders import TextLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.schema import StrOutputParser
 
+
 llm = ChatOpenAI(
     temperature=0.1,
 )
