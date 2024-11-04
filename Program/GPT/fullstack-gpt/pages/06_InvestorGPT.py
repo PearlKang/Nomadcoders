@@ -85,7 +85,8 @@ class CompanyStockPerformanceTool(BaseTool):
         r = requests.get(
             f"https://www.alphavantage.co/query?function=TIME_SERIES_WEEKLY&symbol={symbol}&apikey={alpha_vantage_api_key}"
         )
-        return r.json()
+        response = r.json()
+        return list(response["Weekly Time Series"].items())[:200]
 
 
 agent = initialize_agent(
@@ -133,4 +134,4 @@ company = st.text_input("Write the name of the company you are interested on.")
 
 if company:
     result = agent.invoke(company)
-    st.write(result)
+    st.write(result["output"].replace("$", "\$"))
