@@ -14,11 +14,11 @@ st.markdown(
 
     Here are the apps I made:
 
-    - [x] [DocumentGPT](/DocumentGPT)
-    - [x] [PrivateGPT](/PrivateGPT)
-    - [x] [QuizGPT](/QuizGPT)
-    - [x] [SiteGPT](/SiteGPT)
-    - [x] [MeetingGPT](/MeetingGPT)
-    - [X] [InvestorGPT](/InvestorGPT)
+    - [x] [📃 DocumentGPT](/DocumentGPT)
+    - [x] [🔒 PrivateGPT](/PrivateGPT)
+    - [x] [❓ QuizGPT](/QuizGPT)
+    - [x] [🖥️ SiteGPT](/SiteGPT)
+    - [x] [💼 MeetingGPT](/MeetingGPT)
+    - [x] [📈 InvestorGPT](/InvestorGPT)
     """
 )
