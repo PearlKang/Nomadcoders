@@ -1,3 +1,4 @@
+from http import server
 from fastapi import FastAPI
 from pydantic import BaseModel, Field
 
@@ -5,6 +6,11 @@ from pydantic import BaseModel, Field
 app = FastAPI(
     title="Nicolacus Maximus Quote Giver",
     description="Get a real quote said by Nicolacus Maximus himself.",
+    servers=[
+        {
+            "url": "https://definitely-character-postage-fee.trycloudflare.com",
+        },
+    ],
 )
 
 
