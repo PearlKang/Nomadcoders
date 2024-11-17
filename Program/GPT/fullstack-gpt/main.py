@@ -34,6 +34,7 @@ class Quote(BaseModel):
 )
 def get_quote(request: Request):
     print(request.headers)
+
     return {
         "quote": "Life is short so eat it all.",
         "year": 1950,
