@@ -1,7 +1,6 @@
 from fastapi import FastAPI, Request
 from pydantic import BaseModel, Field
 
-
 app = FastAPI(
     title="Nicolacus Maximus Quote Giver",
     description="Get a real quote said by Nicolacus Maximus himself.",
@@ -34,8 +33,23 @@ class Quote(BaseModel):
 )
 def get_quote(request: Request):
     print(request.headers)
-
     return {
         "quote": "Life is short so eat it all.",
         "year": 1950,
+    }
+
+
+@app.get("/authorize")
+def handle_authorize(
+    response_type: str, client_id: str, redirect_uri: str, scope: str, state: str
+):
+    print(
+        response_type,
+        client_id,
+        redirect_uri,
+        scope,
+        state,
+    )
+    return {
+        "ok": True,
     }
