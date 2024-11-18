@@ -1,5 +1,6 @@
 from fastapi import FastAPI, Request
 from pydantic import BaseModel, Field
+from fastapi.responses import HTMLResponse
 
 app = FastAPI(
     title="Nicolacus Maximus Quote Giver",
@@ -39,15 +40,14 @@ def get_quote(request: Request):
     }
 
 
-@app.get("/authorize")
-def handle_authorize(
-    response_type: str, client_id: str, redirect_uri: str, scope: str, state: str
-):
+@app.get(
+    "/authorize",
+    response_class=HTMLResponse,
+)
+def handle_authorize(client_id: str, redirect_uri: str, state: str):
     print(
-        response_type,
         client_id,
         redirect_uri,
-        scope,
         state,
     )
     return {
