@@ -65,6 +65,6 @@ def handle_authorize(client_id: str, redirect_uri: str, state: str):
 
 
 @app.post("/token")
-def handle_token(payload: Any = Body(None)):
-    print(payload)
+def handle_token(code=Form(...)):
+    print(code)
     return {"x": "x"}
