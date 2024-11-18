@@ -66,5 +66,6 @@ def handle_authorize(client_id: str, redirect_uri: str, state: str):
 
 @app.post("/token")
 def handle_token(code=Form(...)):
-    print(code)
-    return {"x": "x"}
+    return {
+        "access_token": user_token_db[code],
+    }
