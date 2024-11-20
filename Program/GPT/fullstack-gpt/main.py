@@ -48,6 +48,7 @@ user_token_db = {
 @app.get(
     "/authorize",
     response_class=HTMLResponse,
+    include_in_schema=False,
 )
 def handle_authorize(client_id: str, redirect_uri: str, state: str):
     return f"""
