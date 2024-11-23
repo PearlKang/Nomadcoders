@@ -2,7 +2,6 @@ from fastapi import FastAPI, Form, Request
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel, Field
 
-
 app = FastAPI(
     title="Nicolacus Maximus Quote Giver",
     description="Get a real quote said by Nicolacus Maximus himself.",
